@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        /* DESIGN PREMIUM SOS EQUISAÚDE */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: #000;
+            color: #fff;
+            line-height: 1.4;
+            padding: 10px;
+        }
+        .container { width: 100%; max-width: 600px; margin: 0 auto; }
+
+        /* BOTÃO PRINCIPAL */
+        .main-header-btn {
+            background: #ffd700;
+            color: #000;
+            width: 100%;
+            padding: 18px;
+            border-radius: 12px;
+            font-weight: 800;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            display: block;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+        }
+
+        /* GRADE DE LETRAS */
+        .alphabet-grid {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 6px;
+            margin-bottom: 30px;
+        }
+        .btn-letra {
+            text-decoration: none;
+            color: #fff;
+            font-weight: bold;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 6px;
+            font-size: 1rem;
+        }
+
+        /* CORES DOS BOTÕES E BORDAS */
+        .btn-a, .c-a { background-color: #e74c3c; border-left-color: #e74c3c; }
+        .btn-b, .c-b { background-color: #3498db; border-left-color: #3498db; }
+        .btn-c, .c-c { background-color: #2ecc71; border-left-color: #2ecc71; }
+        .btn-d, .c-d { background-color: #f1c40f; border-left-color: #f1c40f; }
+        .btn-e, .c-e { background-color: #9b59b6; border-left-color: #9b59b6; }
+        .btn-f, .c-f { background-color: #e67e22; border-left-color: #e67e22; }
+        .btn-g, .c-g { background-color: #1abc9c; border-left-color: #1abc9c; }
+        .btn-h, .c-h { background-color: #34495e; border-left-color: #34495e; }
+        .btn-i, .c-i { background-color: #d35400; border-left-color: #d35400; }
+        .btn-j, .c-j { background-color: #27ae60; border-left-color: #27ae60; }
+        .btn-k, .c-k { background-color: #2980b9; border-left-color: #2980b9; }
+        .btn-l, .c-l { background-color: #c0392b; border-left-color: #c0392b; }
+        .btn-m, .c-m { background-color: #8e44ad; border-left-color: #8e44ad; }
+        .btn-n, .c-n { background-color: #16a085; border-left-color: #16a085; }
+        .btn-o, .c-o { background-color: #f39c12; border-left-color: #f39c12; }
+        .btn-p, .c-p { background-color: #2c3e50; border-left-color: #2c3e50; }
+        .btn-q, .c-q { background-color: #7f8c8d; border-left-color: #7f8c8d; }
+        .btn-r, .c-r { background-color: #ff9f43; border-left-color: #ff9f43; }
+        .btn-s, .c-s { background-color: #54a0ff; border-left-color: #54a0ff; }
+        .btn-t, .c-t { background-color: #5f27cd; border-left-color: #5f27cd; }
+        .btn-u, .c-u { background-color: #ff6b6b; border-left-color: #ff6b6b; }
+        .btn-v, .c-v { background-color: #48dbfb; border-left-color: #48dbfb; }
+        .btn-w, .c-w { background-color: #1dd1a1; border-left-color: #1dd1a1; }
+        .btn-x, .c-x { background-color: #ff9ff3; border-left-color: #ff9ff3; }
+        .btn-y, .c-y { background-color: #576574; border-left-color: #576574; }
+        .btn-z, .c-z { background-color: #222f3e; border-left-color: #222f3e; }
+
+        /* CARDS */
+        .letter-group { margin-top: 30px; border-top: 1px solid #222; padding-top: 10px; }
+        .letter-title { font-size: 1.8rem; color: #ffd700; margin-bottom: 10px; }
+        .term-card {
+            background: #0a0a0a;
+            padding: 12px;
+            margin-bottom: 8px;
+            border-radius: 0 8px 8px 0;
+            border: 1px solid #1a1a1a;
+            border-left-width: 4px;
+            border-left-style: solid;
+        }
+        .term-card h4 { color: #fff; text-transform: uppercase; font-size: 0.9rem; margin-bottom: 4px; }
+        .term-card p { color: #aaa; font-size: 0.85rem; }
+        .back-top { display: block; text-align: right; color: #555; text-decoration: none; font-size: 0.7rem; margin: 10px 0; }
+    </style>
+</head>
+<body>
+<div class="container" id="topo">
+    <div class="main-header-btn">O DICIONÁRIO DO RESPONSÁVEL</div>
+
+    <div class="alphabet-grid">
+        <a href="#A" class="btn-letra btn-a">A</a> <a href="#B" class="btn-letra btn-b">B</a>
+        <a href="#C" class="btn-letra btn-c">C</a> <a href="#D" class="btn-letra btn-d">D</a>
+        <a href="#E" class="btn-letra btn-e">E</a> <a href="#F" class="btn-letra btn-f">F</a>
+        <a href="#G" class="btn-letra btn-g">G</a> <a href="#H" class="btn-letra btn-h">H</a>
+        <a href="#I" class="btn-letra btn-i">I</a> <a href="#J" class="btn-letra btn-j">J</a>
+        <a href="#K" class="btn-letra btn-k">K</a> <a href="#L" class="btn-letra btn-l">L</a>
+        <a href="#M" class="btn-letra btn-m">M</a> <a href="#N" class="btn-letra btn-n">N</a>
+        <a href="#O" class="btn-letra btn-o">O</a> <a href="#P" class="btn-letra btn-p">P</a>
+        <a href="#Q" class="btn-letra btn-q">Q</a> <a href="#R" class="btn-letra btn-r">R</a>
+        <a href="#S" class="btn-letra btn-s">S</a> <a href="#T" class="btn-letra btn-t">T</a>
+        <a href="#U" class="btn-letra btn-u">U</a> <a href="#V" class="btn-letra btn-v">V</a>
+        <a href="#W" class="btn-letra btn-w">W</a> <a href="#X" class="btn-letra btn-x">X</a>
+        <a href="#Y" class="btn-letra btn-y">Y</a> <a href="#Z" class="btn-letra btn-z">Z</a>
+    </div>
+
+    <div id="A" class="letter-group"><h2 class="letter-title">A</h2>
+        <div class="term-card c-a"><h4>Abcesso</h4><p>Acúmulo de pus causado por infecção.</p></div>
+        <div class="term-card c-a"><h4>AIE</h4><p>Anemia Infecciosa Equina. Doença viral grave.</p></div>
+        <div class="term-card c-a"><h4>Aprumo</h4><p>Alinhamento correto dos membros.</p></div>
+        <div class="term-card c-a"><h4>Ataxia</h4><p>Falta de coordenação motora neurológica.</p></div>
+        <a href="#topo" class="back-top">↑ TOPO</a>
+    </div>
+
+    <div id="B" class="letter-group"><h2 class="letter-title">B</h2>
+        <div class="term-card c-b"><h4>Babesiose</h4><p>Doença de carrapato que afeta o sangue.</p></div>
+        <div class="term-card c-b"><h4>Baias</h4><p>Alojamentos individuais.</p></div>
+        <div class="term-card c-b"><h4>Boleto</h4><p>Articulação entre canela e quartela.</p></div>
+        <div class="term-card c-b"><h4>Bridão</h4><p>Equipamento de condução bucal.</p></div>
+        <a href="#topo" class="back-top">↑ TOPO</a>
+    </div>
+
+    <div id="C" class="letter-group"><h2 class="letter-title">C</h2>
+        <div class="term-card c-c"><h4>Cólica</h4><p>Dor abdominal aguda.</p></div>
+        <div class="term-card c-c"><h4>Casqueamento</h4><p>Manutenção dos cascos.</p></div>
+        <div class="term-card c-c"><h4>Claudicação</h4><p>Manqueira ou dor ao andar.</p></div>
+        <div class="term-card c-c"><h4>Colostro</h4><p>Primeiro leite (anticorpos).</p></div>
+        <div class="term-card c-c"><h4>Contensão</h4><p>Imobilização para procedimentos.</p></div>
+        <a href="#topo" class="back-top">↑ TOPO</a>
+    </div>
+
+    <div id="D" class="letter-group"><h2 class="letter-title">D</h2>
+        <div class="term-card c-d"><h4>Debridamento</h4><p>Remoção de tecido morto.</p></div>
+        <div class="term-card c-d"><h4>Desidratação</h4><p>Perda excessiva de líquidos.</p></div>
+        <div class="term-card c-d"><h4>Distocia</h4><p>Parto difícil.</p></div>
+        <div class="term-card c-d"><h4>Drenagem</h4><p>Saída controlada de líquidos.</p></div>
+        <a href="#topo" class="back-top">↑ TOPO</a>
+    </div>
+
+    <div id="E" class="letter-group"><h2 class="letter-title">E</h2>
+        <div class="term-card c-e"><h4>Edema</h4><p>Inchaço por líquido nos tecidos.</p></div>
+        <div class="term-card c-e"><h4>Ectoparasita</h4><p>Parasitas externos (carrapatos/piolhos).</p></div>
+        <div class="term-card c-e"><h4>Eletrolitos</h4><p>Minerais para função muscular.</p></div>
+        <div class="term-card c-e"><h4>Epitelização</h4><p>Formação de nova pele.</p></div>
+        <a href="#topo" class="back-top">↑ TOPO</a>
+    </div>
+
+    <div id="F" class="letter-group"><h2 class="letter-title">F</h2>
+        <div class="term-card c-f"><h4>Fasciculação</h4><p>Contrações musculares involuntárias.</p></div>
+        <div class="term-card c-f"><h4>Ferração</h4><p>Colocação de ferraduras.</p></div>
+        <div class="term-card c-f"><h4>Fibroblasto</h4><p>Célula que produz colágeno.</p></div>
+        <div class="term-card c-f"><h4>Fístula</h4><p>Canal anormal de comunicação.</p></div>
+        <a href="#topo" class="back-top">↑ TOPO</a>
+    </div>
+
+    <div id="G" class="letter-group"><h2 class="letter-title">G</h2>
+        <div class="term-card c-g"><h4>Gangrena</h4><p>Morte de tecidos por falta de circulação.</p></div>
+        <div class="term-card c-g"><h4>Garanhão</h4><p>Macho reprodutor não castrado.</p></div>
+        <div class="term-card c-g"><h4>Granulação</h4><p>Tecido novo de cicatrização.</p></div>
+        <div class="term-card c-g"><h4>Gurma</h4><p>Adenite equina (doença respiratória).</p></div>
+        <a href="#topo" class="back-top">↑ TOPO</a>
+    </div>
+
+    <div id="H" class="letter-group"><h2 class="letter-title">H</h2>
+        <div class="term-card c-h"><h4>Hematoma</h4><p>Acúmulo de sangue fora dos vasos.</p></div>
+        <div class="term-card c-h"><h4>Hemostasia</h4><p>Controle de sangramento.</p></div>
+        <div class="term-card c-h"><h4>Hipertermia</h4><p>Elevação da temperatura corporal.</p></div>
+        <a href="#topo" class="back-top">↑ TOPO</a>
+    </div>
+
+    <div id="I" class="letter-group"><h2 class="letter-title">I</h2>
+        <div class="term-card c-i"><h4>Imunidade Passiva</h4><p>Proteção via colostro.</p></div>
+        <div class="term-card c-i"><h4>Infecção</h4><p>Multiplicação de microrganismos.</p></div>
+        <div class="term-card c-i"><h4>Isquemia</h4><p>Redução do fluxo sanguíneo.</p></div>
+        <a href="#topo" class="back-top">↑ TOPO</a>
+    </div>
+
+    <div id="J" class="letter-group"><h2 class="letter-title">J</h2>
+        <div class="term-card c-j"><h4>Jarrete</h4><p>Articulação traseira posterior.</p></div>
+        <div class="term-card c-j"><h4>Jejum</h4><p>Período sem alimentação.</p></div>
+        <a href="#topo" class="back-top">↑ TOPO</a>
+    </div>
+
+    <div id="K" class="letter-group"><h2 class="letter-title">K</h2>
+        <div class="term-card c-k"><h4>Ketamina</h4><p>Anestésico veterinário.</p></div>
+        <div class="term-card c-k"><h4>Keratite</h4><p>Inflamação da córnea.</p></div>
+        <a href="#topo" class="back-top">↑ TOPO</a>
+    </div>
+
+    <div id="L" class="letter-group"><h2 class="letter-title">L</h2>
+        <div class="term-card c-l"><h4>Laceração</h4><p>Ferida irregular profunda.</p></div>
+        <div class="term-card c-l"><h4>Laminite</h4><p>Inflamação das lâminas do casco.</p></div>
+        <div class="term-card c-l"><h4>Linfangite</h4><p>Inflamação de vasos linfáticos.</p></div>
+        <a href="#topo" class="back-top">↑ TOPO</a>
+    </div>
+
+    <div id="M" class="letter-group"><h2 class="letter-title">M</h2>
+        <div class="term-card c-m"><h4>Manejo</h4><p>Práticas de cuidado geral.</p></div>
+        <div class="term-card c-m"><h4>Miíase</h4><p>Bicheira (larvas de moscas).</p></div>
+        <div class="term-card c-m"><h4>Mormo</h4><p>Doença bacteriana grave e zoonótica.</p></div>
+        <a href="#topo" class="back-top">↑ TOPO</a>
+    </div>
+
+    <div id="N" class="letter-group"><h2 class="letter-title">N</h2>
+        <div class="term-card c-n"><h4>Necrose</h4><p>Morte celular de um tecido.</p></div>
+        <div class="term-card c-n"><h4>Neutrófilo</h4><p>Célula de defesa imunológica.</p></div>
+        <a href="#topo" class="back-top">↑ TOPO</a>
+    </div>
+
+    <div id="P" class="letter-group"><h2 class="letter-title">P</h2>
+        <div class="term-card c-p"><h4>Palpação</h4><p>Exame físico tátil.</p></div>
+        <div class="term-card c-p"><h4>Potros</h4><p>Filhotes de equinos.</p></div>
+        <div class="term-card c-p"><h4>Prolapso</h4><p>Exteriorização de órgãos.</p></div>
+        <a href="#topo" class="back-top">↑ TOPO</a>
+    </div>
+
+    <div id="Q" class="letter-group"><h2 class="letter-title">Q</h2>
+        <div class="term-card c-q"><h4>Quartela</h4><p>Região entre boleto e casco.</p></div>
+        <div class="term-card c-q"><h4>Quitosana</h4><p>Auxiliar na cicatrização.</p></div>
+        <a href="#topo" class="back-top">↑ TOPO</a>
+    </div>
+
+    <div id="T" class="letter-group"><h2 class="letter-title">T</h2>
+        <div class="term-card c-t"><h4>Taquicardia</h4><p>Aumento da frequência cardíaca.</p></div>
+        <div class="term-card c-t"><h4>Tétano</h4><p>Doença neurológica bacteriana.</p></div>
+        <div class="term-card c-t"><h4>Trombose</h4><p>Coágulo em vasos sanguíneos.</p></div>
+        <a href="#topo" class="back-top">↑ TOPO</a>
+    </div>
+
+    <div id="Z" class="letter-group"><h2 class="letter-title">Z</h2>
+        <div class="term-card c-z"><h4>Zoonose</h4><p>Doença transmitida entre animal e humano.</p></div>
+        <div class="term-card c-z"><h4>Zinco</h4><p>Mineral para imunidade e pele.</p></div>
+        <a href="#topo" class="back-top">↑ TOPO</a>
+    </div>
+</div>
+</body>
+</html>
