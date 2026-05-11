@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        /* ESTILO SOS EQUISAÚDE - SEÇÃO DOWNLOAD */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #000;
+            color: #fff;
+            padding: 20px;
+        }
+
+        .download-container {
+            max-width: 500px;
+            margin: 0 auto;
+            background: #0a0a0a;
+            border: 1px solid #1a1a1a;
+            border-radius: 15px;
+            padding: 25px;
+            text-align: center;
+        }
+
+        .title-section {
+            margin-bottom: 25px;
+        }
+
+        .title-section h2 {
+            color: #ffd700;
+            text-transform: uppercase;
+            font-size: 1.4rem;
+            letter-spacing: 1px;
+        }
+
+        .title-section p {
+            color: #888;
+            font-size: 0.9rem;
+            margin-top: 5px;
+        }
+
+        /* PASSOS */
+        .step-list {
+            text-align: left;
+            margin-bottom: 30px;
+        }
+
+        .step-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 20px;
+            background: #111;
+            padding: 15px;
+            border-radius: 10px;
+            border-left: 4px solid #ffd700;
+        }
+
+        .step-number {
+            background: #ffd700;
+            color: #000;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+
+        .step-text h4 {
+            color: #fff;
+            font-size: 1rem;
+            margin-bottom: 4px;
+        }
+
+        .step-text p {
+            color: #aaa;
+            font-size: 0.85rem;
+            line-height: 1.4;
+        }
+
+        /* BOTÃO DE AÇÃO */
+        .install-btn {
+            background: linear-gradient(135deg, #ffd700 0%, #b8860b 100%);
+            color: #000;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            border-radius: 30px;
+            cursor: pointer;
+            width: 100%;
+            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.2);
+            transition: 0.3s;
+        }
+
+        .install-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 215, 0, 0.4);
+        }
+
+        .footer-note {
+            margin-top: 15px;
+            font-size: 0.75rem;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="download-container">
+        <div class="title-section">
+            <h2>Como baixar o Aplicativo?</h2>
+            <p>O SOS Equisaúde funciona direto no seu celular sem ocupar memória.</p>
+        </div>
+
+        <div class="step-list">
+            <div class="step-item">
+                <div class="step-number">1</div>
+                <div class="step-text">
+                    <h4>Abra no Navegador</h4>
+                    <p>Acesse este site usando o Chrome (Android) ou Safari (iPhone).</p>
+                </div>
+            </div>
+
+            <div class="step-item">
+                <div class="step-number">2</div>
+                <div class="step-text">
+                    <h4>Toque nas Opções</h4>
+                    <p>No Chrome, toque nos 3 pontinhos. No Safari, toque no botão de compartilhar (quadrado com seta).</p>
+                </div>
+            </div>
+
+            <div class="step-item">
+                <div class="step-number">3</div>
+                <div class="step-text">
+                    <h4>Instalar / Adicionar</h4>
+                    <p>Selecione "Instalar Aplicativo" ou "Adicionar à Tela de Início".</p>
+                </div>
+            </div>
+        </div>
+
+        <button class="install-btn">Instalar Agora</button>
+        
+        <p class="footer-note">PWA - Versão 2026.1</p>
+    </div>
+
+</body>
+</html>
