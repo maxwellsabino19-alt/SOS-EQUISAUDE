@@ -3,26 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <link>rel="manifest" href="manifest.json">    
-    <title>SOS EQUI</title>
+    
+    <title>SOS EQUISAÚDE</title>
     <meta name="description" content="Sistema de Apoio à Saúde Equina">
 
     <meta name="theme-color" content="#171618">
-    <meta name="background-color" content="#121212">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-
     <meta name="mobile-web-app-capable" content="yes">
+    
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-title" content="SOS EQUISAÚDE">
 
-    <link rel="icon" type="image/png" sizes="512x512" href="icon512_rounded.png">
-    <link rel="apple-touch-icon" href="icon512_maskable.png">
-    <link rel="shortcut icon" href="icon512_rounded.png" type="image/png">
+    <link rel="icon" type="image/png" sizes="512x512" href="img/icon512_rounded.png">
+    <link rel="apple-touch-icon" href="img/icon512_maskable.png">
+    <link rel="shortcut icon" href="img/icon512_rounded.png" type="image/png">
 
     <link rel="manifest" href="manifest.json">
 
     <style>
-        /* Estilização para evitar o "branco" no carregamento em modo Dark */
         :root {
             color-scheme: dark;
         }
@@ -44,12 +42,13 @@
             border-radius: 20px;
             margin-bottom: 20px;
             box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+            object-fit: cover;
         }
     </style>
 </head>
 <body>
 
-    <img src="icon512_rounded.png" alt="Logo SOS Equisaúde" class="loading-logo">
+    <img src="img/icon512_rounded.png" alt="Logo SOS Equisaúde" class="loading-logo">
     <h1>SOS EQUISAÚDE</h1>
     <p style="color: #ffd700; font-weight: bold;">Carregando sistema...</p>
 
