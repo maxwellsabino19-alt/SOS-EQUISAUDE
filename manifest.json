@@ -1,1 +1,57 @@
-{"theme_color":"#171618","background_color":"#121212","icons":[{"purpose":"maskable","sizes":"512x512","src":"icon512_maskable.png","type":"image/png"},{"purpose":"any","sizes":"512x512","src":"icon512_rounded.png","type":"image/png"}],"orientation":"any","display":"standalone","dir":"auto","lang":"pt-BR","name":"SOS EQUISAÚDE","short_name":"SOSEQUISAÚDE","start_url":"https://maxwellsabino19-alt.github.io/SOS-EQUISAUDE/","scope":"https://maxwellsabino19-alt.github.io/SOS-EQUISAUDE/"}
+<!DOCTYPE html>
+<html lang="pt-BR" dir="auto">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <link>rel="manifest" href="manifest.json">    
+    <title>SOS EQUISAÚDE</title>
+    <meta name="description" content="Sistema de Apoio à Saúde Equina">
+
+    <meta name="theme-color" content="#171618">
+    <meta name="background-color" content="#121212">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="SOS EQUISAÚDE">
+
+    <link rel="icon" type="image/png" sizes="512x512" href="icon512_rounded.png">
+    <link rel="apple-touch-icon" href="icon512_maskable.png">
+    <link rel="shortcut icon" href="icon512_rounded.png" type="image/png">
+
+    <link rel="manifest" href="manifest.json">
+
+    <style>
+        /* Estilização para evitar o "branco" no carregamento em modo Dark */
+        :root {
+            color-scheme: dark;
+        }
+        body {
+            background-color: #121212;
+            color: #ffffff;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+        }
+        .loading-logo {
+            width: 120px;
+            height: 120px;
+            border-radius: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+        }
+    </style>
+</head>
+<body>
+
+    <img src="icon512_rounded.png" alt="Logo SOS Equisaúde" class="loading-logo">
+    <h1>SOS EQUISAÚDE</h1>
+    <p style="color: #ffd700; font-weight: bold;">Carregando sistema...</p>
+
+</body>
+</html>
