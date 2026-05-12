@@ -453,15 +453,71 @@
 </head>
 <body>
 
+<style>
+    .sos-alert-box {
+        width: 100%;
+        background-color: #0a0a0a;
+        border: 2px solid #ff4d4d;
+        border-radius: 12px;
+        padding: 20px;
+        margin-top: 20px;
+        text-align: center;
+        box-sizing: border-box;
+    }
 
-    <div class="alert-box">
-        <p style="margin-bottom: 10px; font-size: 1.2rem;">O QUE OBSERVAR NO ACOMPANHAMENTO?</p>
-        <ul style="text-align: left; display: inline-block;">
-            <li>Aumento de calor, dor, inchaço ou secreção purulenta → <strong>Sinal de infecção</strong>.</li>
-            <li>Cheiro forte ou presença de larvas → <strong>Necessidade de limpeza profissional</strong>.</li>
-            <li>Dificuldade para andar, febre ou apatia → <strong>Atendimento veterinário urgente</strong>.</li>
-        </ul>
+    .sos-alert-title {
+        color: #ff4d4d;
+        font-size: 1.2rem;
+        font-weight: bold;
+        margin-bottom: 15px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+
+    .sos-alert-list {
+        text-align: left;
+        display: inline-block;
+        color: #ffffff;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .sos-alert-item {
+        margin-bottom: 12px;
+        line-height: 1.4;
+        display: flex;
+        align-items: flex-start;
+    }
+
+    .sos-alert-item::before {
+        content: "⚠️";
+        margin-right: 10px;
+        font-size: 0.9rem;
+    }
+
+    .sos-alert-highlight {
+        color: #ff4d4d;
+        font-weight: bold;
+        text-decoration: underline;
+    }
+</style>
+
+<div class="sos-alert-box">
+    <h3 class="sos-alert-title">O que observar no acompanhamento?</h3>
+    
+    <div class="sos-alert-list">
+        <div class="sos-alert-item">
+            <span>Aumento de calor, dor, inchaço ou secreção purulenta → <span class="sos-alert-highlight">Sinal de infecção</span>.</span>
+        </div>
+        <div class="sos-alert-item">
+            <span>Cheiro forte ou presença de larvas → <span class="sos-alert-highlight">Necessidade de limpeza profissional</span>.</span>
+        </div>
+        <div class="sos-alert-item">
+            <span>Dificuldade para andar, febre ou apatia → <span class="sos-alert-highlight">Atendimento veterinário urgente</span>.</span>
+        </div>
     </div>
+</div>
 
     <div class="container">
     <h1 class="main-title">ALTERAÇÕES NO CASCO DE EQUINOS</h1>
@@ -806,43 +862,125 @@
         </div>
     </div>
 
-    <div style="width: 100%; display: block !important; clear: both !important; background-color: #000 !important; padding: 20px 0; font-family: 'Segoe UI', Arial, sans-serif !important;">
-    
-    <div style="max-width: 600px; margin: 0 auto; background-color: #0a0a0a !important; border: 1px solid #333 !important; border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
+ 
+    <style>
+    .sos-container {
+        width: 100%;
+        display: block;
+        clear: both;
+        background-color: #000;
+        padding: 20px 0;
+        font-family: 'Segoe UI', Arial, sans-serif;
+    }
+
+    .sos-card {
+        max-width: 600px;
+        margin: 0 auto;
+        background-color: #0a0a0a;
+        border: 1px solid #333;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    }
+
+    .sos-header {
+        background-color: #1a1a1a;
+        padding: 20px;
+        border-bottom: 3px solid #ffd700;
+        text-align: center;
+    }
+
+    .sos-title {
+        margin: 0;
+        color: #ffd700;
+        font-size: 1.4rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-weight: bold;
+    }
+
+    .sos-list {
+        padding: 10px;
+    }
+
+    .sos-item {
+        padding: 15px;
+        color: #ffffff;
+        border-bottom: 1px solid #222;
+        display: flex;
+        align-items: center;
+        font-size: 1rem;
+    }
+
+    .sos-item:last-child {
+        border-bottom: none;
+    }
+
+    .sos-icon {
+        color: #ffd700;
+        margin-right: 15px;
+        font-size: 1.2rem;
+    }
+
+    .sos-footer {
+        background-color: #000;
+        padding: 25px;
+        text-align: center;
+        border-top: 1px solid #333;
+    }
+
+    .sos-img {
+        width: 100%;
+        max-width: 450px;
+        height: auto;
+        border-radius: 10px;
+        border: 1px solid #444;
+        display: block;
+        margin: 0 auto;
+    }
+
+    .sos-caption {
+        color: #555;
+        font-size: 0.7rem;
+        margin-top: 15px;
+        text-transform: uppercase;
+    }
+</style>
+
+<div class="sos-container">
+    <div class="sos-card">
         
-        <div style="background-color: #1a1a1a !important; padding: 20px; border-bottom: 3px solid #ffd700; text-align: center;">
-            <h2 style="margin: 0; color: #ffd700 !important; font-size: 1.4rem; text-transform: uppercase; letter-spacing: 1px; font-weight: bold;">
-                Checklist de Emergência
-            </h2>
+        <div class="sos-header">
+            <h2 class="sos-title">Checklist de Emergência</h2>
         </div>
 
-        <div style="padding: 10px;">
-            <div style="padding: 15px; color: #ffffff !important; border-bottom: 1px solid #222; display: flex; align-items: center; font-size: 1rem;">
-                <span style="color: #ffd700; margin-right: 15px; font-size: 1.2rem;">☑️</span> Telefone do veterinário
+        <div class="sos-list">
+            <div class="sos-item">
+                <span class="sos-icon">☑️</span> Telefone do veterinário
             </div>
-            <div style="padding: 15px; color: #ffffff !important; border-bottom: 1px solid #222; display: flex; align-items: center; font-size: 1rem;">
-                <span style="color: #ffd700; margin-right: 15px; font-size: 1.2rem;">☑️</span> Cabresto resistente e cordas de contenção
+            <div class="sos-item">
+                <span class="sos-icon">☑️</span> Cabresto resistente e cordas de contenção
             </div>
-            <div style="padding: 15px; color: #ffffff !important; border-bottom: 1px solid #222; display: flex; align-items: center; font-size: 1rem;">
-                <span style="color: #ffd700; margin-right: 15px; font-size: 1.2rem;">☑️</span> Caneta permanente e celular com carga
+            <div class="sos-item">
+                <span class="sos-icon">☑️</span> Caneta permanente e celular com carga
             </div>
-            <div style="padding: 15px; color: #ffffff !important; border-bottom: 1px solid #222; display: flex; align-items: center; font-size: 1rem;">
-                <span style="color: #ffd700; margin-right: 15px; font-size: 1.2rem;">☑️</span> Toalhas Limpas
+            <div class="sos-item">
+                <span class="sos-icon">☑️</span> Toalhas Limpas
             </div>
-            <div style="padding: 15px; color: #ffffff !important; border-bottom: 1px solid #222; display: flex; align-items: center; font-size: 1rem;">
-                <span style="color: #ffd700; margin-right: 15px; font-size: 1.2rem;">☑️</span> Bolsa de gelo pronta
+            <div class="sos-item">
+                <span class="sos-icon">☑️</span> Bolsa de gelo pronta
             </div>
-            <div style="padding: 15px; color: #ffffff !important; border-bottom: 1px solid #222; display: flex; align-items: center; font-size: 1rem;">
-                <span style="color: #ffd700; margin-right: 15px; font-size: 1.2rem;">☑️</span> Trailer ou transporte pronto para embarque
+            <div class="sos-item">
+                <span class="sos-icon">☑️</span> Trailer ou transporte pronto para embarque
             </div>
-            <div style="padding: 15px; color: #ffffff !important; display: flex; align-items: center; font-size: 1rem;">
-                <span style="color: #ffd700; margin-right: 15px; font-size: 1.2rem;">☑️</span> Luvas grossas e botas
+            <div class="sos-item">
+                <span class="sos-icon">☑️</span> Luvas grossas e botas
             </div>
         </div>
 
-        <div style="background-color: #000; padding: 25px; text-align: center; border-top: 1px solid #333;">
-            <img src="img/emcasodepicada.png" alt="Prioridades no Socorro" style="width: 100%; max-width: 450px; height: auto; border-radius: 10px; border: 1px solid #444; display: block; margin: 0 auto;">
-            <p style="color: #555; font-size: 0.7rem; margin-top: 15px; text-transform: uppercase;">SOS Equisaúde - Primeiros Socorros</p>
+        <div class="sos-footer">
+            <img src="img/emcasodepicada.png" alt="Prioridades no Socorro" class="sos-img">
+            <p class="sos-caption">SOS Equisaúde - Primeiros Socorros</p>
         </div>
 
     </div>
