@@ -6,7 +6,7 @@
   "orientation": "any",
   "scope": "/",
   "short_name": "SOS EQUISAÚDE",
-  "start_url": "/https://maxwellsabino19-alt.github.io/SOS-EQUISAUDE/",
+  "start_url": "https://maxwellsabino19-alt.github.io/SOS-EQUISAUDE/",
   "theme_color": "#171618",
   "icons": [
     {
