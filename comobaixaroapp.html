@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instalação SOS Equisaúde</title>
     <style>
         /* DESIGN PREMIUM SOS EQUISAÚDE */
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -11,55 +12,55 @@
             font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
             background-color: #000;
             color: #fff;
-            padding: 20px;
+            padding: 15px;
         }
 
         .download-container {
             max-width: 500px;
-            margin: 20px auto;
+            margin: 10px auto;
             background: #0a0a0a;
             border: 1px solid #1a1a1a;
             border-radius: 15px;
-            padding: 25px;
+            padding: 20px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
 
         .title-section {
             text-align: center;
-            margin-bottom: 25px;
+            margin-bottom: 20px;
         }
 
         .title-section h2 {
             color: #ffd700;
             text-transform: uppercase;
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             letter-spacing: 1px;
             margin-bottom: 8px;
         }
 
         .title-section p {
             color: #888;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
         }
 
         /* PASSOS */
-        .step-list { margin-bottom: 30px; }
+        .step-list { margin-bottom: 25px; }
 
         .step-item {
             display: flex;
-            align-items: flex-start;
-            margin-bottom: 12px;
+            align-items: center;
+            margin-bottom: 10px;
             background: #111;
-            padding: 15px;
-            border-radius: 12px;
-            border-left: 4px solid #ffd700;
+            padding: 12px;
+            border-radius: 10px;
+            border-left: 3px solid #ffd700;
         }
 
         .step-number {
             background: #ffd700;
             color: #000;
-            width: 24px;
-            height: 24px;
+            width: 22px;
+            height: 22px;
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -67,50 +68,52 @@
             font-weight: bold;
             margin-right: 12px;
             flex-shrink: 0;
-            font-size: 0.8rem;
+            font-size: 0.75rem;
         }
 
-        .step-text h4 { font-size: 0.95rem; margin-bottom: 2px; }
-        .step-text p { color: #aaa; font-size: 0.85rem; }
+        .step-text h4 { font-size: 0.9rem; }
+        .step-text p { color: #aaa; font-size: 0.8rem; }
 
-        /* SEÇÃO DE VÍDEOS */
+        /* SEÇÃO DE VÍDEOS CORRIGIDA */
         .video-card {
-            margin-bottom: 25px;
+            margin-bottom: 20px;
             background: #050505;
-            padding: 15px;
+            padding: 10px;
             border-radius: 12px;
             border: 1px solid #1a1a1a;
         }
 
         .video-card h3 {
             color: #ffd700;
-            font-size: 0.9rem;
-            margin-bottom: 12px;
+            font-size: 0.85rem;
+            margin-bottom: 10px;
             text-transform: uppercase;
             text-align: center;
         }
 
-        .video-container {
+        .video-wrapper {
             position: relative;
-            padding-bottom: 177%; /* Proporção para vídeos verticais (celular em pé) */
-            height: 0;
-            overflow: hidden;
-            border-radius: 8px;
+            width: 100%;
+            /* Proporção 9:16 (Vertical) para vídeos de celular */
+            padding-top: 177.78%; 
             background: #000;
+            border-radius: 8px;
+            overflow: hidden;
         }
 
-        .video-container video {
+        .video-wrapper video {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            object-fit: cover; /* Garante que o vídeo preencha o espaço sem barras pretas */
+            background-color: #000;
         }
 
         .footer-note {
             margin-top: 20px;
-            font-size: 0.7rem;
+            font-size: 0.65rem;
             color: #444;
             text-align: center;
             text-transform: uppercase;
@@ -122,7 +125,7 @@
     <div class="download-container">
         <div class="title-section">
             <h2>Como instalar o Aplicativo?</h2>
-            <p>Siga o passo a passo abaixo:</p>
+            <p>Siga o guia visual abaixo</p>
         </div>
 
         <div class="step-list">
@@ -130,30 +133,30 @@
                 <div class="step-number">1</div>
                 <div class="step-text">
                     <h4>Navegador</h4>
-                    <p>Abra o site no <strong>Chrome</strong> ou <strong>Safari</strong>.</p>
+                    <p>Abra no <strong>Chrome</strong> ou <strong>Safari</strong>.</p>
                 </div>
             </div>
             <div class="step-item">
                 <div class="step-number">2</div>
                 <div class="step-text">
                     <h4>Menu</h4>
-                    <p>Toque nos <strong>3 pontos</strong> ou no ícone <strong>Compartilhar</strong>.</p>
+                    <p>Toque em <strong>Opções</strong> ou <strong>Compartilhar</strong>.</p>
                 </div>
             </div>
             <div class="step-item">
                 <div class="step-number">3</div>
                 <div class="step-text">
-                    <h4>Instalar</h4>
-                    <p>Toque em <strong>"Adicionar à tela de início"</strong>.</p>
+                    <h4>Tela de Início</h4>
+                    <p>Selecione <strong>"Adicionar à tela de início"</strong>.</p>
                 </div>
             </div>
         </div>
 
         <div class="video-card">
             <h3>Como baixar no Android</h3>
-            <div class="video-container">
-                <video controls>
-                    <source src="videoandroid.mp4" type="video/mp4">
+            <div class="video-wrapper">
+                <video controls playsinline preload="metadata">
+                    <source src="video/videoandroid.mp4" type="video/mp4">
                     Seu navegador não suporta vídeos.
                 </video>
             </div>
@@ -161,9 +164,9 @@
 
         <div class="video-card">
             <h3>Como baixar no iPhone</h3>
-            <div class="video-container">
-                <video controls>
-                    <source src="videoiphone.mp4" type="video/mp4">
+            <div class="video-wrapper">
+                <video controls playsinline preload="metadata">
+                    <source src="video/videoiphone.mp4" type="video/mp4">
                     Seu navegador não suporta vídeos.
                 </video>
             </div>
