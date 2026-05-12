@@ -4,12 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
-        /* ESTILO SOS EQUISAÚDE - GUIA DE INSTALAÇÃO */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        /* DESIGN PREMIUM SOS EQUISAÚDE */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
@@ -25,11 +21,11 @@
             border: 1px solid #1a1a1a;
             border-radius: 15px;
             padding: 25px;
-            text-align: center;
             box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
 
         .title-section {
+            text-align: center;
             margin-bottom: 25px;
         }
 
@@ -44,59 +40,80 @@
         .title-section p {
             color: #888;
             font-size: 0.9rem;
-            line-height: 1.4;
         }
 
-        /* LISTA DE PASSOS */
-        .step-list {
-            text-align: left;
-            margin-bottom: 10px;
-        }
+        /* PASSOS */
+        .step-list { margin-bottom: 30px; }
 
         .step-item {
             display: flex;
             align-items: flex-start;
-            margin-bottom: 15px;
+            margin-bottom: 12px;
             background: #111;
-            padding: 18px;
+            padding: 15px;
             border-radius: 12px;
             border-left: 4px solid #ffd700;
-            transition: transform 0.2s;
         }
 
         .step-number {
             background: #ffd700;
             color: #000;
-            width: 26px;
-            height: 26px;
+            width: 24px;
+            height: 24px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             font-weight: bold;
-            margin-right: 15px;
+            margin-right: 12px;
             flex-shrink: 0;
+            font-size: 0.8rem;
+        }
+
+        .step-text h4 { font-size: 0.95rem; margin-bottom: 2px; }
+        .step-text p { color: #aaa; font-size: 0.85rem; }
+
+        /* SEÇÃO DE VÍDEOS */
+        .video-card {
+            margin-bottom: 25px;
+            background: #050505;
+            padding: 15px;
+            border-radius: 12px;
+            border: 1px solid #1a1a1a;
+        }
+
+        .video-card h3 {
+            color: #ffd700;
             font-size: 0.9rem;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            text-align: center;
         }
 
-        .step-text h4 {
-            color: #fff;
-            font-size: 1rem;
-            margin-bottom: 4px;
+        .video-container {
+            position: relative;
+            padding-bottom: 177%; /* Proporção para vídeos verticais (celular em pé) */
+            height: 0;
+            overflow: hidden;
+            border-radius: 8px;
+            background: #000;
         }
 
-        .step-text p {
-            color: #aaa;
-            font-size: 0.85rem;
-            line-height: 1.4;
+        .video-container video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         .footer-note {
             margin-top: 20px;
             font-size: 0.7rem;
             color: #444;
+            text-align: center;
             text-transform: uppercase;
-            letter-spacing: 1px;
         }
     </style>
 </head>
@@ -105,7 +122,7 @@
     <div class="download-container">
         <div class="title-section">
             <h2>Como instalar o Aplicativo?</h2>
-            <p>Tenha o SOS Equisaúde na sua tela inicial de forma rápida e leve.</p>
+            <p>Siga o passo a passo abaixo:</p>
         </div>
 
         <div class="step-list">
@@ -113,28 +130,46 @@
                 <div class="step-number">1</div>
                 <div class="step-text">
                     <h4>Navegador</h4>
-                    <p>Use o <strong>Chrome</strong> (Android) ou <strong>Safari</strong> (iPhone) para acessar este endereço.</p>
+                    <p>Abra o site no <strong>Chrome</strong> ou <strong>Safari</strong>.</p>
                 </div>
             </div>
-
             <div class="step-item">
                 <div class="step-number">2</div>
                 <div class="step-text">
-                    <h4>Menu do Navegador</h4>
-                    <p>Toque nos <strong>três pontos</strong> (Android) ou no ícone de <strong>compartilhar</strong> (seta para cima no iPhone).</p>
+                    <h4>Menu</h4>
+                    <p>Toque nos <strong>3 pontos</strong> ou no ícone <strong>Compartilhar</strong>.</p>
                 </div>
             </div>
-
             <div class="step-item">
                 <div class="step-number">3</div>
                 <div class="step-text">
-                    <h4>Adicionar</h4>
-                    <p>Selecione <strong>"Instalar aplicativo"</strong> ou <strong>"Adicionar à tela de início"</strong>.</p>
+                    <h4>Instalar</h4>
+                    <p>Toque em <strong>"Adicionar à tela de início"</strong>.</p>
                 </div>
             </div>
         </div>
+
+        <div class="video-card">
+            <h3>Como baixar no Android</h3>
+            <div class="video-container">
+                <video controls>
+                    <source src="videoandroid.mp4" type="video/mp4">
+                    Seu navegador não suporta vídeos.
+                </video>
+            </div>
+        </div>
+
+        <div class="video-card">
+            <h3>Como baixar no iPhone</h3>
+            <div class="video-container">
+                <video controls>
+                    <source src="videoiphone.mp4" type="video/mp4">
+                    Seu navegador não suporta vídeos.
+                </video>
+            </div>
+        </div>
         
-        <p class="footer-note">PWA Equisaúde • 2026</p>
+        <p class="footer-note">PWA SOS Equisaúde • 2026</p>
     </div>
 
 </body>
