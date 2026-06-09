@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <style>
+    <title>Dicionário do Responsável - SOS Equisaúde</title>
+    <style>
         /* DESIGN PREMIUM SOS EQUISAÚDE */
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
@@ -11,9 +12,52 @@
             background-color: #000;
             color: #fff;
             line-height: 1.4;
-            padding: 10px;
+            padding: 70px 10px 20px 10px; /* Padding superior para não cobrir o conteúdo com a barra fixa */
         }
         .container { width: 100%; max-width: 600px; margin: 0 auto; }
+
+        /* BARRA DE NAVEGAÇÃO FIXA SUPERIOR */
+        .nav-fixed-top {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #0d0d0d;
+            border-bottom: 1px solid #222;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.8);
+        }
+
+        .btn-nav-top {
+            text-decoration: none;
+            color: #ffffff;
+            font-size: 0.8rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            padding: 8px 12px;
+            border-radius: 6px;
+            transition: all 0.2s ease;
+            background-color: #161616;
+            border: 1px solid #333;
+        }
+
+        .btn-nav-top.menu {
+            border-color: #ffd700;
+            color: #ffd700;
+        }
+
+        .btn-nav-top.menu:hover {
+            background-color: #ffd700;
+            color: #000;
+        }
+
+        .btn-nav-top.reset:hover {
+            border-color: #fff;
+        }
 
         /* BOTÃO PRINCIPAL */
         .main-header-btn {
@@ -48,6 +92,12 @@
             justify-content: center;
             border-radius: 6px;
             font-size: 1rem;
+            cursor: pointer;
+            border: none;
+            transition: transform 0.1s ease;
+        }
+        .btn-letra:active {
+            transform: scale(0.95);
         }
 
         /* CORES DOS BOTÕES E BORDAS */
@@ -79,8 +129,8 @@
         .btn-z, .c-z { background-color: #222f3e; border-left-color: #222f3e; }
 
         /* CARDS */
-        .letter-group { margin-top: 30px; border-top: 1px solid #222; padding-top: 10px; }
-        .letter-title { font-size: 1.8rem; color: #ffd700; margin-bottom: 10px; }
+        .letter-group { margin-top: 15px; border-top: 1px solid #222; padding-top: 10px; }
+        .letter-title { font-size: 1.8rem; color: #ffd700; margin-bottom: 10px; padding-left: 5px; }
         .term-card {
             background: #0a0a0a;
             padding: 12px;
@@ -92,157 +142,210 @@
         }
         .term-card h4 { color: #fff; text-transform: uppercase; font-size: 0.9rem; margin-bottom: 4px; }
         .term-card p { color: #aaa; font-size: 0.85rem; }
-        .back-top { display: block; text-align: right; color: #555; text-decoration: none; font-size: 0.7rem; margin: 10px 0; }
+        .back-top { display: block; text-align: right; color: #555; text-decoration: none; font-size: 0.75rem; margin: 10px 0; font-weight: bold; }
     </style>
 </head>
 <body>
+
+<div class="nav-fixed-top">
+    <a href="index.html" class="btn-nav-top menu">⬅ Voltar ao Menu</a>
+    <button onclick="mostrarTodasAsLetras()" class="btn-nav-top reset">🔄 Ver Todas as Letras</button>
+</div>
+
 <div class="container" id="topo">
     <div class="main-header-btn">O DICIONÁRIO DO RESPONSÁVEL</div>
 
     <div class="alphabet-grid">
-        <a href="#A" class="btn-letra btn-a">A</a> <a href="#B" class="btn-letra btn-b">B</a>
-        <a href="#C" class="btn-letra btn-c">C</a> <a href="#D" class="btn-letra btn-d">D</a>
-        <a href="#E" class="btn-letra btn-e">E</a> <a href="#F" class="btn-letra btn-f">F</a>
-        <a href="#G" class="btn-letra btn-g">G</a> <a href="#H" class="btn-letra btn-h">H</a>
-        <a href="#I" class="btn-letra btn-i">I</a> <a href="#J" class="btn-letra btn-j">J</a>
-        <a href="#K" class="btn-letra btn-k">K</a> <a href="#L" class="btn-letra btn-l">L</a>
-        <a href="#M" class="btn-letra btn-m">M</a> <a href="#N" class="btn-letra btn-n">N</a>
-        <a href="#O" class="btn-letra btn-o">O</a> <a href="#P" class="btn-letra btn-p">P</a>
-        <a href="#Q" class="btn-letra btn-q">Q</a> <a href="#R" class="btn-letra btn-r">R</a>
-        <a href="#S" class="btn-letra btn-s">S</a> <a href="#T" class="btn-letra btn-t">T</a>
-        <a href="#U" class="btn-letra btn-u">U</a> <a href="#V" class="btn-letra btn-v">V</a>
-        <a href="#W" class="btn-letra btn-w">W</a> <a href="#X" class="btn-letra btn-x">X</a>
-        <a href="#Y" class="btn-letra btn-y">Y</a> <a href="#Z" class="btn-letra btn-z">Z</a>
+        <button onclick="filtrarLetra('A')" class="btn-letra btn-a">A</button>
+        <button onclick="filtrarLetra('B')" class="btn-letra btn-b">B</button>
+        <button onclick="filtrarLetra('C')" class="btn-letra btn-c">C</button>
+        <button onclick="filtrarLetra('D')" class="btn-letra btn-d">D</button>
+        <button onclick="filtrarLetra('E')" class="btn-letra btn-e">E</button>
+        <button onclick="filtrarLetra('F')" class="btn-letra btn-f">F</button>
+        <button onclick="filtrarLetra('G')" class="btn-letra btn-g">G</button>
+        <button onclick="filtrarLetra('H')" class="btn-letra btn-h">H</button>
+        <button onclick="filtrarLetra('I')" class="btn-letra btn-i">I</button>
+        <button onclick="filtrarLetra('J')" class="btn-letra btn-j">J</button>
+        <button onclick="filtrarLetra('K')" class="btn-letra btn-k">K</button>
+        <button onclick="filtrarLetra('L')" class="btn-letra btn-l">L</button>
+        <button onclick="filtrarLetra('M')" class="btn-letra btn-m">M</button>
+        <button onclick="filtrarLetra('N')" class="btn-letra btn-n">N</button>
+        <button onclick="filtrarLetra('O')" class="btn-letra btn-o">O</button>
+        <button onclick="filtrarLetra('P')" class="btn-letra btn-p">P</button>
+        <button onclick="filtrarLetra('Q')" class="btn-letra btn-q">Q</button>
+        <button onclick="filtrarLetra('R')" class="btn-letra btn-r">R</button>
+        <button onclick="filtrarLetra('S')" class="btn-letra btn-s">S</button>
+        <button onclick="filtrarLetra('T')" class="btn-letra btn-t">T</button>
+        <button onclick="filtrarLetra('U')" class="btn-letra btn-u">U</button>
+        <button onclick="filtrarLetra('V')" class="btn-letra btn-v">V</button>
+        <button onclick="filtrarLetra('W')" class="btn-letra btn-w">W</button>
+        <button onclick="filtrarLetra('X')" class="btn-letra btn-x">X</button>
+        <button onclick="filtrarLetra('Y')" class="btn-letra btn-y">Y</button>
+        <button onclick="filtrarLetra('Z')" class="btn-letra btn-z">Z</button>
     </div>
 
-    <div id="A" class="letter-group"><h2 class="letter-title">A</h2>
+    <div id="grupo-A" class="letter-group"><h2 class="letter-title">A</h2>
         <div class="term-card c-a"><h4>Abcesso</h4><p>Acúmulo de pus causado por infecção.</p></div>
         <div class="term-card c-a"><h4>AIE</h4><p>Anemia Infecciosa Equina. Doença viral grave.</p></div>
         <div class="term-card c-a"><h4>Aprumo</h4><p>Alinhamento correto dos membros.</p></div>
         <div class="term-card c-a"><h4>Ataxia</h4><p>Falta de coordenação motora neurológica.</p></div>
-        <a href="#topo" class="back-top">↑ TOPO</a>
+        <a href="#topo" class="back-top">↑ VOLTAR PARTE INICIAL</a>
     </div>
 
-    <div id="B" class="letter-group"><h2 class="letter-title">B</h2>
+    <div id="grupo-B" class="letter-group"><h2 class="letter-title">B</h2>
         <div class="term-card c-b"><h4>Babesiose</h4><p>Doença de carrapato que afeta o sangue.</p></div>
         <div class="term-card c-b"><h4>Baias</h4><p>Alojamentos individuais.</p></div>
         <div class="term-card c-b"><h4>Boleto</h4><p>Articulação entre canela e quartela.</p></div>
         <div class="term-card c-b"><h4>Bridão</h4><p>Equipamento de condução bucal.</p></div>
-        <a href="#topo" class="back-top">↑ TOPO</a>
+        <a href="#topo" class="back-top">↑ VOLTAR PARTE INICIAL</a>
     </div>
 
-    <div id="C" class="letter-group"><h2 class="letter-title">C</h2>
+    <div id="grupo-C" class="letter-group"><h2 class="letter-title">C</h2>
         <div class="term-card c-c"><h4>Cólica</h4><p>Dor abdominal aguda.</p></div>
         <div class="term-card c-c"><h4>Casqueamento</h4><p>Manutenção dos cascos.</p></div>
         <div class="term-card c-c"><h4>Claudicação</h4><p>Manqueira ou dor ao andar.</p></div>
         <div class="term-card c-c"><h4>Colostro</h4><p>Primeiro leite (anticorpos).</p></div>
         <div class="term-card c-c"><h4>Contensão</h4><p>Imobilização para procedimentos.</p></div>
-        <a href="#topo" class="back-top">↑ TOPO</a>
+        <a href="#topo" class="back-top">↑ VOLTAR PARTE INICIAL</a>
     </div>
 
-    <div id="D" class="letter-group"><h2 class="letter-title">D</h2>
+    <div id="grupo-D" class="letter-group"><h2 class="letter-title">D</h2>
         <div class="term-card c-d"><h4>Debridamento</h4><p>Remoção de tecido morto.</p></div>
         <div class="term-card c-d"><h4>Desidratação</h4><p>Perda excessiva de líquidos.</p></div>
         <div class="term-card c-d"><h4>Distocia</h4><p>Parto difícil.</p></div>
         <div class="term-card c-d"><h4>Drenagem</h4><p>Saída controlada de líquidos.</p></div>
-        <a href="#topo" class="back-top">↑ TOPO</a>
+        <a href="#topo" class="back-top">↑ VOLTAR PARTE INICIAL</a>
     </div>
 
-    <div id="E" class="letter-group"><h2 class="letter-title">E</h2>
+    <div id="grupo-E" class="letter-group"><h2 class="letter-title">E</h2>
         <div class="term-card c-e"><h4>Edema</h4><p>Inchaço por líquido nos tecidos.</p></div>
         <div class="term-card c-e"><h4>Ectoparasita</h4><p>Parasitas externos (carrapatos/piolhos).</p></div>
         <div class="term-card c-e"><h4>Eletrolitos</h4><p>Minerais para função muscular.</p></div>
         <div class="term-card c-e"><h4>Epitelização</h4><p>Formação de nova pele.</p></div>
-        <a href="#topo" class="back-top">↑ TOPO</a>
+        <a href="#topo" class="back-top">↑ VOLTAR PARTE INICIAL</a>
     </div>
 
-    <div id="F" class="letter-group"><h2 class="letter-title">F</h2>
+    <div id="grupo-F" class="letter-group"><h2 class="letter-title">F</h2>
         <div class="term-card c-f"><h4>Fasciculação</h4><p>Contrações musculares involuntárias.</p></div>
         <div class="term-card c-f"><h4>Ferração</h4><p>Colocação de ferraduras.</p></div>
         <div class="term-card c-f"><h4>Fibroblasto</h4><p>Célula que produz colágeno.</p></div>
         <div class="term-card c-f"><h4>Fístula</h4><p>Canal anormal de comunicação.</p></div>
-        <a href="#topo" class="back-top">↑ TOPO</a>
+        <a href="#topo" class="back-top">↑ VOLTAR PARTE INICIAL</a>
     </div>
 
-    <div id="G" class="letter-group"><h2 class="letter-title">G</h2>
+    <div id="grupo-G" class="letter-group"><h2 class="letter-title">G</h2>
         <div class="term-card c-g"><h4>Gangrena</h4><p>Morte de tecidos por falta de circulação.</p></div>
         <div class="term-card c-g"><h4>Garanhão</h4><p>Macho reprodutor não castrado.</p></div>
         <div class="term-card c-g"><h4>Granulação</h4><p>Tecido novo de cicatrização.</p></div>
         <div class="term-card c-g"><h4>Gurma</h4><p>Adenite equina (doença respiratória).</p></div>
-        <a href="#topo" class="back-top">↑ TOPO</a>
+        <a href="#topo" class="back-top">↑ VOLTAR PARTE INICIAL</a>
     </div>
 
-    <div id="H" class="letter-group"><h2 class="letter-title">H</h2>
+    <div id="grupo-H" class="letter-group"><h2 class="letter-title">H</h2>
         <div class="term-card c-h"><h4>Hematoma</h4><p>Acúmulo de sangue fora dos vasos.</p></div>
         <div class="term-card c-h"><h4>Hemostasia</h4><p>Controle de sangramento.</p></div>
         <div class="term-card c-h"><h4>Hipertermia</h4><p>Elevação da temperatura corporal.</p></div>
-        <a href="#topo" class="back-top">↑ TOPO</a>
+        <a href="#topo" class="back-top">↑ VOLTAR PARTE INICIAL</a>
     </div>
 
-    <div id="I" class="letter-group"><h2 class="letter-title">I</h2>
+    <div id="grupo-I" class="letter-group"><h2 class="letter-title">I</h2>
         <div class="term-card c-i"><h4>Imunidade Passiva</h4><p>Proteção via colostro.</p></div>
         <div class="term-card c-i"><h4>Infecção</h4><p>Multiplicação de microrganismos.</p></div>
         <div class="term-card c-i"><h4>Isquemia</h4><p>Redução do fluxo sanguíneo.</p></div>
-        <a href="#topo" class="back-top">↑ TOPO</a>
+        <a href="#topo" class="back-top">↑ VOLTAR PARTE INICIAL</a>
     </div>
 
-    <div id="J" class="letter-group"><h2 class="letter-title">J</h2>
+    <div id="grupo-J" class="letter-group"><h2 class="letter-title">J</h2>
         <div class="term-card c-j"><h4>Jarrete</h4><p>Articulação traseira posterior.</p></div>
         <div class="term-card c-j"><h4>Jejum</h4><p>Período sem alimentação.</p></div>
-        <a href="#topo" class="back-top">↑ TOPO</a>
+        <a href="#topo" class="back-top">↑ VOLTAR PARTE INICIAL</a>
     </div>
 
-    <div id="K" class="letter-group"><h2 class="letter-title">K</h2>
+    <div id="grupo-K" class="letter-group"><h2 class="letter-title">K</h2>
         <div class="term-card c-k"><h4>Ketamina</h4><p>Anestésico veterinário.</p></div>
         <div class="term-card c-k"><h4>Keratite</h4><p>Inflamação da córnea.</p></div>
-        <a href="#topo" class="back-top">↑ TOPO</a>
+        <a href="#topo" class="back-top">↑ VOLTAR PARTE INICIAL</a>
     </div>
 
-    <div id="L" class="letter-group"><h2 class="letter-title">L</h2>
+    <div id="grupo-L" class="letter-group"><h2 class="letter-title">L</h2>
         <div class="term-card c-l"><h4>Laceração</h4><p>Ferida irregular profunda.</p></div>
         <div class="term-card c-l"><h4>Laminite</h4><p>Inflamação das lâminas do casco.</p></div>
         <div class="term-card c-l"><h4>Linfangite</h4><p>Inflamação de vasos linfáticos.</p></div>
-        <a href="#topo" class="back-top">↑ TOPO</a>
+        <a href="#topo" class="back-top">↑ VOLTAR PARTE INICIAL</a>
     </div>
 
-    <div id="M" class="letter-group"><h2 class="letter-title">M</h2>
+    <div id="grupo-M" class="letter-group"><h2 class="letter-title">M</h2>
         <div class="term-card c-m"><h4>Manejo</h4><p>Práticas de cuidado geral.</p></div>
         <div class="term-card c-m"><h4>Miíase</h4><p>Bicheira (larvas de moscas).</p></div>
         <div class="term-card c-m"><h4>Mormo</h4><p>Doença bacteriana grave e zoonótica.</p></div>
-        <a href="#topo" class="back-top">↑ TOPO</a>
+        <a href="#topo" class="back-top">↑ VOLTAR PARTE INICIAL</a>
     </div>
 
-    <div id="N" class="letter-group"><h2 class="letter-title">N</h2>
-        <div class="term-card c-n"><h4>Necrose</h4><p>Morte celular de um tecido.</p></div>
+    <div id="grupo-N" class="letter-group"><h2 class="letter-title">N</h2>
+        <div class="term-card c-n"><h4>Necrose</h4><p>Morte celular de um tissue.</p></div>
         <div class="term-card c-n"><h4>Neutrófilo</h4><p>Célula de defesa imunológica.</p></div>
-        <a href="#topo" class="back-top">↑ TOPO</a>
+        <a href="#topo" class="back-top">↑ VOLTAR PARTE INICIAL</a>
     </div>
 
-    <div id="P" class="letter-group"><h2 class="letter-title">P</h2>
+    <div id="grupo-P" class="letter-group"><h2 class="letter-title">P</h2>
         <div class="term-card c-p"><h4>Palpação</h4><p>Exame físico tátil.</p></div>
         <div class="term-card c-p"><h4>Potros</h4><p>Filhotes de equinos.</p></div>
         <div class="term-card c-p"><h4>Prolapso</h4><p>Exteriorização de órgãos.</p></div>
-        <a href="#topo" class="back-top">↑ TOPO</a>
+        <a href="#topo" class="back-top">↑ VOLTAR PARTE INICIAL</a>
     </div>
 
-    <div id="Q" class="letter-group"><h2 class="letter-title">Q</h2>
+    <div id="grupo-Q" class="letter-group"><h2 class="letter-title">Q</h2>
         <div class="term-card c-q"><h4>Quartela</h4><p>Região entre boleto e casco.</p></div>
         <div class="term-card c-q"><h4>Quitosana</h4><p>Auxiliar na cicatrização.</p></div>
-        <a href="#topo" class="back-top">↑ TOPO</a>
+        <a href="#topo" class="back-top">↑ VOLTAR PARTE INICIAL</a>
     </div>
 
-    <div id="T" class="letter-group"><h2 class="letter-title">T</h2>
+    <div id="grupo-T" class="letter-group"><h2 class="letter-title">T</h2>
         <div class="term-card c-t"><h4>Taquicardia</h4><p>Aumento da frequência cardíaca.</p></div>
         <div class="term-card c-t"><h4>Tétano</h4><p>Doença neurológica bacteriana.</p></div>
         <div class="term-card c-t"><h4>Trombose</h4><p>Coágulo em vasos sanguíneos.</p></div>
-        <a href="#topo" class="back-top">↑ TOPO</a>
+        <a href="#topo" class="back-top">↑ VOLTAR PARTE INICIAL</a>
     </div>
 
-    <div id="Z" class="letter-group"><h2 class="letter-title">Z</h2>
+    <div id="grupo-Z" class="letter-group"><h2 class="letter-title">Z</h2>
         <div class="term-card c-z"><h4>Zoonose</h4><p>Doença transmitida entre animal e humano.</p></div>
         <div class="term-card c-z"><h4>Zinco</h4><p>Mineral para imunidade e pele.</p></div>
-        <a href="#topo" class="back-top">↑ TOPO</a>
+        <a href="#topo" class="back-top">↑ VOLTAR PARTE INICIAL</a>
     </div>
 </div>
+
+<script>
+    function filtrarLetra(letra) {
+        // Seleciona todos os blocos de letras
+        const grupos = document.querySelectorAll('.letter-group');
+        
+        // Esconde todos os grupos
+        grupos.forEach(grupo => {
+            grupo.style.display = 'none';
+        });
+        
+        // Mostra apenas o grupo da letra clicada
+        const grupoSelecionado = document.getElementById('grupo-' + letra);
+        if (grupoSelecionado) {
+            grupoSelecionado.style.display = 'block';
+            // Rola a tela suavemente para o início do grupo filtrado
+            grupoSelecionado.scrollIntoView({ behavior: 'smooth' });
+        }
+    }
+
+    function mostrarTodasAsLetras() {
+        // Seleciona todos os blocos de letras
+        const grupos = document.querySelectorAll('.letter-group');
+        
+        // Exibe todos os grupos novamente
+        grupos.forEach(grupo => {
+            grupo.style.display = 'block';
+        });
+        
+        // Retorna o scroll para o topo da página suavemente
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+</script>
+
 </body>
 </html>

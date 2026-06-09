@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Doenças em Cavalos - Guia de Notificação</title>
 
-   <style>
-        /* RESET E FUNDO PRETO */
+    <style>
+        /* RESET TOTAL PARA EVITAR ERROS DE RENDERIZAÇÃO */
         * {
             margin: 0;
             padding: 0;
@@ -14,7 +14,7 @@
         }
 
         body {
-            background-color: #000000;
+            background-color: #000000; /* Fundo Preto Absoluto */
             color: #ffffff;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
@@ -26,26 +26,60 @@
             margin: 0 auto;
         }
 
-        /* TÍTULOS */
+        /* BOTÃO VOLTAR FIXO (PADRÃO DO APP) */
+        .btn-voltar {
+            position: fixed;
+            top: 15px;
+            left: 15px;
+            background-color: #0d0d0d;
+            color: #ffffff;
+            text-decoration: none;
+            padding: 8px 16px;
+            font-size: 14px;
+            font-weight: bold;
+            border: 1px solid #ffd700;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .btn-voltar:hover {
+            background-color: #ffd700;
+            color: #000000;
+            transform: scale(1.05);
+        }
+
+        /* ESTRUTURA DE TÍTULOS COM MÁXIMO DESTAQUE */
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+            border-bottom: 3px solid #ffd700;
+            padding-bottom: 20px;
+        }
+
         .main-title {
             color: #ffd700;
-            text-align: center;
             text-transform: uppercase;
-            font-size: 2.2rem;
+            font-size: 2.6rem;
+            font-weight: 700;
+            margin-top: 30px;
             margin-bottom: 10px;
-            letter-spacing: 2px;
+            letter-spacing: 3px;
+            text-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
         }
 
         .sub-title {
             color: #3498db;
             text-align: center;
             font-size: 1.5rem;
-            margin-bottom: 40px;
+            margin-bottom: 20px;
             text-transform: uppercase;
+            font-weight: 600;
         }
 
-        /* BLOCOS DE CONTEÚDO */
-        .section-box {
+        /* BLOCOS DE CONTEÚDO / CARDS */
+        .section-box, .content-box {
             background: #0d0d0d;
             border: 1px solid #222;
             border-radius: 15px;
@@ -62,10 +96,20 @@
             text-transform: uppercase;
         }
 
+        .disease-title {
+            color: #ffd700;
+            font-size: 1.8rem;
+            border-left: 5px solid #3498db;
+            padding-left: 15px;
+            margin: 10px 0 25px 0;
+            text-transform: uppercase;
+        }
+
         h3 {
             color: #ffd700;
             margin-top: 20px;
             margin-bottom: 10px;
+            text-transform: uppercase;
         }
 
         p {
@@ -93,356 +137,230 @@
             font-weight: bold;
         }
 
-        /* RESPONSIVIDADE */
-        @media (max-width: 768px) {
-            .main-title { font-size: 1.8rem; }
-            .section-box { padding: 20px; }
-        }
-    </style>
-</head>
-<body>
-
-<div class="container">
-    <h1 class="main-title">DOENÇAS EM CAVALOS</h1>
-    <h2 class="sub-title">PRINCIPAIS DOENÇAS EM EQUINOS, O QUE FAZER?</h2>
-
-    <section class="section-box">
-        <h2 class="highlight-title">Você sabe o que são zoonoses? E o que fazer?</h2>
-        <p><strong>Zoonose</strong> - Doença infecciosa que pode ser transmitida de animais para humanos ou de humanos para animais.</p>
-        
-        <h3>QUEM AVISAR QUANDO ESTIVER SUSPEITA DE ZOONOSE? O que fazer? Posso tratar?</h3>
-        <p>Algumas delas são de <strong>notificação obrigatória</strong>.</p>
-        
-        <ul>
-            <li><strong>Notificação obrigatória</strong> - comunicação obrigatória e legalmente exigida aos órgãos de saúde (Ministério da Saúde, Secretarias Estaduais e Municipais) sobre a suspeita ou confirmação de doenças.</li>
-            <li>Regulamentada pela <strong>Lei nº 6.259/1975</strong> e pela <strong>Portaria de Consolidação nº 4/2017</strong> do Ministério da Saúde.</li>
-        </ul>
-    </section>
-
-    <section class="section-box">
-        <h2 class="highlight-title">Quem Deve Notificar?</h2>
-        <ul>
-            <li><strong>Profissionais de saúde:</strong> Médicos e outros profissionais que atendem pacientes;</li>
-            <li>Devem notificar suspeita ou confirmação de doença;</li>
-            <li>Casos urgentes: notificação em até 24h;</li>
-            <li><strong>Estabelecimentos de saúde:</strong> Hospitais, clínicas, laboratórios, consultórios (públicos ou privados);</li>
-            <li>Devem garantir que a notificação seja realizada corretamente.</li>
-            <li><strong>Outras instituições:</strong> Escolas, abrigos, hemocentros, laboratórios e centros de pesquisa;</li>
-            <li><strong>Cidadãos:</strong> Qualquer pessoa pode e deve informar à autoridade sanitária local sobre casos suspeitos — mesmo sem ficha formal;</li>
-            <li>Você também pode.</li>
-        </ul>
-
-        <h3>Por que é importante notificar?</h3>
-        <ul>
-            <li>Garante resposta rápida das autoridades;</li>
-            <li>Ajuda a prevenir a disseminação de doenças;</li>
-            <li>É uma obrigação legal e ética dos profissionais de saúde.</li>
-        </ul>
-    </section>
-
-    <section class="section-box">
-        <h2 class="highlight-title">O que fazer em um caso suspeito?</h2>
-        
-        <p><strong>1. Identifique sinais suspeitos</strong><br>
-        Anote sinais observados (febre, corrimento, lesões, aborto, paralisia, etc.), número de animais afetados e desde quando.</p>
-
-        <p><strong>2. Isole imediatamente os animais suspeitos</strong><br>
-        Separe em baia/currais exclusivos; não transporte os animais. (Evite contato entre animais doentes e saudáveis.)</p>
-
-        <p><strong>3. Use proteção pessoal (EPI)</strong><br>
-        Luvas, botas, avental/roupa que pode ser desinfetada; evite contato direto com secreções, sangue e carcaças.</p>
-
-        <p><strong>4. Contate o médico-veterinário que atende a propriedade (se houver) — urgente</strong><br>
-        Informe sinais, número de animais e local; o veterinário fará avaliação clínica e orientará coleta de material e condutas iniciais.</p>
-        <p class="important-note">Por que avisar o vet primeiro: ele pode confirmar se a situação exige notificação imediata, coletar/amostrar corretamente e orientar biossegurança; É prática recomendada.</p>
-
-        <p><strong>5. Notifique o Serviço Veterinário Oficial (SVO) local — imediatamente quando for caso de importância.</strong><br>
-        A notificação de suspeitas de doenças animais deve ser feita ao Serviço Veterinário Oficial estadual/municipal ou às Superintendências Federais do MAPA. Em muitos estados há telefone e formulário online (SISBRAVET / e-SISBRAVET).</p>
-
-        <p><strong>6. Como notificar (canais e forma prática)?</strong><br>
-        <strong>Telefone/Presencial:</strong> ligar/ir ao órgão estadual de sanidade agropecuária ou à Superintendência Federal da Agricultura.<br>
-        <strong>Online:</strong> registrar no SISBRAVET / e-SISBRAVET (sistema do MAPA) ou no sistema estadual equivalente;<br>
-        Informe endereço preciso da propriedade, espécie, sintomas, número de animais afetados e foto quando possível.</p>
-
-        <p><strong>7. Informe também a Vigilância em Saúde (quando for zoonose/risco humano);</strong><br>
-        Se houver risco para pessoas (ex.: raiva, leptospirose, mormo). <strong>SINAN</strong> - Sistema de Informação de Agravos de Notificação) é um sistema do Ministério da Saúde que coleta e organiza dados de doenças e agravos de saúde de notificação compulsória.</p>
-
-        <p><strong>8. Registre tudo (proprietário)</strong><br>
-        Datas, horários, nomes de quem foi contatado (veterinário, SVO), nº de protocolo, fotos e documentação. Isso facilita investigação e ações oficiais.</p>
-
-        <p><strong>9. Não trate nem descarte amostras sem orientação</strong><br>
-        Siga as orientações do veterinário/SVO para coleta, transporte de amostras e manejo de carcaças (algumas doenças exigem procedimentos especiais). Não abrir cadáveres sem autorização em casos suspeitos.</p>
-    </section>
-</div>
-
-</body>
-</html>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Guia de Doenças Equinas e Notificação</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            background-color: #000000;
-            color: #ffffff;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            padding: 40px 20px;
-        }
-
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 50px;
-            border-bottom: 2px solid #ffd700;
-            padding-bottom: 20px;
-        }
-
-        h1 {
-            color: #ffd700;
-            text-transform: uppercase;
-            font-size: 2.2rem;
-            margin-bottom: 10px;
-        }
-
-        h2 {
-            color: #3498db;
-            text-transform: uppercase;
-            font-size: 1.5rem;
-        }
-
-        .content-box {
-            background: #0d0d0d;
-            border: 1px solid #222;
-            border-radius: 15px;
-            padding: 30px;
-            margin-bottom: 40px;
-        }
-
-        .content-box h2, .content-box h3 {
-            color: #ffd700;
-            margin-bottom: 20px;
-            text-transform: uppercase;
-        }
-
-        .disease-title {
-            color: #ffd700;
-            font-size: 1.8rem;
-            border-left: 5px solid #3498db;
-            padding-left: 15px;
-            margin: 30px 0 15px 0;
-        }
-
-        p {
-            margin-bottom: 15px;
-            text-align: justify;
-            color: #cccccc;
-        }
-
-        ul {
-            margin-bottom: 20px;
-            list-style-position: inside;
-        }
-
-        li {
-            margin-bottom: 8px;
-            color: #cccccc;
-        }
-
-        strong {
-            color: #ffffff;
-        }
-
         .divider {
-            height: 1px;
-            background: #333;
-            margin: 40px 0;
+            height: 2px;
+            background: #ffd700;
+            margin: 50px 0;
+            box-shadow: 0 0 10px rgba(255, 215, 0, 0.2);
         }
 
         .clinical-warning {
             font-style: italic;
             font-size: 0.9rem;
             color: #aaa;
-            margin-top: 10px;
+            margin-top: 15px;
             padding: 10px;
             border: 1px solid #444;
+            background-color: #050505;
         }
 
+        /* RESPONSIVIDADE PARA CELULAR */
         @media (max-width: 768px) {
-            h1 { font-size: 1.6rem; }
-            .content-box { padding: 20px; }
+            .btn-voltar {
+                position: absolute;
+                top: 15px;
+                left: 15px;
+            }
+
+            .main-title {
+                margin-top: 50px;
+                font-size: 1.8rem;
+                letter-spacing: 1px;
+            }
+
+            .sub-title {
+                font-size: 1.2rem;
+            }
+
+            .section-box, .content-box {
+                padding: 20px;
+            }
         }
     </style>
 </head>
 <body>
 
-<div class="container">
+    <a href="index.html" class="btn-voltar">⬅ Voltar ao Menu</a>
 
-    <div class="section-header">
-        <h1>DOENÇAS EM CAVALOS</h1>
-        <h2>PRINCIPAIS DOENÇAS EM EQUINOS, O QUE FAZER?</h2>
-    </div>
-
-    <div class="content-box">
-        <h3>Você sabe o que são zoonoses? E o que fazer?</h3>
-        <p>Zoonose - Doença infecciosa que pode ser transmitida de animais para humanos ou de humanos para animais.</p>
+    <div class="container">
         
-        <h3>QUEM AVISAR QUANDO ESTIVER SUSPEITA DE ZOONOSE? O que fazer? Posso tratar?</h3>
-        <p>Algumas delas são de notificação obrigatória</p>
-        
-        <ul>
-            <li><strong>Notificação obrigatória</strong> - comunicação obrigatória e legalmente exigida aos órgãos de saúde (Ministério da Saúde, Secretarias Estaduais e Municipais) sobre a suspeita ou confirmação de doenças.</li>
-            <li>Regulamentada pela Lei nº 6.259/1975 e pela Portaria de Consolidação nº 4/2017 do Ministério da Saúde.</li>
-        </ul>
+        <header class="section-header">
+            <h1 class="main-title">DOENÇAS EM CAVALOS</h1>
+            <h2 class="sub-title">PRINCIPAIS DOENÇAS EM EQUINOS, O QUE FAZER?</h2>
+        </header>
 
-        <h3>Quem Deve Notificar?</h3>
-        <ul>
-            <li><strong>Profissionais de saúde:</strong> Médicos e outros profissionais que atendem pacientes;</li>
-            <li>Devem notificar suspeita ou confirmação de doença;</li>
-            <li>Casos urgentes: notificação em até 24h;</li>
-            <li><strong>Estabelecimentos de saúde:</strong> Hospitais, clínicas, laboratórios, consultórios (públicos ou privados);</li>
-            <li>Devem garantir que a notificação seja realizada corretamente.</li>
-            <li><strong>Outras instituições:</strong> Escolas, abrigos, hemocentros, laboratórios e centros de pesquisa;</li>
-            <li><strong>Cidadãos:</strong> Qualquer pessoa pode e deve informar à autoridade sanitária local sobre casos suspeitos — mesmo sem ficha formal;</li>
-            <li>Você também pode.</li>
-        </ul>
+        <section class="section-box">
+            <h2 class="highlight-title">Você sabe o que são zoonoses? E o que fazer?</h2>
+            <p><strong>Zoonose</strong> - Doença infecciosa que pode be transmitida de animais para humanos ou de humanos para animais.</p>
+            
+            <h3>QUEM AVISAR QUANDO ESTIVER SUSPEITA DE ZOONOSE? O que fazer? Posso tratar?</h3>
+            <p>Algumas delas são de <strong>notificação obrigatória</strong>.</p>
+            
+            <ul>
+                <li><strong>Notificação obrigatória</strong> - comunicação obrigatória e legalmente exigida aos órgãos de saúde (Ministério da Saúde, Secretarias Estaduais e Municipais) sobre a suspeita ou confirmação de doenças.</li>
+                <li>Regulamentada pela <strong>Lei nº 6.259/1975</strong> e pela <strong>Portaria de Consolidação nº 4/2017</strong> do Ministério da Saúde.</li>
+            </ul>
+        </section>
 
-        <h3>Por que é importante notificar?</h3>
-        <ul>
-            <li>Garante resposta rápida das autoridades;</li>
-            <li>Ajuda a prevenir a disseminação de doenças;</li>
-            <li>É uma obrigação legal e ética dos profissionais de saúde.</li>
-        </ul>
+        <section class="section-box">
+            <h2 class="highlight-title">Quem Deve Notificar?</h2>
+            <ul>
+                <li><strong>Profissionais de saúde:</strong> Médicos e outros profissionais que atendem pacientes;</li>
+                <li>Devem notificar suspeita ou confirmação de doença;</li>
+                <li>Casos urgentes: notificação em até 24h;</li>
+                <li><strong>Estabelecimentos de saúde:</strong> Hospitais, clínicas, laboratórios, consultórios (públicos ou privados);</li>
+                <li>Devem garantir que a notificação seja realizada corretamente.</li>
+                <li><strong>Outras instituições:</strong> Escolas, abrigos, hemocentros, laboratórios e centros de pesquisa;</li>
+                <li><strong>Cidadãos:</strong> Qualquer pessoa pode e deve informar à autoridade sanitária local sobre casos suspeitos — mesmo sem ficha formal;</li>
+                <li>Você também pode.</li>
+            </ul>
+
+            <h3>Por que é importante notificar?</h3>
+            <ul>
+                <li>Garante resposta rápida das autoridades;</li>
+                <li>Ajuda a prevenir a disseminação de doenças;</li>
+                <li>É uma obrigação legal e ética dos profissionais de saúde.</li>
+            </ul>
+        </section>
+
+        <section class="section-box">
+            <h2 class="highlight-title">O que fazer em um caso suspeito?</h2>
+            
+            <p><strong>1. Identifique sinais suspeitos</strong><br>
+            Anote sinais observados (febre, corrimento, lesões, aborto, paralisia, etc.), número de animais afetados e desde quando.</p>
+
+            <p><strong>2. Isole imediatamente os animais suspeitos</strong><br>
+            Separe em baia/currais exclusivos; não transporte os animais. (Evite contato entre animais doentes e saudáveis.)</p>
+
+            <p><strong>3. Use proteção pessoal (EPI)</strong><br>
+            Luvas, botas, avental/roupa que pode ser desinfetada; evite contato direto com secreções, sangue e carcaças.</p>
+
+            <p><strong>4. Contate o médico-veterinário que atende a propriedade (se houver) — urgente</strong><br>
+            Informe sinais, número de animais e local; o veterinário fará avaliação clínica e orientará coleta de material e condutas iniciais.</p>
+            <p class="important-note">Por que avisar o vet primeiro: ele pode confirmar se a situação exige notificação imediata, coletar/amostrar corretamente e orientar biossegurança; É prática recomendada.</p>
+
+            <p><strong>5. Notifique o Serviço Veterinário Oficial (SVO) local — imediatamente quando for caso de importância.</strong><br>
+            A notificação de suspeitas de doenças animais deve ser feita ao Serviço Veterinário Oficial estadual/municipal ou às Superintendências Federais do MAPA. Em muitos estados há telefone e formulário online (SISBRAVET / e-SISBRAVET).</p>
+
+            <p><strong>6. Como notificar (canais e forma prática)?</strong><br>
+            <strong>Telefone/Presencial:</strong> ligar/ir ao órgão estadual de sanidade agropecuária ou à Superintendência Federal da Agricultura.<br>
+            <strong>Online:</strong> registrar no SISBRAVET / e-SISBRAVET (sistema do MAPA) ou no sistema estadual equivalente;<br>
+            Informe endereço preciso da propriedade, espécie, sintomas, número de animais afetados e foto quando possível.</p>
+
+            <p><strong>7. Informe também a Vigilância em Saúde (quando for zoonose/risco humano);</strong><br>
+            Se houver risco para pessoas (ex.: raiva, leptospirose, mormo). <strong>SINAN</strong> - Sistema de Informação de Agravos de Notificação) é um sistema do Ministério da Saúde que coleta e organiza dados de doenças e agravos de saúde de notificação compulsória.</p>
+
+            <p><strong>8. Registre tudo (proprietário)</strong><br>
+            Datas, horários, nomes de quem foi contatado (veterinário, SVO), nº de protocolo, fotos e documentação. Isso facilita investigação e ações oficiais.</p>
+
+            <p><strong>9. Não trate nem descarte amostras sem orientação</strong><br>
+            Siga as orientações do veterinário/SVO para coleta, transporte de amostras e manejo de carcaças (algumas doenças exigem procedimentos especiais). Não abrir cadáveres sem autorização em casos suspeitos.</p>
+        </section>
+
+        <div class="divider"></div>
+
+        <h2 class="sub-title" style="font-size: 2rem; margin-bottom: 40px;">Principais doenças para ficar de olho em equinos</h2>
+
+        <div class="content-box">
+            <h2 class="disease-title">MORMO</h2>
+            <p><strong>Outros nomes:</strong> Lamparão; Farcinose, especialmente lesões na pele; Catarro de burro; Catarro de mormo; Garrotilho atípico; Cancro nasal.</p>
+            <p><strong>Causador:</strong> Burkholderia mallei (bactéria);<br>
+            <strong>Transmissão:</strong> Contato com secreções nasais, feridas, utensílios ou água contaminada.</p>
+            <h3>Sinais clínicos</h3>
+            <ul>
+                <li>Febre;</li>
+                <li>Secreção nasal purulenta;</li>
+                <li>Nódulos;</li>
+                <li>Úlceras na pele e mucosas;</li>
+                <li>Emagrecimento e fraqueza.</li>
+            </ul>
+            <p class="clinical-warning">*Esses sinais clínicos não são específicos da doença, por isso, consulte um veterinário de confiança</p>
+            <h3>O que fazer?</h3>
+            <p>Isolar o animal, não tocar sem EPI, comunicar imediatamente ao serviço veterinário oficial.</p>
+            <h3>Prevenção</h3>
+            <p>Higienizar materiais, evitar contato com animais suspeitos e realizar testagem periódica.</p>
+        </div>
+
+        <div class="content-box">
+            <h2 class="disease-title">RAIVA</h2>
+            <p><strong>Outros nomes:</strong> Quando acomete humanos é denominada de hidrofobia; “Doença de cachorro louco” ; “Raiva paralítica” ; “Doença paresiante” ; “Mal das cadeiras”.</p>
+            <p><strong>Causador:</strong> Lyssavirus (vírus);<br>
+            <strong>Transmissão:</strong> Mordida ou contato com saliva de animal infectado (morcegos, cães, etc.);<br>
+            <strong>Notificação obrigatória:</strong> Sim.</p>
+            <h3>Sinais clínicos</h3>
+            <ul>
+                <li>Alteração de comportamento;</li>
+                <li>Salivação excessiva;</li>
+                <li>Dificuldade de locomoção;</li>
+                <li>Paralisia e morte rápida.</li>
+            </ul>
+            <p class="clinical-warning">*Esses sinais não indicam diagnóstico e não substituem o veterinário</p>
+            <h3>O que fazer?</h3>
+            <p>Isolar imediatamente e comunicar o serviço de zoonoses.</p>
+            <h3>Prevenção</h3>
+            <p>Vacinação anual e controle de morcegos que se alimentam de sangue.</p>
+        </div>
+
+        <div class="content-box">
+            <h2 class="disease-title">LEPTOSPIROSE</h2>
+            <p><strong>Outros nomes:</strong> Doença de Weil; Febre dos arrozais; Febre dos pântanos; Febre dos nadadores.</p>
+            <p><strong>Causador:</strong> Leptospira spp. (bactéria);<br>
+            <strong>Transmissão:</strong> Contato com urina de animais infectados (água ou solo contaminado);<br>
+            <strong>Notificação obrigatória:</strong> Sim.</p>
+            <h3>Sinais clínicos</h3>
+            <ul>
+                <li>Febre;</li>
+                <li>Icterícia;</li>
+                <li>Fraqueza;</li>
+                <li>Aborto;</li>
+                <li>Urina escura.</li>
+            </ul>
+            <p class="clinical-warning">*Esses sinais não indicam diagnóstico e não substituem o veterinário</p>
+            <h3>Prevenção</h3>
+            <p>Controle de roedores, evitar áreas alagadas e vacinar em regiões endêmicas.</p>
+        </div>
+
+        <div class="content-box">
+            <h2 class="disease-title">ENCEFALOMIELITE PROTOZOÁRIA EQUINA</h2>
+            <p>(LESTE, OESTE, VENEZUELANA)</p>
+            <p><strong>Causador:</strong> Vírus Alphavirus (família Togaviridae).<br>
+            <strong>Transmissão:</strong> Picada de mosquitos vetores.<br>
+            <strong>Notificação obrigatória:</strong> Sim.</p>
+            <h3>Sinais clínicos</h3>
+            <ul>
+                <li>Febre;</li>
+                <li>Apatia;</li>
+                <li>Incoordenação;</li>
+                <li>Sonolência;</li>
+                <li>Convulsões e paralisia.</li>
+            </ul>
+            <p class="clinical-warning">*Esses sinais não indicam diagnóstico e não substituem o veterinário.</p>
+            <h3>O que fazer?</h3>
+            <p>Isolar o animal e comunicar imediatamente ao serviço veterinário oficial.</p>
+            <h3>Prevenção</h3>
+            <p>Vacinação e controle de mosquitos.</p>
+        </div>
+
+        <div class="content-box">
+            <h2 class="disease-title">SALMONELOSE EQUINA (Tifo Equino)</h2>
+            <ul>
+                <li><strong>Causador:</strong> Salmonella spp. (bactéria);</li>
+                <li><strong>Transmissão:</strong> Via fecal-oral, por água ou alimentos contaminados;</li>
+                <li><strong>Notificação obrigatória:</strong> Sim (quando muitos animais tiverem).</li>
+            </ul>
+            <h3>Sinais clínicos</h3>
+            <ul>
+                <li>Diarreia intensa;</li>
+                <li>Febre;</li>
+                <li>Desidratação e cólica.</li>
+            </ul>
+            <h3>O que fazer?</h3>
+            <p>Isolar o animal, reforçar higiene e notificar se houver vários casos.</p>
+            <h3>Prevenção</h3>
+            <p>Limpeza de baias, higiene alimentar e controle de roedores.</p>
+        </div>
+
     </div>
-
-    <div class="content-box">
-        <h3>O que fazer em um caso suspeito?</h3>
-        <p><strong>1. Identifique sinais suspeitos</strong><br>Anote sinais observados (febre, corrimento, lesões, aborto, paralisia, etc.), número de animais afetados e desde quando.</p>
-        
-        <p><strong>2. Isole imediatamente os animais suspeitos</strong><br>Separe em baia/currais exclusivos; não transporte os animais. (Evite contato entre animais doentes e saudáveis.)</p>
-        
-        <p><strong>3. Use proteção pessoal (EPI)</strong><br>Luvas, botas, avental/roupa que pode ser desinfetada; Evite contato direto com secreções, sangue e carcaças.</p>
-        
-        <p><strong>4. Contate o médico-veterinário que atende a propriedade (se houver) — urgente</strong><br>Informe sinais, número de animais e local; O veterinário fará avaliação clínica e orientará coleta de material e condutas iniciais.</p>
-        <p>Por que avisar o vet primeiro: ele pode confirmar se a situação exige notificação imediata, coletar/amostrar corretamente e orientar biossegurança; É prática recomendada.</p>
-
-        <p><strong>5. Notifique o Serviço Veterinário Oficial (SVO) local — imediatamente quando for caso de importância.</strong><br>A notificação de suspeitas de doenças animais deve ser feita ao Serviço Veterinário Oficial estadual/municipal ou às Superintendências Federais do MAPA. Em muitos estados há telefone e formulário online (SISBRAVET / e-SISBRAVET).</p>
-
-        <p><strong>6. Como notificar (canais e forma prática)?</strong><br>Telefone/Presencial: ligar/ir ao órgão estadual de sanidade agropecuária ou à Superintendência Federal da Agricultura.<br>Online: registrar no SISBRAVET / e-SISBRAVET (sistema do MAPA) ou no sistema estadual equivalente; Informe endereço preciso da propriedade, espécie, sintomas, número de animais afetados e foto quando possível.</p>
-
-        <p><strong>7. Informe também a Vigilância em Saúde (quando for zoonose/risco humano);</strong><br>Se houver risco para pessoas (ex.: raiva, leptospirose, mormo). SINAN - Sistema de Informação de Agravos de Notificação) é um sistema do Ministério da Saúde que coleta e organiza dados de doenças e agravos de saúde de notificação compulsória.</p>
-
-        <p><strong>8. Registre tudo (proprietário)</strong><br>Datas, horários, nomes de quem foi contatado (veterinário, SVO), nº de protocolo, fotos e documentação. Isso facilita investigação e ações oficiais.</p>
-
-        <p><strong>9. Não trate nem descarte amostras sem orientação</strong><br>Siga as orientações do veterinário/SVO para coleta, transporte de amostras e manejo de carcaças (algumas doenças exigem procedimentos especiais). Não abrir cadáveres sem autorização em casos suspeitos</p>
-    </div>
-
-    <div class="divider"></div>
-
-    <h1 class="section-header" style="border: none;">Principais doenças para ficar de olho em equinos</h1>
-
-    <div class="content-box">
-        <h2 class="disease-title">MORMO</h2>
-        <p><strong>Outros nomes:</strong> Lamparão; Farcinose, especialmente lesões na pele; Catarro de burro; Catarro de mormo; Garrotilho atípico; Cancro nasal.</p>
-        <p><strong>Causador:</strong> Burkholderia mallei (bactéria);<br><strong>Transmissão:</strong> Contato com secreções nasais, feridas, utensílios ou água contaminada.</p>
-        <h3>Sinais clínicos</h3>
-        <ul>
-            <li>Febre;</li>
-            <li>Secreção nasal purulenta;</li>
-            <li>Nódulos;</li>
-            <li>Úlceras na pele e mucosas;</li>
-            <li>Emagrecimento e fraqueza.</li>
-        </ul>
-        <p class="clinical-warning">*Esses sinais clínicos não são específicos da doença, por isso, consulte um veterinário de confiança</p>
-        <h3>O que fazer?</h3>
-        <p>Isolar o animal, não tocar sem EPI, comunicar imediatamente ao serviço veterinário oficial.</p>
-        <h3>Prevenção</h3>
-        <p>Higienizar materiais, evitar contato com animais suspeitos e realizar testagem periódica.</p>
-    </div>
-
-    <div class="content-box">
-        <h2 class="disease-title">RAIVA</h2>
-        <p><strong>Outros nomes:</strong> Quando acomete humanos é denominada de hidrofobia; “Doença de cachorro louco” ; “Raiva paralítica” ; “Doença paresiante” ; “Mal das cadeiras”.</p>
-        <p><strong>Causador:</strong> Lyssavirus (vírus);<br><strong>Transmissão:</strong> Mordida ou contato com saliva de animal infectado (morcegos, cães, etc.);<br><strong>Notificação obrigatória:</strong> Sim.</p>
-        <h3>Sinais clínicos</h3>
-        <ul>
-            <li>Alteração de comportamento;</li>
-            <li>Salivação excessiva;</li>
-            <li>Dificuldade de locomoção;</li>
-            <li>Paralisia e morte rápida.</li>
-        </ul>
-        <p class="clinical-warning">*Esses sinais não indicam diagnóstico e não substituem o veterinário</p>
-        <h3>O que fazer?</h3>
-        <p>Isolar imediatamente e comunicar o serviço de zoonoses.</p>
-        <h3>Prevenção</h3>
-        <p>Vacinação anual e controle de morcegos que se alimentam de sangue.</p>
-    </div>
-
-    <div class="content-box">
-        <h2 class="disease-title">LEPTOSPIROSE</h2>
-        <p><strong>Outros nomes:</strong> Doença de Weil; Febre dos arrozais; Febre dos pântanos; Febre dos nadadores.</p>
-        <p><strong>Causador:</strong> Leptospira spp. (bactéria);<br><strong>Transmissão:</strong> Contato com urina de animais infectados (água ou solo contaminado);<br><strong>Notificação obrigatória:</strong> Sim.</p>
-        <h3>Sinais clínicos</h3>
-        <ul>
-            <li>Febre;</li>
-            <li>Icterícia;</li>
-            <li>Fraqueza;</li>
-            <li>Aborto;</li>
-            <li>Urina escura.</li>
-        </ul>
-        <p class="clinical-warning">*Esses sinais não indicam diagnóstico e não substituem o veterinário</p>
-        <h3>Prevenção</h3>
-        <p>Controle de roedores, evitar áreas alagadas e vacinar em regiões endêmicas.</p>
-    </div>
-
-    <div class="content-box">
-        <h2 class="disease-title">ENCELOMIELITE PROTOZOÁRIA EQUINA</h2>
-        <p>(LESTE, OESTE, VENEZUELANA)</p>
-        <p><strong>Causador:</strong> Vírus Alphavirus (família Togaviridae).<br><strong>Transmissão:</strong> Picada de mosquitos vetores.<br><strong>Notificação obrigatória:</strong> Sim.</p>
-        <h3>Sinais clínicos</h3>
-        <ul>
-            <li>Febre;</li>
-            <li>Apatia;</li>
-            <li>incoordenação;</li>
-            <li>Sonolência;</li>
-            <li>Convulsões e paralisia.</li>
-        </ul>
-        <p class="clinical-warning">*Esses sinais não indicam diagnóstico e não substituem o veterinário.</p>
-        <h3>O que fazer?</h3>
-        <p>Isolar o animal e comunicar imediatamente ao serviço veterinário oficial.</p>
-        <h3>Prevenção</h3>
-        <p>Vacinação e controle de mosquitos.</p>
-    </div>
-
-    <div class="content-box">
-        <h2 class="disease-title">SALMONELOSE EQUINA (Tifo Equino)</h2>
-        <ul>
-            <li><strong>Causador:</strong> Salmonella spp. (bactéria);</li>
-            <li><strong>Transmissão:</strong> Via fecal-oral, por água ou alimentos contaminados;</li>
-            <li><strong>Notificação obrigatória:</strong> Sim (quando muitos animais tiverem).</li>
-        </ul>
-        <h3>Sinais clínicos</h3>
-        <ul>
-            <li>Diarreia intensa;</li>
-            <li>Febre;</li>
-            <li>Desidratação e cólica.</li>
-        </ul>
-        <h3>O que fazer?</h3>
-        <p>Isolar o animal, reforçar higiene e notificar se houver vários casos.</p>
-        <h3>Prevenção</h3>
-        <p>Limpeza de baias, higiene alimentar e controle de roedores.</p>
-    </div>
-
-</div>
 
 </body>
 </html>

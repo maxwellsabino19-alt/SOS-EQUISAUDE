@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Apoiadores - Projeto Equinos</title>
 
-<style>
+    <style>
         /* RESET TOTAL PARA EVITAR ERROS DE RENDERIZAÇÃO */
         * {
             margin: 0;
@@ -26,11 +26,36 @@
             margin: 0 auto;
         }
 
+        /* BOTÃO VOLTAR FIXO (ESTILO APP) */
+        .btn-voltar {
+            position: fixed;
+            top: 15px;
+            left: 15px;
+            background-color: #0d0d0d;
+            color: #ffffff;
+            text-decoration: none;
+            padding: 8px 16px;
+            font-size: 14px;
+            font-weight: bold;
+            border: 1px solid #ffd700;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+            transition: all 0.3s ease;
+            z-index: 1000; /* Fica sempre por cima ao rolar a página */
+        }
+
+        .btn-voltar:hover {
+            background-color: #ffd700;
+            color: #000000;
+            transform: scale(1.05);
+        }
+
         .main-title {
             color: #ffd700; /* Dourado */
             text-align: center;
             text-transform: uppercase;
             font-size: 2.2rem;
+            margin-top: 30px; /* Espaço para não bater no botão fixo em telas pequenas */
             margin-bottom: 50px;
             letter-spacing: 2px;
             border-bottom: 2px solid #ffd700;
@@ -94,6 +119,17 @@
 
         /* RESPONSIVIDADE PARA CELULAR */
         @media (max-width: 768px) {
+            .btn-voltar {
+                position: absolute; /* Vira absoluto no celular para não sumir com espaço útil */
+                top: 15px;
+                left: 15px;
+            }
+
+            .main-title {
+                margin-top: 50px; /* Aumenta o espaço do topo no celular */
+                font-size: 1.8rem;
+            }
+
             .apoio-card {
                 flex-direction: column;
                 align-items: center;
@@ -112,6 +148,9 @@
     </style>
 </head>
 <body>
+
+<!-- BOTÃO RETORNAR AO MENU PRINCIPAL -->
+<a href="index.html" class="btn-voltar">⬅ Voltar ao Menu</a>
 
 <div class="container">
     <h1 class="main-title">Apoiadores</h1>

@@ -3,408 +3,413 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SOS Equisaúde - Manejo Reprodutivo e Cuidados com o Potro</title>
-   <style>
-        /* ESTILO PREMIUM DARK SOS EQUISAÚDE */
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Segoe UI', Arial, sans-serif; background-color: #000; color: #fff; line-height: 1.6; padding: 20px; }
-        .container { max-width: 1000px; margin: 0 auto; background: #0a0a0a; border: 1px solid #333; border-radius: 12px; overflow: hidden; box-shadow: 0 10px 40px rgba(0,0,0,0.8); }
-        
-        header { background: #1a1a1a; padding: 40px; text-align: center; border-bottom: 4px solid #ffd700; }
-        header h1 { color: #ffd700; text-transform: uppercase; font-size: 1.8rem; letter-spacing: 2px; }
-
-        .content { padding: 40px; }
-        
-        section { margin-bottom: 50px; border-bottom: 1px solid #222; padding-bottom: 30px; }
-        h2 { color: #ffd700; text-transform: uppercase; margin-bottom: 20px; font-size: 1.5rem; border-left: 4px solid #ffd700; padding-left: 15px; }
-        h3 { color: #3498db; text-transform: uppercase; margin-top: 25px; margin-bottom: 15px; font-size: 1.2rem; }
-        h4 { color: #fff; text-transform: uppercase; margin-top: 20px; margin-bottom: 10px; font-size: 1rem; text-decoration: underline; }
-        
-        p { margin-bottom: 15px; text-align: justify; color: #ccc; }
-        
-        ul { margin-bottom: 20px; list-style: none; }
-        ul li { margin-bottom: 10px; padding-left: 25px; position: relative; color: #eee; }
-        ul li::before { content: "·"; position: absolute; left: 0; color: #ffd700; font-weight: bold; font-size: 2rem; line-height: 0.8; }
-
-        /* BLOCOS ESPECÍFICOS */
-        .info-box { background: #111; border: 1px solid #2ecc71; padding: 20px; border-radius: 8px; margin: 20px 0; }
-        .alert-box { border-left: 5px solid #e74c3c; background: rgba(231, 76, 60, 0.1); padding: 15px; margin: 20px 0; }
-        .obs-box { background: rgba(255, 215, 0, 0.05); border: 1px dashed #ffd700; padding: 20px; border-radius: 8px; margin: 20px 0; }
-        .highlight-bar { color: #ffd700; font-weight: bold; text-transform: uppercase; text-align: center; border: 1px solid #ffd700; padding: 10px; margin-bottom: 30px; display: block; }
-        
-        .grid-nutri { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 15px; }
-        .nutri-item { background: #1a1a1a; padding: 15px; border-radius: 6px; border: 1px solid #222; }
-        .nutri-item strong { color: #ffd700; display: block; margin-bottom: 5px; }
-
-        .data-box { background: rgba(255, 215, 0, 0.05); border: 1px solid #333; padding: 15px; border-radius: 8px; margin: 10px 0; }
-        .label-tag { background: #ffd700; color: #000; padding: 2px 8px; border-radius: 4px; font-weight: bold; font-size: 0.8rem; text-transform: uppercase; margin-right: 10px; }
-        .comportamento { color: #e74c3c; font-weight: bold; font-style: italic; }
-
-        footer { text-align: center; padding: 30px; color: #555; font-size: 0.8rem; border-top: 1px solid #222; }
+    <title>Manejo Reprodutivo Equino</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome para Ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        body {
+            background-color: #000000;
+            color: #ffffff;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            padding-bottom: 40px;
+        }
+        .btn-back-menu {
+            background-color: transparent;
+            color: #ffd700;
+            border: 1px solid #ffd700;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            padding: 8px 16px;
+            border-radius: 4px;
+            transition: all 0.2s ease;
+        }
+        .btn-back-menu:hover {
+            background-color: #ffd700;
+            color: #000000;
+        }
+        .main-title {
+            color: #ffd700;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border-bottom: 2px solid #ffd700;
+            padding-bottom: 15px;
+            margin-bottom: 30px;
+            font-size: 1.8rem;
+            display: inline-block;
+        }
+        .card-repro {
+            background-color: #0a0a0a;
+            border: 1px solid #222222;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            overflow: hidden;
+        }
+        .card-header-btn {
+            background-color: #0d0d0d;
+            color: #ffd700;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 1rem;
+            letter-spacing: 0.5px;
+            padding: 16px 20px;
+            width: 100%;
+            text-align: left;
+            border: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background-color 0.2s ease;
+        }
+        .card-header-btn:hover {
+            background-color: #121212;
+        }
+        .card-header-btn:not(.collapsed) {
+            border-bottom: 1px solid #ffd700;
+            background-color: #111111;
+        }
+        .card-header-btn .toggle-icon {
+            transition: transform 0.2s ease;
+            color: #ffd700;
+        }
+        .card-header-btn:not(.collapsed) .toggle-icon {
+            transform: rotate(180deg);
+        }
+        .content-section {
+            padding: 20px;
+            color: #e0e0e0;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+        .subsection-title {
+            color: #ffd700;
+            font-weight: bold;
+            font-size: 1.05rem;
+            margin-top: 20px;
+            margin-bottom: 12px;
+            border-left: 3px solid #ffd700;
+            padding-left: 10px;
+            text-transform: uppercase;
+        }
+        .subsection-title:first-of-type {
+            margin-top: 0;
+        }
+        .list-group-repro .list-group-item {
+            background-color: #000000;
+            border: 1px solid #1a1a1a;
+            color: #dddddd;
+            padding: 12px 15px;
+        }
+        .list-group-repro .list-group-item i {
+            color: #ffd700;
+            margin-right: 10px;
+        }
+        .badge-repro {
+            background-color: #222222;
+            color: #ffd700;
+            border: 1px solid #ffd700;
+            font-weight: normal;
+            padding: 5px 10px;
+        }
+        .image-container-repro {
+            background-color: #0d0d0d;
+            border: 1px solid #222222;
+            border-radius: 6px;
+            padding: 15px;
+            margin: 20px 0;
+            text-align: center;
+        }
+        .img-repro {
+            max-width: 100%;
+            height: auto;
+            border-radius: 4px;
+            border: 1px solid #333333;
+        }
+        .img-caption-repro {
+            color: #ffd700;
+            font-size: 0.85rem;
+            margin-top: 10px;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+        .obs-alert {
+            background-color: #1a1500;
+            border: 1px solid #ffd700;
+            color: #e6c300;
+            border-radius: 6px;
+            padding: 12px 15px;
+            margin-top: 15px;
+        }
     </style>
 </head>
 <body>
 
-<div class="container">
-    <header>
-        <h1>Manejo Reprodutivo Equino</h1>
-    </header>
+<div class="container mt-3">
+    
+    <!-- Botão Voltar ao Menu -->
+    <div class="mb-3 text-start">
+        <a href="index.html" class="btn btn-back-menu">
+            <i class="fa-solid fa-arrow-left me-2"></i>Voltar ao Menu
+        </a>
+    </div>
 
-    <div class="content">
+    <!-- Título Centralizado -->
+    <div class="text-center">
+        <h1 class="main-title">
+            <i class="fa-solid fa-horse me-2"></i>Manejo Reprodutivo Equino
+        </h1>
+    </div>
 
-        <section>
-            <p>O manejo reprodutivo de equinos é um conjunto de práticas que visam otimizar a fertilidade, garantir o bem-estar dos animais e aumentar a eficiência da reprodução, seja por monta natural ou reprodução assistida.</p>
-            <p>Um bom manejo depende de planejamento, sanidade, nutrição, avaliação periódica e conhecimento do ciclo reprodutivo de cada indivíduo.</p>
-
-            <h2>Pontos Importantes no Manejo Geral</h2>
-            <ul>
-                <li>Definir início e fim da estação de monta;</li>
-                <li>Programar exames sanitários e avaliações reprodutivas antes da estação;</li>
-                <li>Organizar cronograma de coberturas ou inseminações;</li>
-                <li>Sempre conferir a origem dos animais que serão usados na reprodução;</li>
-                <li>Ter assistência veterinária para acompanhar todo o processo.</li>
-            </ul>
-
-            <div class="info-box">
-                <h3 style="color: #2ecc71; margin-top: 0;">Requisitos para Eficiência</h3>
-                <p>Para garantir que a reprodução seja eficiente, você vai precisar de:</p>
-                <ul>
-                    <li><strong>Planejamento Estacional:</strong> Equinos são poliéstricos estacionais (pico na primavera/verão devido ao aumento do fotoperíodo);</li>
-                    <li><strong>Calendário Definido:</strong> Organizado conforme a previsão de nascimento desejada;</li>
-                    <li><strong>Programação Técnica:</strong> Exames, vacinações, controle parasitário e ajuste nutricional.</li>
+    <!-- CARD 1: INTRODUÇÃO E DIRETRIZES -->
+    <div class="card-repro">
+        <button class="card-header-btn" type="button" data-bs-toggle="collapse" data-bs-target="#collapseIntro">
+            <span><i class="fa-solid fa-circle-info me-2"></i> Diretrizes Gerais de Manejo</span>
+            <i class="fa-solid fa-chevron-down toggle-icon"></i>
+        </button>
+        <div id="collapseIntro" class="collapse show">
+            <div class="content-section">
+                <p>O manejo reprodutivo de equinos é um conjunto de práticas que visam otimizar a fertilidade, garantir o bem-estar dos animais e aumentar a eficiência da reprodução, seja por monta natural ou reprodução assistida.</p>
+                <p>Um bom manejo depende diretamente de planejamento rigoroso, sanidade controlada, suporte nutricional estratégico, avaliação periódica e conhecimento profundo do ciclo reprodutivo de cada indivíduo.</p>
+                
+                <div class="subsection-title">Pontos Importantes no Manejo Geral</div>
+                <ul class="list-group list-group-repro">
+                    <li class="list-group-item"><i class="fa-solid fa-calendar-check"></i> Definir claramente o início e o fim da estação reprodutiva.</li>
+                    <li class="list-group-item"><i class="fa-solid fa-stethoscope"></i> Programar exames sanitários e avaliações reprodutivas completas antes da estação iniciar.</li>
+                    <li class="list-group-item"><i class="fa-solid fa-clipboard-list"></i> Organizar o cronograma de coberturas ou das inseminações artificiais.</li>
+                    <li class="list-group-item"><i class="fa-solid fa-id-card"></i> Sempre conferir minuciosamente a origem dos animais que serão inseridos na reprodução.</li>
+                    <li class="list-group-item"><i class="fa-solid fa-user-doctor"></i> Contar com assistência veterinária contínua para acompanhar todo o processo.</li>
                 </ul>
             </div>
+        </div>
+    </div>
 
-            <h2>Manejo Nutricional para Reprodução</h2>
-            <h3>Impacto do Escore Corporal (ECC)</h3>
-            <div class="alert-box">
-                <p>O escore corporal ideal para reprodução fica entre <strong>5 e 6 (escala 1-9)</strong>.</p>
+    <!-- CARD 2: EFICIÊNCIA E PLANEJAMENTO -->
+    <div class="card-repro">
+        <button class="card-header-btn collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseEficiencia">
+            <span><i class="fa-solid fa-arrow-trend-up me-2"></i> Eficiência e Estação de Monta</span>
+            <i class="fa-solid fa-chevron-down toggle-icon"></i>
+        </button>
+        <div id="collapseEficiencia" class="collapse">
+            <div class="content-section">
+                <div class="subsection-title">Requisitos para uma Reprodução Eficiente</div>
+                <ul class="list-group list-group-repro mb-3">
+                    <li class="list-group-item"><i class="fa-solid fa-sliders"></i> <strong>Fisiologia Estacional:</strong> Os equinos são poliéstricos estacionais (manifestam o cio apenas em uma parte do ano), com pico reprodutivo natural na primavera e no verão devido ao aumento do fotoperíodo.</li>
+                    <li class="list-group-item"><i class="fa-solid fa-calendar-days"></i> <strong>Calendário Técnico:</strong> Definir o calendário da estação de monta organizado de forma estrita conforme a data de nascimento desejada para os potros.</li>
+                </ul>
+
+                <div class="subsection-title">Programação Prévia Obrigatória</div>
+                <div class="row g-2">
+                    <div class="col-6"><div class="p-2 border border-secondary rounded bg-black"><i class="fa-solid fa-microscope text-warning me-2"></i>Exames reprodutivos</div></div>
+                    <div class="col-6"><div class="p-2 border border-secondary rounded bg-black"><i class="fa-solid fa-syringe text-warning me-2"></i>Vacinações em dia</div></div>
+                    <div class="col-6"><div class="p-2 border border-secondary rounded bg-black"><i class="fa-solid fa-droplet text-warning me-2"></i>Controle parasitário</div></div>
+                    <div class="col-6"><div class="p-2 border border-secondary rounded bg-black"><i class="fa-solid fa-wheat-ale text-warning me-2"></i>Ajuste nutricional</div></div>
+                </div>
+                <p class="mt-3 mb-0 text-muted small"><i class="fa-solid fa-gears me-1"></i> Inclui também o treinamento direcionado do garanhão e a preparação física das éguas.</p>
             </div>
-            <ul>
-                <li><span class="label-tag">ECC < 4</span> Ciclos irregulares, falhas de ovulação e baixa fertilidade.</li>
-                <li><span class="label-tag">ECC > 7</span> Resistência insulínica, riscos de laminite e alterações hormonais.</li>
-            </ul>
-
-           <style>
-    .nutri-section {
-        background-color: #000000 !important;
-        padding: 20px 0;
-    }
-
-    /* Título da Seção */
-    .nutri-section h3 {
-        color: #ffd700 !important;
-        text-align: center;
-        margin-bottom: 25px;
-        text-transform: uppercase;
-        font-weight: bold;
-    }
-
-    /* Estilização dos Cards de Nutrientes */
-    .card-nutriente {
-        background-color: #1a1a1a !important;
-        border: 1px solid #ffd700 !important;
-        border-radius: 10px;
-        margin-bottom: 15px;
-        transition: transform 0.3s ease;
-    }
-
-    .card-nutriente:hover {
-        transform: scale(1.01);
-        box-shadow: 0 4px 15px rgba(255, 215, 0, 0.2);
-    }
-
-    .card-nutriente .card-body {
-        padding: 20px;
-        color: #ffffff;
-    }
-
-    /* Destaque para o nome do Nutriente */
-    .nutri-header {
-        display: block;
-        color: #ffd700;
-        font-size: 1.2rem;
-        font-weight: bold;
-        margin-bottom: 8px;
-        border-bottom: 1px solid #333;
-        padding-bottom: 5px;
-    }
-
-    .nutri-text {
-        color: #eeeeee;
-        line-height: 1.5;
-    }
-</style>
-
-<div class="container nutri-section">
-    <h3>Nutrientes e Suplementação</h3>
-
-    <div class="card card-nutriente">
-        <div class="card-body">
-            <span class="nutri-header">Proteína</span>
-            <p class="nutri-text">Suporte à qualidade seminal e desenvolvimento gestacional.</p>
         </div>
     </div>
 
-    <div class="card card-nutriente">
-        <div class="card-body">
-            <span class="nutri-header">Lipídios (gorduras) </span>
-            <p class="nutri-text">Eficiência energética sem excesso de carboidratos.</p>
-        </div>
-    </div>
+    <!-- CARD 3: MANEJO NUTRICIONAL -->
+    <div class="card-repro">
+        <button class="card-header-btn collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseNutricao">
+            <span><i class="fa-solid fa-seedling me-2"></i> Manejo Nutricional Reprodutivo</span>
+            <i class="fa-solid fa-chevron-down toggle-icon"></i>
+        </button>
+        <div id="collapseNutricao" class="collapse">
+            <div class="content-section">
+                <div class="subsection-title">Impacto do Escore de Condição Corporal (ECC)</div>
+                <div class="p-2 text-center rounded mb-3" style="background-color: #111; border: 1px solid #ffd700;">
+                    <span class="fw-bold text-white">Escore Corporal Ideal:</span> <span class="badge badge-repro fs-6">5 a 6 / 9</span>
+                </div>
+                
+                <ul class="list-group list-group-repro mb-3">
+                    <li class="list-group-item"><i class="fa-solid fa-triangle-exclamation text-danger"></i> <strong>Escore &lt; 4:</strong> Acarreta em ciclos estrais irregulares, falhas graves de ovulação e baixa fertilidade geral.</li>
+                    <li class="list-group-item"><i class="fa-solid fa-triangle-exclamation text-danger"></i> <strong>Escore &gt; 7:</strong> Eleva substancialmente os riscos de resistência insulínica, laminites e alterações hormonais deletérias.</li>
+                </ul>
 
-    <div class="card card-nutriente">
-        <div class="card-body">
-            <span class="nutri-header">Minerais (Selênio / Zinco / Cobre)</span>
-            <p class="nutri-text">Antioxidantes e base para espermatogênese e desenvolvimento fetal.</p>
-        </div>
-    </div>
-
-    <div class="card card-nutriente">
-        <div class="card-body">
-            <span class="nutri-header">Vitaminas (A / E)</span>
-            <p class="nutri-text">Saúde uterina e proteção dos tecidos reprodutivos.</p>
-        </div>
-    </div>
-</div>
-            <h2>Sanidade e Biossegurança</h2>
-            <h3>Exames Obrigatórios e Rotineiros</h3>
-            <ul>
-                <li>Teste de Anemia Infecciosa Equina (AIE);</li>
-                <li>Teste de Mormo (Burkholderia mallei);</li>
-                <li>Sorologia para Artrite Viral Equina;</li>
-                <li>Cultura para Metrite Contagiosa Equina (éguas problemáticas e garanhões);</li>
-                <li>Vermifugação estratégica.</li>
-            </ul>
-
-            <h3>Protocolo de Vacinação</h3>
-            <ul>
-                <li><strong>Geral:</strong> Influenza e Tétano para todo o plantel;</li>
-                <li><strong>Gestantes:</strong> Rotavírus e Herpesvírus (EHV-1/4) para prevenção de abortos.</li>
-            </ul>
-        </section>
-
-        <section>
-            <h2>MANEJO REPRODUTIVO DA ÉGUA</h2>
-            <h3>Avaliação Reprodutiva Completa</h3>
-            <h4>Exame Físico</h4>
-            <ul>
-                <li>Escore corporal ideal;</li>
-                <li>Integridade dos cascos (fundamental para gestantes);</li>
-                <li>Avaliação de dentes (impacto direto na nutrição).</li>
-            </ul>
-
-            <div class="data-box">
-                <span class="label-tag" style="background: none; color: #ffd700; padding: 0;">Anatomia e Períneo</span>
-                <ul>
-                    <li>Avaliação da conformação (inclinação vulvar, selamento e proporção vulva-ânus).</li>
+                <div class="subsection-title">Nutrientes e Macrominerais Essenciais</div>
+                <ul class="list-group list-group-repro">
+                    <li class="list-group-item"><strong>Proteína:</strong> Elemento fundamental para a qualidade seminal do macho e para o suporte metabólico da gestação.</li>
+                    <li class="list-group-item"><strong>Lipídios:</strong> Aumentam a eficiência energética da dieta sem a necessidade de inclusão excessiva de carboidratos.</li>
+                    <li class="list-group-item"><strong>Selênio:</strong> Atua como um potente antioxidante, essencial para a manutenção da fertilidade.</li>
+                    <li class="list-group-item"><strong>Zinco e Cobre:</strong> Minerais diretamente envolvidos nos processos de espermatogênese e no correto desenvolvimento fetal.</li>
+                    <li class="list-group-item"><strong>Cálcio e Fósforo:</strong> Pilares para a formação e integridade da estrutura óssea do potro em crescimento.</li>
+                    <li class="list-group-item"><strong>Vitamina A e E:</strong> Responsáveis respectivamente pela manutenção da saúde uterina e proteção antioxidante dos tecidos reprodutivos.</li>
                 </ul>
             </div>
-
-            <h3>Palpação e Ultrassonografia Transretal</h3>
-            <ul>
-                <li><strong>Avaliação Uterina:</strong> Tônus, presença de fluido e edema;</li>
-                <li><strong>Ovários:</strong> Tamanho, folículos e corpos lúteos.</li>
-            </ul>
-
-            <h3>Exames Complementares</h3>
-            <ul>
-                <li>Citologia e cultura uterina (para éguas repetidoras);</li>
-                <li>Biópsia uterina (Escore de Kenney) para prognóstico reprodutivo.</li>
-            </ul>
-
-            <h2>Identificação Detalhada do Estro (Cio)</h2>
-            <h3>Características Comportamentais</h3>
-            <ul>
-                <li class="comportamento">Inquietação, nervosismo e relinchos;</li>
-                <li class="comportamento">Receptividade ao garanhão.</li>
-            </ul>
-
-            <h3>Sinais Físicos</h3>
-            <ul>
-                <li>Levantar a cauda;</li>
-                <li>"Piscar" a vulva (movimentação do clitóris);</li>
-                <li>Urinar pequenas quantidades com frequência;</li>
-                <li>Vulva mais inchada e relaxada (pronta para o acasalamento).</li>
-            </ul>
-
-            <h2>Manejo, Cobertura e Inseminação</h2>
-            <div class="data-box">
-                <p><strong>Estro:</strong> 5–7 dias | <strong>Ovulação:</strong> 24–48h após o pico do estro.</p>
-            </div>
-
-            <h3>Monta Natural</h3>
-            <ul>
-                <li>Cobertura a cada 48h durante o estro;</li>
-                <li>Avaliação por ultrassom entre coberturas.</li>
-            </ul>
-
-            <h3>Inseminação Artificial (IA)</h3>
-            <ul>
-                <li>Acompanhamento ultrassonográfico diário;</li>
-                <li><strong>Indução da Ovulação:</strong> hCG (2.500–3.300 UI) ou Deslorelina;</li>
-                <li><strong>Sêmen Fresco:</strong> 24–36h após indutor;</li>
-                <li><strong>Sêmen Resfriado:</strong> 12–24h antes da ovulação;</li>
-                <li><strong>Sêmen Congelado:</strong> Inseminação próxima da ovulação.</li>
-            </ul>
-
-            <h3>Pós-Cobertura</h3>
-            <ul>
-                <li>Avaliação uterina 12–24h após a monta;</li>
-                <li>Verificação de acúmulo de líquido;</li>
-                <li>Se necessário: realizar lavagem uterina + ocitocina.</li>
-            </ul>
-
-            <h2>Manejo da Gestação</h2>
-            <h3>Ultrassonografias Fundamentais</h3>
-            <ul>
-                <li><strong>14–16 dias:</strong> Diagnóstico inicial e exclusão de gemelares;</li>
-                <li><strong>25–30 dias:</strong> Verificação de batimento cardíaco;</li>
-                <li><strong>45–60 dias:</strong> Confirmação de estabilidade embrionária.</li>
-            </ul>
-
-            <h3>Cuidados Gerais e Saúde</h3>
-            <ul>
-                <li>Aumento do aporte nutricional no terço final;</li>
-                <li>Evitar estresse, quedas e exercícios intensos;</li>
-                <li><strong>Vacina Anti-aborto (EHV-1):</strong> Meses 5, 7 e 9;</li>
-                <li>Desverminação periódica;</li>
-                <li>Monitoramento de edemas pré-parto, alterações mamárias e relaxamento pélvico.</li>
-            </ul>
-        </section>
-
-        <section>
-            <h2>Manejo Reprodutivo do Garanhão</h2>
-            <span class="highlight-bar">PARA O SUCESSO NA REPRODUTIVO VOCÊ PRECISA CUIDAR DO MACHO TAMBÉM.</span>
-
-            <h2>Exame reprodutivo completo</h2>
-            <h3>Exame físico geral</h3>
-            <ul>
-                <li>Condição corporal;</li>
-                <li>Locomoção (libido depende de conforto físico);</li>
-                <li>Ausência de dor lombar ou articular.</li>
-            </ul>
-
-            <h3>Avaliação específica do sistema reprodutivo</h3>
-            <ul>
-                <li>Inspeção do pênis e prepúcio (feridas, fimoses, tumores);</li>
-            </ul>
-
-            <h4>Palpação dos testículos avaliando:</h4>
-            <ul>
-                <li>Simetria - Se os dois são do mesmo tamanho;</li>
-                <li>Consistência - se é firme;</li>
-                <li>Tamanho - Se é do tamanho normal;</li>
-                <li>Mobilidade no escroto;</li>
-                <li>Mensuração com compasso — volume testicular correlaciona com produção espermática.</li>
-            </ul>
-
-            <h3>Avaliação do epidídimo</h3>
-            <p>Palpação para identificar congestão, dor ou nódulos (epididimite).</p>
-
-            <h2>Libido e comportamento sexual</h2>
-            <ul>
-                <li>Acompanhamento do comportamento perante a égua em estro.</li>
-                <li>Identificação de:</li>
-                <li>Falta de interesse,</li>
-                <li>Tempo prolongado até ereção,</li>
-                <li>Aversões ou ansiedade;</li>
-            </ul>
-
-            <div class="obs-box">
-                <p><strong>OBS:</strong> Treinamento controlado com égua-manequim ou égua teaser é fundamental.</p>
-            </div>
-
-            <h2>COLETA DE ESPEMATOZÓIDE DOS GARANHÕES</h2>
-            <p>[Imagem da coleta]</p>
-
-            <h3>Fatores que reduzem qualidade seminal</h3>
-            <ul>
-                <li>Estresse térmico;</li>
-                <li>Infecções sistêmicas;</li>
-                <li>Excesso de coberturas;</li>
-                <li>Dietas ricas em carboidratos simples;</li>
-                <li>Falta de exercício.</li>
-            </ul>
-
-            <h3>Manejo geral do garanhão</h3>
-            <ul>
-                <li>Treino prévio para coleta reduz risco de acidentes.</li>
-                <li>Controle do número de coberturas:</li>
-                <li>Jovens: 2–3/semana.</li>
-                <li>Adultos: até 6/semana.</li>
-            </ul>
-
-            <p>Higiene diária do prepúcio sem exageros (lavagens excessivas reduzem proteção bacteriana natural);</p>
-            <p>Divisão adequada de baias evitando disputas com outros machos.</p>
-        </section>
-
-        <section>
-            <h2>CUIDADOS COM O POTRO</h2>
-            <h3>Regra do 1,2,3</h3>
-            <ul>
-                <li>1 hora: o potro deve estar em pé;</li>
-                <li>2 horas: deve mamar;</li>
-                <li>3 horas: deve eliminar mecônio.</li>
-            </ul>
-
-            <h3>Colostro</h3>
-            <ul>
-                <li>Essencial para imunidade;</li>
-                <li>Mínimo de 1,5–2 L nas primeiras 6 horas.</li>
-            </ul>
-
-            <h3>Avaliação de anormalidades</h3>
-            <ul>
-                <li>Fraturas nas articulações;</li>
-                <li>Contraturas nos tendões;</li>
-                <li>Hérnias umbilicais;</li>
-                <li>Palato fendido;</li>
-                <li>Reflexo de sucção deficiente.</li>
-            </ul>
-
-            <h3>Cuidados com o umbigo</h3>
-            <ul>
-                <li>Desinfecção 2–3x ao dia por 2 dias com Iodo 10%;</li>
-                <li>Observar sinais de onfalite:</li>
-                <li>Inchaço;</li>
-                <li>Secreção;</li>
-                <li>Dor;</li>
-                <li>Febre.</li>
-            </ul>
-
-            <h3>Nutrição e desenvolvimento</h3>
-            <ul>
-                <li>Mamada a cada 20–30 minutos;</li>
-                <li>Monitorar ganho de peso diário;</li>
-                <li>A partir de 10–14 dias: interesse espontâneo por ração (“creep feeding”);</li>
-                <li>A partir de 3 meses: ração inicial de potro com 16% de PB.</li>
-            </ul>
-
-            <h3>Socialização e bem-estar</h3>
-            <ul>
-                <li>Importante para desenvolvimento comportamental adequado;</li>
-                <li>Espaço amplo para correr fortalece articulações;</li>
-                <li>Evitar isolamento prolongado.</li>
-            </ul>
-
-            <h3>Desmame</h3>
-            <ul>
-                <li>Realizado entre 5 e 6 meses;</li>
-                <li>Deve ser:</li>
-                <li>Gradual;</li>
-                <li>Feito em ambiente calmo;</li>
-                <li>Com manejo que reduza estresse.</li>
-                <li>Oferecer dieta própria para potros durante a transição.</li>
-            </ul>
-        </section>
-
+        </div>
     </div>
 
-    <footer>
-        <p>SOS EQUISAÚDE © 2026 - AUTORIDADE EM SAÚDE E REPRODUÇÃO EQUINA</p>
-    </footer>
+    <!-- CARD 4: SANIDADE E BIOSSEGURANÇA -->
+    <div class="card-repro">
+        <button class="card-header-btn collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSanidade">
+            <span><i class="fa-solid fa-shield-virus me-2"></i> Sanidade e Biossegurança</span>
+            <i class="fa-solid fa-chevron-down toggle-icon"></i>
+        </button>
+        <div id="collapseSanidade" class="collapse">
+            <div class="content-section">
+                <div class="subsection-title">Exames Obrigatórios e de Rotina</div>
+                <ul class="list-group list-group-repro mb-3">
+                    <li class="list-group-item"><i class="fa-solid fa-check text-warning"></i> Teste de Anemia Infecciosa Equina (AIE).</li>
+                    <li class="list-group-item"><i class="fa-solid fa-check text-warning"></i> Teste de Mormo (<em>Burkholderia mallei</em>).</li>
+                    <li class="list-group-item"><i class="fa-solid fa-check text-warning"></i> Sorologia diagnóstica para Artrite Viral Equina.</li>
+                    <li class="list-group-item"><i class="fa-solid fa-check text-warning"></i> Cultura bacteriana para Metrite Contagiosa Equina (<em>Taylorella equigenitalis</em>) em garanhões e éguas com histórico de falhas reprodutivas.</li>
+                    <li class="list-group-item"><i class="fa-solid fa-check text-warning"></i> Protocolo de vermifugação estratégica estabelecido.</li>
+                </ul>
+
+                <div class="subsection-title">Protocolo de Vacinação</div>
+                <ul class="list-group list-group-repro">
+                    <li class="list-group-item"><strong>Todos os Animais:</strong> Imunização obrigatória contra Influenza e Tétano.</li>
+                    <li class="list-group-item"><strong>Éguas Gestantes:</strong> Imunização essencial contra Rotavírus e Herpesvírus Equino (EHV-1/4) para prevenção de abortos.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- CARD 5: MANEJO DA ÉGUA -->
+    <div class="card-repro">
+        <button class="card-header-btn collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseEgua">
+            <span><i class="fa-solid fa-venus me-2"></i> Manejo Reprodutivo da Égua</span>
+            <i class="fa-solid fa-chevron-down toggle-icon"></i>
+        </button>
+        <div id="collapseEgua" class="collapse">
+            <div class="content-section">
+                <div class="subsection-title">Avaliação Reprodutiva Completa</div>
+                <p class="mb-2"><strong>Exame Físico Geral:</strong> Mensuração do escore corporal, verificação minuciosa da integridade dos cascos (vital para suporte do peso na gestação) e avaliação odontológica completa.</p>
+                
+                <p class="mb-2"><strong>Inspeção Ginecológica e Perineal:</strong> Avaliação anatômica da conformação do períneo (região entre o ânus e a vulva) observando a inclinação vulvar, o selamento e a proporção anatômica.</p>
+
+                
+                <p class="mb-2"><strong>Palpação e Ultrassonografia Transretal:</strong> Exame do útero para averiguar tônus, presença de fluidos patológicos ou edema cíclico. Avaliação dos ovários quanto ao tamanho, presença de folículos pré-ovulatórios ou corpos lúteos.</p>
+                
+                <p class="mb-0"><strong>Exames Complementares:</strong> Realização de citologia e cultura uterina em éguas repetidoras de cio, e biópsia uterina baseada no escore de Kenney para o prognóstico reprodutivo.</p>
+
+                <div class="subsection-title">Identificação Detalhada do Estro (Cio)</div>
+                <p class="mb-2"><strong>Alterações Comportamentais:</strong> Inquietação pronunciada, nervosismo, relinchos frequentes e receptividade clara na presença do garanhão.</p>
+                <p class="mb-3"><strong>Sinais Físicos Patognomônicos:</strong> Elevação ativa da cauda, "piscamento" vulvar com eversão do clitóris, micção frequente em pequenas quantidades, além de vulva edemaciada e relaxada.</p>
+
+                <div class="subsection-title">Manejo no Estro, Cobertura e Inseminação</div>
+                <p class="mb-2"><strong>Parâmetros de Duração:</strong> O estro dura de 5 a 7 dias, ocorrendo a ovulação entre 24 e 48 horas antes do término do cio.</p>
+                
+                <p class="mb-2"><strong>Monta Natural:</strong> Realizar a cobertura programada a cada 48 horas durante a manifestação do estro, monitorando via ultrassom entre os intervalos.</p>
+                
+                <p class="mb-2"><strong>Inseminação Artificial (IA):</strong> Requer acompanhamento ultrassonográfico diário. Indução da ovulação utilizando hCG (2.500 a 3.300 UI) ou Deslorelina. Os prazos recomendados são:</p>
+                <ul class="list-group list-group-repro mb-3">
+                    <li class="list-group-item">Sêmen Fresco: Realizar 24 a 36h após a aplicação do indutor.</li>
+                    <li class="list-group-item">Sêmen Resfriado: Inseminar de 12 a 24h antes da previsão da ovulação.</li>
+                    <li class="list-group-item">Sêmen Congelado: Monitoramento rigoroso para inseminar o mais próximo possível do momento exato da ovulação.</li>
+                </ul>
+
+                <p class="mb-0"><strong>Cuidados Pós-Cobertura:</strong> Avaliação do ambiente uterino 12 a 24h após a monta para checar retenção ou acúmulo de líquido. Havendo líquido, preconiza-se realizar lavagem uterina terapêutica associada à aplicação de ocitocina.</p>
+
+                <div class="subsection-title">Manejo Clínico da Gestação</div>
+                <p class="mb-2"><strong>Exames Ultrassonográficos Fundamentais:</strong></p>
+                <div class="row text-center g-2 mb-3">
+                    <div class="col-4"><div class="p-2 bg-black border border-secondary rounded text-warning small fw-bold">14–16 dias<br><span class="text-white fw-normal">Diagnóstico e redução de gemelares</span></div></div>
+                    <div class="col-4"><div class="p-2 bg-black border border-secondary rounded text-warning small fw-bold">25–30 dias<br><span class="text-white fw-normal">Detecção de batimento cardíaco</span></div></div>
+                    <div class="col-4"><div class="p-2 bg-black border border-secondary rounded text-warning small fw-bold">45–60 dias<br><span class="text-white fw-normal">Confirmação de estabilidade embrionária</span></div></div>
+                </div>
+
+                <p class="mb-0"><strong>Cuidados Gerais com a Doadora/Receptora:</strong> Incremento calórico e proteico no terço final da gestação; mitigação total de estressores, quedas ou treinos intensos; vacinação específica anti-aborto (Herpesvírus - EHV-1) nos meses 5, 7 e 9; desverminações periódicas e monitoramento clínico de edemas pré-parto, desenvolvimento mamário e relaxamento dos ligamentos pélvicos.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- CARD 6: MANEJO DO GARANHÃO -->
+    <div class="card-repro">
+        <button class="card-header-btn collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseGaranhao">
+            <span><i class="fa-solid fa-mars me-2"></i> Manejo Reprodutivo do Garanhão</span>
+            <i class="fa-solid fa-chevron-down toggle-icon"></i>
+        </button>
+        <div id="collapseGaranhao" class="collapse">
+            <div class="content-section">
+                <div class="subsection-title">Exame Reprodutivo Completo (Andrológico)</div>
+                <p class="mb-2"><strong>Exame Físico Geral:</strong> Manutenção da condição corporal atlética e monitoramento do aparelho locomotor. A libido do garanhão está estritamente atrelada ao seu conforto físico, sendo mandatória a ausência de dores dorsolombares ou articulares crônicas.</p>
+                
+                <p class="mb-2"><strong>Avaliação Específica do Sistema Reprodutor:</strong> Inspeção do pênis e do tecido prepucial para exclusão de feridas, fimoses ou processos tumorais.</p>
+                
+                <p class="mb-2"><strong>Palpação e Mensuração Escrotal:</strong> Mensuração com compasso técnico para cálculo do volume testicular (parâmetro diretamente correlacionado com a capacidade diária de produção espermática), avaliando simetria, consistência firme, tamanho padrão e mobilidade no saco escrotal. Palpação cuidadosa do epidídimo para descartar congestão local ou nódulos de epididimite.</p>
+                
+                <p class="mb-0"><strong>Libido e Comportamento Sexual:</strong> Avaliação detalhada do comportamento perante a fêmea em estro. Identificar desinteresse, tempo de ereção prolongado, aversões ou ansiedade exacerbada.</p>
+                
+                <div class="obs-alert">
+                    <i class="fa-solid fa-triangle-exclamation me-2"></i><strong>OBSERVAÇÃO:</strong> O treinamento controlado e rotineiro utilizando égua-manequim ou fêmeas do tipo "teaser" é pilar fundamental para o sucesso do manejo.
+                </div>
+
+            
+                <div class="subsection-title">Fatores Depressores da Qualidade Seminal</div>
+                <p class="mb-2">Evitar rigorosamente os seguintes fatores que sabidamente depreciam as características do sêmen:</p>
+                <div class="d-flex flex-wrap gap-2 mb-3">
+                    <span class="badge bg-danger-subtle text-danger border border-danger">Estresse Térmico</span>
+                    <span class="badge bg-danger-subtle text-danger border border-danger">Infecções Sistêmicas</span>
+                    <span class="badge bg-danger-subtle text-danger border border-danger">Excesso de Coberturas</span>
+                    <span class="badge bg-danger-subtle text-danger border border-danger">Dietas Ricas em Carboidratos Simples</span>
+                    <span class="badge bg-danger-subtle text-danger border border-danger">Falta de Exercício Físico</span>
+                </div>
+
+                <div class="subsection-title">Manejo Geral e Rotina do Reprodutor</div>
+                <p class="mb-2"><strong>Controle Limite do Número de Coberturas:</strong></p>
+                <ul>
+                    <li>Garanhões Jovens: Limite de 2 a 3勇敢 manejos por semana.</li>
+                    <li>Garanhões Adultos: Limite de até 6 manejos por semana.</li>
+                </ul>
+                <p class="mb-0">Preconiza-se a higiene diária do prepúcio sem excessos (lavagens desmedidas removem a microbiota de proteção bacteriana natural) e a divisão física adequada das baias e piquetes, evitando desafios visuais ou disputas territoriais com outros machos.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- CARD 7: CUIDADOS COM O POTRO -->
+    <div class="card-repro">
+        <button class="card-header-btn collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsePotro">
+            <span><i class="fa-solid fa-baby-carriage me-2"></i> Cuidados Críticos com o Potro</span>
+            <i class="fa-solid fa-chevron-down toggle-icon"></i>
+        </button>
+        <div id="collapsePotro" class="collapse">
+            <div class="content-section">
+                <div class="subsection-title">Regra de Ouro do Neonato: 1, 2, 3</div>
+                <div class="row text-center g-2 mb-3">
+                    <div class="col-4"><div class="p-3 bg-black border border-warning rounded"><h4 class="text-warning m-0 font-weight-bold">1 Hora</h4><span class="small text-white">Potro deve estar em pé</span></div></div>
+                    <div class="col-4"><div class="p-3 bg-black border border-warning rounded"><h4 class="text-warning m-0 font-weight-bold">2 Horas</h4><span class="small text-white">Deve mamar o colostro</span></div></div>
+                    <div class="col-4"><div class="p-3 bg-black border border-warning rounded"><h4 class="text-warning m-0 font-weight-bold">3 Horas</h4><span class="small text-white">Deve eliminar o mecônio</span></div></div>
+                </div>
+
+                <p class="mb-3"><strong>Manejo do Colostro:</strong> Essencial para a transferência de imunidade passiva. O neonato deve ingerir o volume mínimo de 1,5 a 2 litros nas primeiras 6 horas pós-parto.</p>
+
+                <div class="subsection-title">Avaliação Clínica de Anormalidades</div>
+                <p class="mb-2">Triagem imediata para identification precoce de afecções congênitas ou neonatais:</p>
+                <div class="d-flex flex-wrap gap-2 mb-3">
+                    <span class="badge border border-secondary bg-black">Fraturas articulares</span>
+                    <span class="badge border border-secondary bg-black">Contraturas tendíneas</span>
+                    <span class="badge border border-secondary bg-black">Hérnias umbilicais</span>
+                    <span class="badge border border-secondary bg-black">Palato fendido</span>
+                    <span class="badge border border-secondary bg-black">Reflexo de sucção deficiente</span>
+                </div>
+
+                <div class="subsection-title">Profilaxia Umbilical</div>
+                <p class="mb-0">Realizar a desinfecção imersiva do coto umbilical de 2 a 3 vezes ao dia, por no mínimo 2 dias, utilizando solução de Iodo a 10%. Monitorar continuamente para identificação de sinais clínicos de onfalite (inchaço, secreção purulenta, dor local ou picos febris).</p>
+
+                <div class="subsection-title">Nutrição e Curva de Desenvolvimento</div>
+                <p class="mb-2">O potro realiza mamadas frequentes a cada 20-30 minutos, sendo mandatório monitorar o ganho de peso diário. Cronograma nutricional:</p>
+                <ul>
+                    <li><strong>10 a 14 dias:</strong> Estimular o interesse espontâneo por ração através de sistema de cocho exclusivo (<em>creep feeding</em>).</li>
+                    <li><strong>A partir dos 3 meses:</strong> Fornecer ração inicial específica para potros formulada com 16% de Proteína Bruta (PB).</li>
+                </ul>
+
+                <div class="subsection-title">Socialização, Manejo e Desmame</div>
+                <p class="mb-2"><strong>Bem-estar:</strong> A socialização é indispensável para o desenvolvimento comportamental correto. Disponibilizar espaço amplo para corrida livre é crucial para o fortalecimento do aparelho locomotor e articulações, devendo-se mitigar o isolamento prolongado.</p>
+                <p class="mb-0"><strong>Protocolo de Desmame:</strong> Executado rotineiramente entre os 5 e 6 meses de idade. Deve ser um processo estritamente gradual, realizado em ambiente calmo e com manejo planejado para redução de estresse crônico, mantendo a oferta de dieta de transição própria para potros.</p>
+            </div>
+        </div>
+    </div>
+
 </div>
 
+<!-- Bootstrap 5 JavaScript Bundle -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

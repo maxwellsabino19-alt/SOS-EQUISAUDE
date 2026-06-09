@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Como Instalar - SOS EquiSaúde</title>
     <style>
         /* ESTILO SOS EQUISAÚDE - GUIA DE INSTALAÇÃO */
         * {
@@ -18,9 +19,33 @@
             padding: 20px;
         }
 
+        /* BOTÃO VOLTAR FIXO (PADRÃO SOS EQUISAÚDE) */
+        .btn-voltar {
+            position: fixed;
+            top: 15px;
+            left: 15px;
+            background-color: #0a0a0a;
+            color: #ffffff;
+            text-decoration: none;
+            padding: 8px 16px;
+            font-size: 14px;
+            font-weight: bold;
+            border: 1px solid #ffd700;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+            transition: all 0.3s ease;
+            z-index: 1000; /* Garante que fique visível acima de tudo */
+        }
+
+        .btn-voltar:hover {
+            background-color: #ffd700;
+            color: #000000;
+            transform: scale(1.05);
+        }
+
         .download-container {
             max-width: 500px;
-            margin: 20px auto;
+            margin: 60px auto 20px auto; /* Aumentado a margem superior para acomodar o botão voltar */
             background: #0a0a0a;
             border: 1px solid #1a1a1a;
             border-radius: 15px;
@@ -98,9 +123,25 @@
             text-transform: uppercase;
             letter-spacing: 1px;
         }
+
+        /* AJUSTE PARA CELULAR */
+        @media (max-width: 480px) {
+            .btn-voltar {
+                position: absolute; /* Evita que o botão fique fixo flutuando na tela pequena */
+                top: 15px;
+                left: 15px;
+            }
+            .download-container {
+                margin-top: 55px;
+                padding: 18px;
+            }
+        }
     </style>
 </head>
 <body>
+
+    <!-- BOTÃO RETORNAR AO MENU PRINCIPAL -->
+    <a href="index.html" class="btn-voltar">⬅ Voltar ao Menu</a>
 
     <div class="download-container">
         <div class="title-section">

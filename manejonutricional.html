@@ -1,1918 +1,878 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
- 
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SOS Equisaúde - Manejo Nutricional</title>
-    <link rel="stylesheet" href="css/manejonutri.css">
+    <title>Manejo Nutricional e Alimentação de Equinos</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
     <style>
-        * {
- 
+        /* RESET E CONFIGURAÇÕES DE FUNDO */
+        body {
+            background-color: #000000 !important;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
-            scroll-behavior: smooth;
         }
- 
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #000;
-            color: #fff;
-            line-height: 1.6;
-        }
- 
-        .container {
+
+        .black-section {
+            background-color: #000000 !important;
+            color: #ffffff !important;
+            padding: 60px 20px;
+            font-family: 'Segoe UI', Arial, sans-serif;
             max-width: 1100px;
-            margin: 10px auto;
-            background: #0a0a0a;
-            border: 1px solid #333;
+            margin: 0 auto;
         }
- 
-        header {
-            background: linear-gradient(135deg, #1a1a1a, #2c3e50);
-            padding: 50px 20px;
+
+        /* BOTÃO VOLTAR FIXO (PADRÃO ESTÉTICO DO APP) */
+        .btn-voltar {
+            position: fixed;
+            top: 15px;
+            left: 15px;
+            background-color: #0d0d0d;
+            color: #ffffff;
+            text-decoration: none;
+            padding: 8px 16px;
+            font-size: 14px;
+            font-weight: bold;
+            border: 1px solid #ffd700;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .btn-voltar:hover {
+            background-color: #ffd700;
+            color: #000000;
+            transform: scale(1.05);
+        }
+
+        /* TÍTULOS COM ALTO DESTAQUE (NEON GOLD) */
+        .black-section .main-title {
+            color: #ffd700 !important;
             text-align: center;
-            border-bottom: 4px solid #ffd700;
-        }
- 
-        header h1 {
-            color: #ffd700;
+            margin-top: 30px;
+            margin-bottom: 40px;
+            font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 2px;
+            text-shadow: 0 0 15px rgba(255, 215, 0, 0.4);
+            border-bottom: 2px solid #ffd700;
+            padding-bottom: 15px;
         }
- 
-        /* MENU DE BOTÕES VIBRANTES */
-        .nav-menu {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 15px;
-            padding: 30px;
-            justify-content: center;
+
+        .black-section .sub-section-title {
+            color: #ffd700 !important;
+            text-align: center;
+            margin-top: 50px;
+            margin-bottom: 30px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
- 
-        .btn-nav {
-            aspect-ratio: 1/1;
+
+        /* CARD DESIGN PARA ELEMENTOS DA DIETA */
+        .black-section .card {
+            background-color: #0d0d0d !important;
+            border: 1px solid #222222 !important;
+            color: #ffffff !important;
+            margin-bottom: 30px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+        }
+
+        .black-section .card-header {
+            background-color: #161616 !important;
+            color: #ffd700 !important;
+            border-bottom: 1px solid #222222 !important;
+            font-weight: bold;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            padding: 15px 20px;
+        }
+
+        .black-section .card-body {
+            padding: 25px;
+        }
+
+        /* ELEMENTOS INTERNOS (TEXTOS, LISTAS E DESTAQUES) */
+        .black-section p {
+            color: #dddddd;
+            line-height: 1.6;
+            text-align: justify;
+        }
+
+        .black-section ul {
+            margin-bottom: 20px;
+        }
+
+        .black-section ul li {
+            color: #cccccc !important;
+            margin-bottom: 8px;
+        }
+
+        .black-section strong {
+            color: #ffffff;
+        }
+
+        .black-section .topic-highlight {
+            color: #ffd700 !important;
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-top: 15px;
+            border-left: 3px solid #ffd700;
+            padding-left: 10px;
+            text-transform: uppercase;
+        }
+
+        .black-section .badge-genero {
+            background-color: #1a1a1a;
+            border: 1px solid #ffd700;
+            color: #ffd700;
+            padding: 5px 15px;
+            border-radius: 20px;
+            display: inline-block;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .black-section .dica-box {
+            background-color: #111;
+            border: 1px dashed #ffd700;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 15px;
+            color: #ffd700 !important;
+        }
+
+        /* IMAGENS CENTRALIZADAS E RESPONSIVAS */
+        .black-section .img-container {
             display: flex;
             flex-direction: column;
-            align-items: center;
             justify-content: center;
-            text-align: center;
-            text-decoration: none;
-            color: #fff;
-            font-weight: 800;
-            text-transform: uppercase;
-            border-radius: 15px;
-            font-size: 0.9em;
-            transition: 0.3s;
-            padding: 15px;
+            align-items: center;
+            padding: 20px 0;
+            width: 100%;
         }
- 
-        .btn-nav:hover {
-            transform: scale(1.1);
-            filter: brightness(1.2);
-        }
- 
-        .btn-magro {
-            background: #e74c3c;
-            box-shadow: 0 0 15px rgba(231, 76, 60, 0.5);
-        }
- 
-        .btn-ideal {
-            background: #2ecc71;
-            box-shadow: 0 0 15px rgba(46, 204, 113, 0.5);
-        }
- 
-        .btn-gordo {
-            background: #f1c40f;
-            color: #000;
-            box-shadow: 0 0 15px rgba(241, 196, 15, 0.5);
-        }
- 
-        .content {
-            padding: 40px 25px;
-        }
- 
-        /* CARDS INFORMATIVOS */
-        .section-intro {
-            background: rgba(255, 215, 0, 0.05);
+
+        .black-section .img-container img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
             border: 1px solid #333;
-            padding: 30px;
-            border-radius: 15px;
-            margin-bottom: 40px;
-            text-align: center;
         }
- 
-        .section-intro h2 {
-            color: #ffd700;
-            margin-bottom: 15px;
-            font-size: 1.8em;
+
+        .black-section .img-caption {
+            color: #888888;
+            font-size: 0.9rem;
+            margin-top: 8px;
+            font-style: italic;
         }
- 
-        .card-ecc {
-            background: #111;
-            padding: 30px;
-            border-radius: 20px;
-            border-left: 5px solid #ffd700;
-            margin-bottom: 30px;
+
+        /* ==========================================================================
+           NOVOS ESTILOS ADICIONADOS: AVALIAÇÃO BIOMÉTRICA E ESCORE CORPORAL
+           ========================================================================== */
+
+        /* Container da imagem do cavalo para servir de referência absoluta */
+        .cavalo-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
         }
- 
-        .highlight {
-            color: #ffd700;
+
+        /* Pins/Pontos de avaliação sobrepostos à imagem */
+        .ponto-avaliacao {
+            position: absolute;
+            background: rgba(46, 204, 113, 0.85); /* Verde vibrante semitransparente para destacar no fundo escuro */
+            padding: 6px 12px;
+            border-radius: 6px;
+            color: #ffffff;
             font-weight: bold;
+            font-size: 0.75em;
+            text-transform: uppercase;
+            box-shadow: 0 0 10px rgba(46, 204, 113, 0.4);
+            pointer-events: none; /* Não interfere no toque ou hover */
+            white-space: nowrap;
         }
- 
-        .sub-topic {
-            color: #3498db;
-            font-weight: bold;
-            margin-top: 20px;
-            display: block;
-            font-size: 1.2em;
-            text-align: center;
-        }
- 
-        /* LISTA DE PONTOS DE AVALIAÇÃO */
-        .pontos-avaliacao {
+
+        /* Posicionamento exato dos Pins conforme anatomia do animal */
+        .p-pescoco   { top: 25%; left: 22%; transform: translate(-50%, -50%); }
+        .p-cernelha  { top: 20%; left: 33%; transform: translate(-50%, -50%); }
+        .p-dorso     { top: 20%; left: 52%; transform: translate(-50%, -50%); }
+        .p-cauda     { top: 25%; left: 78%; transform: translate(-50%, -50%); }
+        .p-codilho   { top: 60%; left: 23%; transform: translate(-50%, -50%); }
+        .p-costado   { top: 45%; left: 45%; transform: translate(-50%, -50%); }
+
+        /* Grid layout para os blocos de Altura e Peso */
+        .grid-biometria {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 20px;
             margin-top: 20px;
         }
- 
-        .ponto-item {
-            background: #1a1a1a;
-            padding: 15px;
-            border-radius: 10px;
-            border: 1px solid #333;
-            text-align: center;
-        }
- 
-        footer {
-            text-align: center;
-            padding: 50px;
-            color: #666;
-            border-top: 1px solid #333;
-        }
-    </style>
- 
-    <style>
-        /* CONFIGURAÇÕES GERAIS - PRESERVA O DESIGN PREMIUM DARK */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            scroll-behavior: smooth;
-        }
- 
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            background-color: #000000;
-            color: #ffffff;
-            padding: 20px;
-        }
- 
-        .container {
-            max-width: 1100px;
-            margin: 0 auto;
-            background: #0a0a0a;
-            border-radius: 20px;
-            box-shadow: 0 10px 50px rgba(0, 0, 0, 0.9);
-            border: 1px solid #333;
-            overflow: hidden;
-            padding: 40px;
-        }
- 
-        header {
-            background: linear-gradient(135deg, #1a1a1a, #2c3e50);
-            padding: 50px 20px;
-            text-align: center;
-            border-bottom: 4px solid #ffd700;
-            margin: -40px -40px 40px -40px;
-        }
- 
-        header h1 {
-            color: #ffd700;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            font-size: 2.2em;
-        }
- 
-        header p {
-            color: #ccc;
-            margin-top: 10px;
-        }
- 
-        /* SEÇÃO DA INFOGRAFIA DO CAVALO */
-        .infografia-cavalo {
-            background: #111;
-            border-radius: 15px;
-            padding: 40px;
-            margin-bottom: 50px;
-            border: 1px dashed rgba(255, 215, 0, 0.1);
-        }
- 
-        .sub-title {
-            color: #ffd700;
-            text-align: center;
-            font-size: 1.8em;
-            text-transform: uppercase;
-            margin-bottom: 30px;
-            border-bottom: 2px solid #333;
-            padding-bottom: 15px;
-        }
- 
- 
-        /* PONTOS DE AVALIAÇÃO (Ajustados conforme imagem) */
-        .ponto-avaliacao {
-            position: absolute;
-            background: rgba(46, 204, 113, 0.6);
-            /* Verde vibrante semitransparente */
-            padding: 8px 15px;
-            border-radius: 8px;
-            color: #fff;
-            font-weight: bold;
-            font-size: 0.8em;
-            text-transform: uppercase;
-            box-shadow: 0 0 10px rgba(46, 204, 113, 0.3);
-            pointer-events: none;
-            /* Não interfere no hover */
-        }
- 
-        /* Posicionamento dos Pontos */
-        .p-pescoco {
-            top: 25%;
-            left: 22%;
-            transform: translate(-50%, -50%);
-        }
- 
-        .p-cernelha {
-            top: 20%;
-            left: 33%;
-            transform: translate(-50%, -50%);
-        }
- 
-        .p-dorso {
-            top: 20%;
-            left: 52%;
-            transform: translate(-50%, -50%);
-        }
- 
-        .p-cauda {
-            top: 25%;
-            left: 78%;
-            transform: translate(-50%, -50%);
-        }
- 
-        .p-codilho {
-            top: 60%;
-            left: 23%;
-            transform: translate(-50%, -50%);
-        }
- 
-        .p-costado {
-            top: 45%;
-            left: 45%;
-            transform: translate(-50%, -50%);
-        }
- 
-        /* SEÇÃO DE DADOS BIOMÉTRICOS (ALTURA E PESO) */
-        .grid-biometria {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
- 
+
         .card-biometria {
-            background: #111;
-            padding: 30px;
-            border-radius: 15px;
-            border: 1px solid #333;
+            background: #111111 !important;
+            padding: 20px;
+            border-radius: 12px;
+            border: 1px solid #222222;
             transition: 0.3s;
         }
- 
+
         .card-biometria:hover {
             border-color: #ffd700;
         }
- 
+
         .card-biometria h3 {
-            color: #3498db;
-            margin-bottom: 20px;
+            color: #3498db !important; /* Destaque azul para diferenciar biometria */
+            margin-bottom: 15px;
             text-transform: uppercase;
-            font-size: 1.2em;
+            font-size: 1.1em;
+            font-weight: bold;
             border-left: 4px solid #ffd700;
-            padding-left: 15px;
+            padding-left: 10px;
         }
- 
-        /* TABELAS INFORMATIVAS (DADOS CONFORME IMAGEM) */
-        table {
+
+        /* Tabelas de dados biométricos */
+        .card-biometria table {
             width: 100%;
             border-collapse: collapse;
             font-size: 0.9em;
         }
- 
-        td {
-            padding: 12px;
+
+        .card-biometria td {
+            padding: 10px;
             border-bottom: 1px solid #222;
         }
- 
-        td:first-child {
+
+        .card-biometria td:first-child {
             color: #ffd700;
             font-weight: bold;
             width: 40%;
         }
- 
-        td:last-child {
-            color: #ccc;
+
+        .card-biometria td:last-child {
+            color: #cccccc;
         }
- 
-        tr:last-child td {
+
+        .card-biometria tr:last-child td {
             border-bottom: none;
         }
- 
-        footer {
-            text-align: center;
-            padding: 60px 40px;
-            color: #666;
-            font-size: 0.9em;
-            border-top: 1px solid #222;
-            margin: 40px -40px -40px -40px;
-        }
- 
-        .highlight {
-            color: #ffd700;
-            font-weight: bold;
-        }
-    </style>
- 
-    <style>
-        .ecc-container {
-            color: #fff;
-            padding: 20px;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-        .main-title { color: #ffd700; text-align: center; margin-bottom: 30px; }
-        .sub-title { color: #3498db; margin-top: 40px; }
-        .highlight-question { color: #ffd700; font-weight: bold; font-size: 1.1rem; }
- 
-        .intro-text { background: #111; padding: 20px; border-radius: 10px; margin-bottom: 30px; border-left: 4px solid #ffd700; }
- 
-        .img-fluid { width: 100%; height: auto; border-radius: 10px; margin: 20px 0; }
- 
-        .escore-grid { display: flex; flex-direction: column; gap: 40px; margin-top: 50px; }
-        .escore-item { background: #0d0d0d; border: 1px solid #222; padding: 20px; border-radius: 15px; }
-        .escore-item h3 { color: #ffd700; margin-bottom: 15px; border-bottom: 1px solid #333; padding-bottom: 10px; }
-        .escore-item p { color: #ccc; margin-bottom: 20px; line-height: 1.5; }
- 
-        .img-escore { 
-            width: 100%; 
-            max-width: 500px; 
-            display: block; 
-            margin: 0 auto; 
-            border-radius: 8px; 
-            box-shadow: 0 4px 10px rgba(0,0,0,0.5); 
-        }
-    </style>
- 
-    <style>
-        /* ESTILO PREMIUM DARK */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            scroll-behavior: smooth;
-        }
- 
-        body {
-            font-family: 'Segoe UI', Arial, sans-serif;
-            background-color: #000;
-            color: #fff;
-            line-height: 1.6;
-            padding: 15px;
-        }
- 
-        .container {
-            max-width: 1000px;
-            margin: 20px auto;
-            background: #0a0a0a;
-            border: 1px solid #333;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8);
-        }
- 
-        header {
-            background: linear-gradient(135deg, #1a1a1a, #2c3e50);
-            padding: 40px 20px;
-            text-align: center;
-            border-bottom: 4px solid #ffd700;
-        }
- 
-        header h1 {
-            color: #ffd700;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            font-size: 1.6rem;
-        }
- 
-        /* BOTÕES VIBRANTES CENTRALIZADOS */
-        .nav-menu {
-            display: flex;
-            flex-wrap: wrap;
+
+        /* Grid layout para exibição dos 9 escores corporais */
+        .escore-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 20px;
-            padding: 30px;
-            justify-content: center;
-        }
- 
-        .btn-vibrante {
-            width: 150px;
-            height: 150px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            text-decoration: none;
-            color: #fff;
-            font-weight: 800;
-            text-transform: uppercase;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            transition: 0.4s;
-            padding: 15px;
-            border: 2px solid rgba(255, 255, 255, 0.1);
-        }
- 
-        .btn-vibrante:hover {
-            transform: translateY(-10px) scale(1.05);
-            filter: brightness(1.3);
-        }
- 
-        .btn-verde {
-            background: #27ae60;
-            box-shadow: 0 8px 20px rgba(39, 174, 96, 0.4);
-        }
- 
-        .btn-azul {
-            background: #2980b9;
-            box-shadow: 0 8px 20px rgba(41, 128, 185, 0.4);
-        }
- 
-        .btn-dourado {
-            background: #f39c12;
-            box-shadow: 0 8px 20px rgba(243, 156, 18, 0.4);
-        }
- 
-        .content {
-            padding: 30px;
-        }
- 
-        .info-card {
-            background: #111;
-            padding: 25px;
-            border-radius: 15px;
-            margin-bottom: 30px;
-            border-left: 5px solid #ffd700;
-        }
- 
-        .section-title {
-            color: #ffd700;
-            text-transform: uppercase;
-            margin-bottom: 20px;
-            text-align: center;
-            font-size: 1.4rem;
-            border-bottom: 1px solid #333;
-            padding-bottom: 10px;
-        }
- 
-        /* ESTILO DAS TABELAS (CONFORME IMAGENS) */
-        .table-res {
-            overflow-x: auto;
-            margin-top: 15px;
-            border-radius: 10px;
-            border: 1px solid #333;
-        }
- 
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            background: #0a0a0a;
-            min-width: 700px;
-        }
- 
-        th {
-            background: #1a1a1a;
-            color: #ffd700;
-            text-transform: uppercase;
-            font-size: 0.75rem;
-            padding: 15px;
-            text-align: left;
-            border-bottom: 2px solid #333;
-        }
- 
-        td {
-            padding: 15px;
-            border-bottom: 1px solid #222;
-            font-size: 0.9rem;
-            color: #ddd;
-        }
- 
-        tr:hover {
-            background: #161616;
-        }
- 
-        .highlight {
-            color: #ffd700;
-            font-weight: bold;
-        }
- 
-        /* CORES SEMÂNTICAS PASTO */
-        .pasto-baixo {
-            color: #ff4d4d;
-        }
- 
-        .pasto-moderado {
-            color: #2ecc71;
-            font-weight: bold;
-        }
- 
-        .pasto-alto {
-            color: #3498db;
-        }
- 
-        footer {
-            text-align: center;
-            padding: 40px;
-            color: #555;
-            font-size: 0.8rem;
-            border-top: 1px solid #222;
-        }
-    </style>
- 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
- 
-        body {
-            font-family: 'Segoe UI', Arial, sans-serif;
-            background-color: #000;
-            color: #fff;
-            line-height: 1.8;
-            padding: 20px;
-        }
- 
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            background: #0a0a0a;
-            border: 1px solid #333;
-            border-radius: 10px;
-            overflow: hidden;
-        }
- 
-        header {
-            background: #1a1a1a;
-            padding: 40px;
-            text-align: center;
-            border-bottom: 4px solid #ffd700;
-        }
- 
-        header h1 {
-            color: #ffd700;
-            text-transform: uppercase;
-            font-size: 1.8rem;
-        }
- 
-        .content {
-            padding: 40px;
-        }
- 
-        h2 {
-            color: #ffd700;
-            text-transform: uppercase;
-            margin-top: 40px;
-            margin-bottom: 20px;
-            border-bottom: 1px solid #333;
-            padding-bottom: 10px;
-        }
- 
-        h3 {
-            color: #3498db;
-            text-transform: uppercase;
-            margin-top: 30px;
-            margin-bottom: 10px;
-        }
- 
-        p {
-            margin-bottom: 15px;
-            text-align: justify;
-        }
- 
-        ul {
-            margin-bottom: 25px;
-            list-style: none;
-        }
- 
-        ul li {
-            margin-bottom: 10px;
-            padding-left: 20px;
-            position: relative;
-        }
- 
-        ul li::before {
-            content: "·";
-            position: absolute;
-            left: 0;
-            color: #ffd700;
-            font-weight: bold;
-            font-size: 1.5rem;
-            line-height: 1;
-        }
- 
-        .highlight {
-            color: #ffd700;
-            font-weight: bold;
-        }
- 
-        .warning-box {
-            background: rgba(231, 76, 60, 0.1);
-            border: 1px solid #e74c3c;
-            padding: 15px;
-            border-radius: 8px;
-            margin-top: 20px;
-            text-align: center;
-        }
- 
-        footer {
-            text-align: center;
-            padding: 30px;
-            color: #555;
-            font-size: 0.8rem;
-            border-top: 1px solid #222;
-        }
-    </style>
- 
-    <style>
-        /* ESTILO INTEGRADO PREMIUM */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
- 
-        body {
-            font-family: 'Segoe UI', Arial, sans-serif;
-            background-color: #000;
-            color: #fff;
-            line-height: 1.8;
-            padding: 20px;
-}
- 
-.container {
- max-width: 900px;
-            margin: 0 auto;
-            background: #0a0a0a;
-            border: 1px solid #333;
-            border-radius: 12px;
-            overflow: hidden;
-        }
- 
-        header {
-            background: #1a1a1a;
-            padding: 40px;
-            text-align: center;
-            border-bottom: 4px solid #ffd700;
-        }
- 
-        header h1 {
-            color: #ffd700;
-            text-transform: uppercase;
-            font-size: 1.8rem;
-            letter-spacing: 2px;
-        }
- 
-        .content {
-            padding: 40px;
-        }
- 
-        h2 {
-            color: #ffd700;
-            text-transform: uppercase;
-            margin-top: 45px;
-            margin-bottom: 20px;
-            border-bottom: 1px solid #333;
-            padding-bottom: 10px;
-            font-size: 1.5rem;
-        }
- 
-        h3 {
-            color: #3498db;
-            text-transform: uppercase;
-            margin-top: 35px;
-            margin-bottom: 15px;
-            font-size: 1.3rem;
-            border-left: 4px solid #3498db;
-            padding-left: 15px;
-        }
- 
-        h4 {
-            color: #2ecc71;
-            text-transform: uppercase;
             margin-top: 25px;
-            margin-bottom: 10px;
-            font-size: 1.1rem;
         }
- 
-        p {
-            margin-bottom: 20px;
-            text-align: justify;
-        }
- 
-        ul {
-            margin-bottom: 30px;
-            list-style: none;
-        }
- 
-        ul li {
-            margin-bottom: 12px;
-            padding-left: 25px;
-            position: relative;
-        }
- 
-        ul li::before {
-            content: "·";
-            position: absolute;
-            left: 0;
-            color: #ffd700;
-            font-weight: bold;
-            font-size: 2rem;
-            line-height: 0.8;
-        }
- 
-        .destaque-box {
-            background: rgba(255, 215, 0, 0.05);
-            border: 1px solid #444;
-            padding: 20px;
-            border-radius: 8px;
-            margin: 20px 0;
-        }
- 
-        .dica {
-            color: #f39c12;
-            font-weight: bold;
-            font-style: italic;
-            border: 1px dashed #f39c12;
-            padding: 10px;
-            border-radius: 5px;
-            margin-top: 10px;
-        }
- 
-        .autoridade {
-            color: #ffd700;
-            font-weight: bold;
-        }
- 
-        footer {
-            text-align: center;
-            padding: 30px;
-            color: #555;
-            font-size: 0.8rem;
-            border-top: 1px solid #222;
-        }
-    </style>
- 
-    <style>
-        /* ESTILO GLOBAL SOS EQUISAÚDE */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
- 
-        body {
-            font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
-            background-color: #000;
-            color: #fff;
-            line-height: 1.6;
-            padding: 15px;
-        }
- 
-        .container {
-            max-width: 600px;
-            margin: 0 auto;
-        }
- 
-        /* CABEÇALHOS */
-        header {
-            background: #1a1a1a;
-            padding: 25px 15px;
-            text-align: center;
-            border-bottom: 4px solid #ffd700;
-            border-radius: 12px;
-            margin-bottom: 30px;
-        }
- 
-        header h1 {
-            color: #ffd700;
-            text-transform: uppercase;
-            font-size: 1.3rem;
-            letter-spacing: 1px;
-        }
- 
-        h2.section-title {
-            color: #ffd700;
-            text-align: center;
-            text-transform: uppercase;
-            margin: 30px 0 20px;
-            font-size: 1.4rem;
-            border-bottom: 1px solid #333;
-            padding-bottom: 10px;
-        }
- 
-        h3.group-title {
-            color: #3498db;
-            font-size: 1.2rem;
-            margin: 20px 0 15px;
-            padding-left: 10px;
-            border-left: 4px solid #3498db;
-        }
- 
-        /* CARDS DE CONTEÚDO */
-        .card {
-            background: #0a0a0a;
+
+        .escore-item {
+            background-color: #0d0d0d;
             border: 1px solid #222;
-            border-radius: 8px;
+            border-radius: 10px;
             padding: 20px;
-            margin-bottom: 20px;
-            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
- 
-        .card-feno { border-left: 6px solid #f1c40f; }
-        .card-capim { border-left: 6px solid #2ecc71; }
-        .card-nutri { border: 1px solid #ffd700; background: #111; }
- 
-        .card h4 {
-            color: #fff;
-            font-size: 1.1rem;
-            margin-bottom: 10px;
-        }
- 
-        .autoridade {
-            color: #ffd700;
+
+        .escore-item h3 {
+            color: #ffd700 !important;
+            font-size: 1rem;
             font-weight: bold;
-            text-transform: uppercase;
-            font-size: 0.75rem;
-            display: block;
-            margin-top: 10px;
+            margin-bottom: 12px;
+            border-bottom: 1px solid #222;
+            padding-bottom: 8px;
+            text-transform: none;
         }
- 
-        /* LISTAS */
-        ul {
-            list-style: none;
-            margin: 10px 0;
-        }
- 
-        ul li {
-            position: relative;
-            padding-left: 20px;
-            margin-bottom: 8px;
-            color: #ccc;
+
+        .escore-item p {
             font-size: 0.9rem;
+            color: #cccccc;
+            line-height: 1.5;
+            text-align: justify;
+            flex-grow: 1;
         }
- 
-        ul li::before {
-            content: "•";
-            position: absolute;
-            left: 0;
-            color: #ffd700;
-            font-size: 1.2rem;
-        }
- 
-        /* CAIXAS DE DESTAQUE */
-        .pergunta-box {
-            background: rgba(46, 204, 113, 0.1);
-            border: 1px solid rgba(46, 204, 113, 0.3);
-            padding: 12px;
+
+        .img-escore {
+            width: 100%;
+            height: auto;
             border-radius: 6px;
             margin-top: 15px;
+            border: 1px solid #333;
         }
- 
-        .pergunta-titulo {
-            color: #2ecc71;
-            font-weight: bold;
-            text-transform: uppercase;
-            font-size: 0.8rem;
-            display: block;
-        }
- 
-        .dica {
-            background: #1a1a1a;
-            border-left: 4px solid #3498db;
+
+        /* Caixa de destaque para Fisiologia Gástrica */
+        .anatomia-box {
+            display: flex;
+            background: #111;
+            border-left: 4px solid #ffd700;
             padding: 15px;
-            font-size: 0.85rem;
-            font-style: italic;
-            margin-top: 10px;
-            color: #ddd;
+            border-radius: 4px;
+            margin: 15px 0;
+            align-items: center;
         }
- 
-        .nutri-header {
-            color: #ffd700;
-            font-weight: bold;
-            display: block;
-            margin-bottom: 5px;
+
+        .icon-box {
+            font-size: 1.5rem;
+            margin-right: 15px;
+        }
+
+        .anatomia-box p {
+            margin-bottom: 5px !important;
+        }
+
+        .anatomia-box p:last-child {
+            margin-bottom: 0 !important;
+        }
+
+        /* Classes utilitárias gerais */
+        .highlight { 
+            color: #ffd700; 
+            font-weight: bold; 
+        }
+
+        .highlight-question { 
+            color: #ffd700 !important; 
+            font-weight: bold; 
+            font-size: 1.1rem; 
+        }
+
+        /* RESPONSIVIDADE PARA TELA DE SMARTPHONE */
+        @media (max-width: 768px) {
+            .btn-voltar {
+                position: absolute;
+                top: 15px;
+                left: 15px;
+            }
+
+            .black-section .main-title {
+                margin-top: 45px;
+                font-size: 1.6rem;
+            }
         }
     </style>
- 
 </head>
- 
+
 <body>
- 
-    <div class="container">
-        <header>
-            <h1>MANEJO NUTRICIONAL EQUINO</h1>
-            <p>Tipos de Alimentos e Suplementos</p>
-        </header>
- 
-        <nav class="nav-menu">
-            <a href="#mombaca" class="btn-nav b-mombaca">Capim Mombaça</a>
-            <a href="#coast" class="btn-nav b-coast">Coast-Cross</a>
-            <a href="#tifton" class="btn-nav b-tifton">Tifton 85</a>
-            <a href="#comparativo" class="btn-nav b-tabela">Tabela Técnica</a>
-        </nav>
- 
-        <div class="content">
- 
-            <section class="section-intro">
-                <p>A <span class="highlight">alimentação é a base da saúde do cavalo</span>. Um bom manejo nutricional
-                    precisa equilibrar energia, fibras, proteínas, minerais e vitaminas, respeitando a função natural do
-                    sistema digestivo equino.</p>
-            </section>
- 
-            <section id="mombaca" class="card-forragem">
-                <h2>Capim Mombaça</h2>
-                <span class="sub-topic">Características Gerais:</span>
-                <ul>
-                    <li>Gênero: <em>Panicum</em>;</li>
-                    <li>Folhas largas e coloração verde intensa;</li>
-                    <li>Excelente crescimento em climas quentes e úmidos.</li>
-                </ul>
-                <span class="sub-topic">Benefícios Nutricionais:</span>
-                <ul>
-                    <li>Teor de Proteína Bruta: <span class="highlight">10% a 14%</span>;</li>
-                    <li>Digestibilidade: Boa;</li>
-                    <li>Rico em cálcio e potássio.</li>
-                </ul>
-                <div class="dica-box">
-                    <strong>Dica:</strong> O corte deve ser feito com o capim jovem (70–90 cm).
-                </div>
-            </section>
- 
-            <section id="coast" class="card-forragem">
-                <h2>Coast-Cross</h2>
-                <span class="sub-topic">Características Gerais:</span>
-                <ul>
-                    <li>Gênero: <em>Cynodon</em>;</li>
-                    <li>Folhas finas e formação de tapete denso;</li>
-                    <li>Muito resistente ao pisoteio.</li>
-                </ul>
-                <span class="sub-topic">Benefícios Nutricionais:</span>
-                <ul>
-                    <li>Teor de Proteína Bruta: <span class="highlight">8% a 12%</span>;</li>
-                    <li>Digestibilidade: Alta;</li>
-                    <li>Excelente palatabilidade.</li>
-                </ul>
-                <div class="dica-box">
-                    <strong>Dica:</strong> O melhor momento para o corte é entre 25 a 40 cm.
-                </div>
-            </section>
- 
-            <section id="tifton" class="card-forragem">
-                <h2>Tifton 85</h2>
-                <span class="sub-topic">Características Gerais:</span>
-                <ul>
-                    <li>Gênero: <em>Cynodon</em>;</li>
-                    <li>Folhas finas e textura macia;</li>
-                    <li>Referência para produção de feno de alta qualidade.</li>
-                </ul>
-                <span class="sub-topic">Benefícios Nutricionais:</span>
-                <ul>
-                    <li>Teor de Proteína Bruta: <span class="highlight">10% a 15%</span>;</li>
-                    <li>Digestibilidade: Muito Alta;</li>
-                    <li>Baixo teor de lignina.</li>
-                </ul>
-                <div class="dica-box">
-                    <strong>Dica:</strong> Cortar entre 30 e 40 dias de crescimento.
-                </div>
-            </section>
- 
-            <section id="comparativo">
-                <h2 class="title-main">Comparativo de Forrageiras</h2>
-                <div class="table-res">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Forrageira</th>
-                                <th>Gênero</th>
-                                <th>Teor de Proteína (%)</th>
-                                <th>Digestibilidade</th>
-                                <th>Tipo de uso</th>
-                                <th>Indicação principal</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td class="highlight">Mombaça</td>
-                                <td><em>Panicum</em></td>
-                                <td>10 – 14</td>
-                                <td>Boa</td>
-                                <td>Corte diário (capineira)</td>
-                                <td>Cavalos de lazer, reprodução e potros</td>
-                            </tr>
-                            <tr>
-                                <td class="highlight">Coast-Cross</td>
-                                <td><em>Cynodon</em></td>
-                                <td>8 – 12</td>
-                                <td>Alta</td>
-                                <td>Pasto e feno</td>
-                                <td>Alimentação diária e manutenção</td>
-                            </tr>
-                            <tr>
-                                <td class="highlight">Tifton 85</td>
-                                <td><em>Cynodon</em></td>
-                                <td>10 – 15</td>
-                                <td>Muito alta</td>
-                                <td>Feno e pastejo</td>
-                                <td>Cavalos atletas e de alto desempenho</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </section>
- 
-        </div>
- 
-        <footer>
-            <p><strong>SOS EQUISAÚDE © 2026</strong></p>
-        </footer>
-    </div>
- 
-    <div class="container">
-        <header>
-            <h1>MANEJO NUTRICIONAL EM EQUINOS</h1>
-            <p>Avaliação da Condição Corporal</p>
-        </header>
- 
-        <div class="content">
- 
-            <section class="section-intro">
-                <h2>Como avaliar a condição corporal do cavalo?</h2>
-                <p>Você sabe o que é o <span class="highlight">Escore de Condição Corporal (ECC)</span>? Sabe o que ele
-                    avalia? Sabe por que é importante conhecê-lo?</p>
-            </section>
- 
-            <div class="card-ecc">
-                <p>• O Escore de Condição Corporal é um <strong>método visual e tátil</strong> usado para avaliar a
-                    quantidade de gordura e o estado físico geral do cavalo.</p>
-                <p style="margin-top: 10px;">• Ele mostra se o animal está <span class="highlight">Magro, Ideal ou
-                        Gordo</span>.</p>
-            </div>
- 
-            <span class="sub-topic">O que avaliar?</span>
- 
-            <div class="pontos-avaliacao">
-                <div class="ponto-item">
-                    <span class="highlight">Pescoço</span>
-                    <p>Presença de crista ou gordura acumulada.</p>
-                </div>
-                <div class="ponto-item">
-                    <span class="highlight">Cernelha</span>
-                    <p>Cobertura de gordura sobre a estrutura óssea.</p>
-                </div>
-                <div class="ponto-item">
-                    <span class="highlight">Costelas</span>
-                    <p>Sensibilidade ao toque e visibilidade.</p>
-                </div>
-                <div class="ponto-item">
-                    <span class="highlight">Garupa e Lombo</span>
-                    <p>Acúmulo de gordura próximo à inserção da cauda.</p>
+
+    <a href="index.html" class="btn-voltar">⬅ Voltar ao Menu</a>
+
+    <div class="container-fluid black-section">
+        <div class="container">
+
+            <h1 class="main-title">Cuidados Gerais com a Alimentação e o Manejo Nutricional</h1>
+
+            <div class="card">
+                <div class="card-header">Tipos de Alimentos e Suplementos para Equinos</div>
+                <div class="card-body">
+                    <ul>
+                        <li>A alimentação é a base da saúde do cavalo;</li>
+                        <li>Um bom manejo alimentar precisa equilibrar energia, fibras, proteínas, minerais e vitaminas, respeitando sempre a função natural do sistema digestivo do equino, que foi feito para comer pequenas porções ao longo do dia.</li>
+                    </ul>
                 </div>
             </div>
- 
-            <h2 style="color: #ffd700; text-align: center; margin-top: 50px; text-transform: uppercase;">Classificação
-                Rápida</h2>
- 
-            <nav class="nav-menu">
-                <a href="#" class="btn-nav btn-magro">
-                    <span>Estado</span>
-                    <strong>Magro</strong>
-                </a>
-                <a href="#" class="btn-nav btn-ideal">
-                    <span>Estado</span>
-                    <strong>Ideal</strong>
-                </a>
-                <a href="#" class="btn-nav btn-gordo">
-                    <span>Estado</span>
-                    <strong>Gordo</strong>
-                </a>
-            </nav>
- 
-        </div>
- 
-        <footer>
-            <p><strong>SOS EQUISAÚDE © 2026</strong></p>
-            <p>Monitoramento Nutricional e Bem-Estar</p>
-        </footer>
+
+            <div class="card">
+                <div class="card-header">Forragem</div>
+                <div class="card-body">
+                    <ul>
+                        <li>Todo alimento de origem vegetal usado na alimentação de animais herbívoros, como cavalos, vacas, cabras e ovelhas.</li>
+                        <li>Ela inclui capins, fenos, silagens e leguminosas, e representa a base natural da dieta equina.</li>
+                    </ul>
+
+                    <p class="topic-highlight">Principais funções das forragens</p>
+                    <ul>
+                        <li>Mantém o sistema digestivo funcionando corretamente;</li>
+                        <li>Evita cólicas e úlceras, estimula o comportamento natural de pastejo;</li>
+                        <li>Fornece energia e fibras de forma segura.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h2 class="sub-section-title">Principais Forrageiras Usadas para Cavalos no Brasil</h2>
+
+            <div class="card">
+                <div class="card-header">Capim Mombaça</div>
+                <div class="card-body">
+                    <span class="badge-genero">GÊNERO PANICUM</span>
+                    
+                    <p class="topic-highlight">Características gerais</p>
+                    <ul>
+                        <li>O capim Mombaça pertence ao gênero Panicum e é uma das forrageiras mais cultivadas no Brasil;</li>
+                        <li>Tem folhas largas, coloração verde intensa e pode atingir até 2 metros de altura, se não for cortado com frequência;</li>
+                        <li>Possui excelente crescimento em climas quentes e úmidos e boa adaptação a diferentes tipos de solo.</li>
+                    </ul>
+
+                    <p class="topic-highlight">Benefícios nutricionais</p>
+                    <ul>
+                        <li>Teor de proteína bruta: 10% a 14%</li>
+                        <li>Boa digestibilidade e palatabilidade (os cavalos gostam e digerem bem).</li>
+                        <li>Fornece fibras de boa qualidade, importantes para o intestino.</li>
+                        <li>Rica em minerais como cálcio e potássio.</li>
+                    </ul>
+
+                    <p class="topic-highlight">Por que é bom para cavalos?</p>
+                    <ul>
+                        <li>O Mombaça é ideal para alimentação verde diária (capineira), sendo ótimo para cavalos de lazer, reprodução e crescimento;</li>
+                        <li>Ajuda na hidratação natural por conter muita umidade.</li>
+                    </ul>
+
+                    <div class="dica-box">
+                        <strong>Dica:</strong> O corte deve ser feito com o capim jovem (70–90 cm). Quando fica muito alto, endurece e perde qualidade nutricional.
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">Capim Coast-Cross</div>
+                <div class="card-body">
+                    <span class="badge-genero">Cynodon dactylon</span>
+
+                    <p class="topic-highlight">Características gerais</p>
+                    <p>O Coast-Cross é um híbrido do gênero Cynodon, com folhas finas e estolões que formam um tapete verde denso.</p>
+                    <p>É um capim de crescimento rasteiro, rápido e muito resistente ao pisoteio — perfeito para áreas de pastagem usadas com frequência.</p>
+
+                    <p class="topic-highlight">Benefícios nutricionais</p>
+                    <ul>
+                        <li>Teor de proteína bruta: 8% a 12%</li>
+                        <li>Alta digestibilidade, mesmo após cortes mais tardios;</li>
+                        <li>Excelente palatabilidade — os cavalos aceitam facilmente;</li>
+                        <li>Boa produção de massa verde em regiões quentes;</li>
+                        <li>Digestibilidade.</li>
+                    </ul>
+
+                    <p class="topic-highlight">Por que é bom para cavalos</p>
+                    <ul>
+                        <li>O Coast-Cross é uma das opções mais seguras e equilibradas para equinos, podendo ser usado tanto como pasto direto quanto para produção de feno;</li>
+                        <li>Ajuda a manter o trato intestinal saudável e reduz o risco de cólicas.</li>
+                    </ul>
+
+                    <div class="dica-box">
+                        <strong>Dica:</strong> O melhor momento para o corte é quando o capim tem 25 a 40 cm de altura, pois é o ponto ideal de corte.
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">Capim Tifton 85</div>
+                <div class="card-body">
+                    <span class="badge-genero">Cynodon spp.</span>
+
+                    <p class="topic-highlight">Características gerais</p>
+                    <ul>
+                        <li>O Tifton 85 é outro híbrido do gênero Cynodon, derivado do cruzamento entre o Tifton 68 e o Bermuda grass.</li>
+                        <li>Tem folhas finais, textura macia e coloração verde-clara, sendo uma das forrageiras mais indicadas para equinos no Brasil.</li>
+                    </ul>
+
+                    <p class="topic-highlight">Benefícios nutricionais</p>
+                    <ul>
+                        <li>Teor de proteína bruta: 10% a 15%;</li>
+                        <li>Excelente digestibilidade e valor energético;</li>
+                        <li>Baixo teor de lignina, o que facilita a mastigação e absorção;</li>
+                        <li>Produz feno de altíssima qualidade, usado em haras e centros equestres.</li>
+                    </ul>
+
+                    <p class="topic-highlight">Por que é bom para cavalos</p>
+                    <ul>
+                        <li>O Tifton 85 é considerado o feno ideal para equinos, pois tem boa proporção de energia e proteína, sem causar fermentação excessiva;</li>
+                        <li>É muito usado para cavalos atletas e em treinamento, garantindo energia constante e trânsito intestinal equilibrado.</li>
+                    </ul>
+
+                    <div class="dica-box">
+                        <strong>Dica:</strong> Deve ser cortado entre 30 e 40 dias de crescimento — capins velhos ficam duros e menos nutritivos.
+                    </div>
+                </div>
+            </div>
+
+            <div class="card" style="background-color: #000000; border: 1px solid #222222; border-radius: 8px; margin-bottom: 20px;">
+    <div class="card-header" style="background-color: #0a0a0a; border-bottom: 2px solid #ffd700; color: #ffd700; font-weight: bold; font-size: 1.1rem; padding: 15px; text-transform: uppercase; letter-spacing: 0.5px;">
+        Comparando as Forrageiras
     </div>
- 
-    <div class="container">
-        <header>
-            <h1>GUIA DE AVALIAÇÃO BIOMÉTRICA</h1>
-<p>Protocolos de Morfologia e Condição Corporal SOS Equisaúde</p>
-</header>
- 
-<div class="content">
-    <section class="infografia-cavalo">
-        <h2 class="sub-title">Pontos Principais de Avaliação</h2>
-        <div class="cavalo-container">
-            <img src="oqueavaliar.png.png" alt="Pontos de Avaliação do Cavalo" style="width: 100%; height: auto; display: block;">
-        </div>
-    </section>
-</div>
-                <article class="card-biometria">
-<style>
-    .cernelha-app-module {
-        background-color: #000;
-        padding: 15px;
-        font-family: 'Segoe UI', Roboto, sans-serif;
-    }
- 
-    .cernelha-app-module h3 {
-        color: #ffd700;
-        font-size: 1.1rem;
-        text-transform: uppercase;
-        margin-bottom: 12px;
-        letter-spacing: 1px;
-    }
- 
-    /* Container que habilita a barra de rolagem lateral */
-    .table-responsive-container {
-        width: 100%;
-        overflow-x: auto; /* Habilita rolagem horizontal */
-        -webkit-overflow-scrolling: touch; /* Rolagem suave no iOS */
-        border: 1px solid #333;
-        border-radius: 8px;
-        background: #0a0a0a;
-    }
- 
-    .cernelha-app-module table {
-        width: 100%;
-        min-width: 300px; /* Garante que a tabela não "esprema" demais */
-        border-collapse: collapse;
-        color: #fff;
-    }
- 
-    .cernelha-app-module td {
-        padding: 15px;
-        border-bottom: 1px solid #222;
-        font-size: 0.95rem;
-    }
- 
-    /* Estilo para a primeira coluna (Rótulos) */
-    .cernelha-app-module td:first-child {
-        color: #ffd700;
-        font-weight: bold;
-        text-transform: uppercase;
-        font-size: 0.8rem;
-        background: rgba(255, 215, 0, 0.05);
-        width: 40%;
-    }
- 
-    /* Remove a borda da última linha */
-    .cernelha-app-module tr:last-child td {
-        border-bottom: none;
-    }
- 
-    /* Customização da barra de rolagem (opcional para estética) */
-    .table-responsive-container::-webkit-scrollbar {
-        height: 4px;
-    }
-    .table-responsive-container::-webkit-scrollbar-thumb {
-        background: #333;
-        border-radius: 10px;
-    }
-</style>
- 
-<div class="cernelha-app-module">
-    <article>
-        <h3>ALTURA DE CERNELHA</h3>
- 
-        <div class="table-responsive-container">
-            <table>
-                <tr>
-                    <td>Baixo</td>
-                    <td>1,35 a 1,50 m</td>
-                </tr>
-                <tr>
-                    <td>Médio</td>
-                    <td>1,50 a 1,60 m</td>
-                </tr>
-                <tr>
-                    <td>Alto</td>
-                    <td>acima de 1,60 m</td>
-                </tr>
+    <div class="card-body" style="padding: 0;">
+        <div class="table-responsive">
+            <table class="table table-dark table-hover align-middle" style="margin-bottom: 0; background-color: #000000; color: #ffffff;">
+                <thead>
+                    <tr style="border-bottom: 1px solid #333333; background-color: #0d0d0d;">
+                        <th scope="col" style="color: #ffd700; font-weight: 600; padding: 15px; font-size: 0.9rem;">Forrageira</th>
+                        <th scope="col" style="color: #ffd700; font-weight: 600; padding: 15px; font-size: 0.9rem;">Gênero</th>
+                        <th scope="col" style="color: #ffd700; font-weight: 600; padding: 15px; font-size: 0.9rem; text-align: center;">Proteína (%)</th>
+                        <th scope="col" style="color: #ffd700; font-weight: 600; padding: 15px; font-size: 0.9rem;">Digestibilidade</th>
+                        <th scope="col" style="color: #ffd700; font-weight: 600; padding: 15px; font-size: 0.9rem;">Tipo de Uso</th>
+                        <th scope="col" style="color: #ffd700; font-weight: 600; padding: 15px; font-size: 0.9rem;">Indicação Principal</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style="border-bottom: 1px solid #1a1a1a;">
+                        <td style="font-weight: bold; color: #ffffff; padding: 15px; background-color: #000000;">Mombaça</td>
+                        <td style="font-style: italic; color: #aaaaaa; padding: 15px; background-color: #000000;">Panicum</td>
+                        <td style="color: #ffffff; padding: 15px; text-align: center; font-weight: bold; background-color: #000000;">10 – 14</td>
+                        <td style="color: #cccccc; padding: 15px; background-color: #000000;"><span class="badge" style="background-color: #1e3d2f; color: #a3e2c9; border: 1px solid #2e5c47;">Boa</span></td>
+                        <td style="color: #cccccc; padding: 15px; background-color: #000000;">Corte diário (capineira)</td>
+                        <td style="color: #dddddd; padding: 15px; background-color: #000000;">Cavalos de lazer, reprodução e potros</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #1a1a1a;">
+                        <td style="font-weight: bold; color: #ffffff; padding: 15px; background-color: #050505;">Coast-Cross</td>
+                        <td style="font-style: italic; color: #aaaaaa; padding: 15px; background-color: #050505;">Cynodon</td>
+                        <td style="color: #ffffff; padding: 15px; text-align: center; font-weight: bold; background-color: #050505;">8 – 12</td>
+                        <td style="color: #cccccc; padding: 15px; background-color: #050505;"><span class="badge" style="background-color: #1a334d; color: #a3c2e2; border: 1px solid #294d73;">Alta</span></td>
+                        <td style="color: #cccccc; padding: 15px; background-color: #050505;">Pasto e feno</td>
+                        <td style="color: #dddddd; padding: 15px; background-color: #050505;">Alimentação diária e manutenção</td>
+                    </tr>
+                    <tr style="border-bottom: none;">
+                        <td style="font-weight: bold; color: #ffffff; padding: 15px; background-color: #000000;">Tifton 85</td>
+                        <td style="font-style: italic; color: #aaaaaa; padding: 15px; background-color: #000000;">Cynodon</td>
+                        <td style="color: #ffffff; padding: 15px; text-align: center; font-weight: bold; background-color: #000000;">10 – 15</td>
+                        <td style="color: #cccccc; padding: 15px; background-color: #000000;"><span class="badge" style="background-color: #3d3d1e; color: #e2e2a3; border: 1px solid #5c5c2e;">Muito Alta</span></td>
+                        <td style="color: #cccccc; padding: 15px; background-color: #000000;">Feno e pastejo</td>
+                        <td style="color: #dddddd; padding: 15px; background-color: #000000;">Cavalos atletas e de alto desempenho</td>
+                    </tr>
+                </tbody>
             </table>
         </div>
-    </article>
-</div>
-                <article class="card-biometria">
-                    <h3>PESO CORPORAL</h3>
-                    <table>
-                        <tr>
-                            <td>Abaixo do peso</td>
-                            <td>abaixo de 350 kg</td>
-                        </tr>
-                        <tr>
-                            <td>Peso ideal</td>
-                            <td>entre 350 e 500 kg</td>
-                        </tr>
-                        <tr>
-                            <td>Peso</td>
-                            <td>acima de 550 kg</td>
-                        </tr>
-                    </table>
-                </article>
- 
-            </section>
- 
+        <div style="padding: 10px; text-align: center; background-color: #0a0a0a; border-top: 1px solid #222222;">
+            <span class="img-caption" style="color: #666666; font-size: 0.85rem;">Tabela comparativa entre Mombaça, Coast-Cross e Tifton 85</span>
         </div>
- 
-        <footer>
-            <p><strong>SOS EQUISAÚDE © 2026</strong> - Excelência no Manejo Morfológico</p>
-            <p style="margin-top: 5px; font-size: 0.8em;">Todos os dados são orientativos e não substituem avaliação
-                veterinária.</p>
-        </footer>
-    </div>
- 
-<section class="ecc-container">
-    <h1 class="main-title">COMO AVALIAR A CONDIÇÃO CORPORAL DO CAVALO?</h1>
- 
-    <div class="intro-text">
-        <p class="highlight-question">VOCÊ SABE O QUE É O ESCORE DE CONDIÇÃO CORPORAL? SABE O QUE ELE AVALIA? SABE POR QUE É IMPORTANTE CONHECÊ-LO?</p>
-        <p>O <strong>Escore de Condição Corporal</strong> é um método visual e tátil usado para avaliar a quantidade de gordura e o estado físico geral do cavalo. Ele mostra se o animal está magro, ideal ou gordo.</p>
-    </div>
- 
-    <div class="evaluation-point">
-        <h2 class="sub-title">O que avaliar?</h2>
-        <img src="img/oqueavaliar.png.png" alt="O que avaliar no cavalo" class="img-fluid">
-    </div>
- 
-    <div class="escore-grid">
-        <div class="escore-item">
-            <h3>1. ANIMAL EXTREMAMENTE MAGRO</h3>
-            <p>Com espinha, costelas, cauda e pontos do quadril e nádega proeminentes. Cernelha, ombros e pescoço perceptíveis. Não se sente nenhum tecido adiposo.</p>
-            <img src="img/extremantemagro.png.png" alt="Animal extremamente magro" class="img-escore">
-        </div>
- 
-        <div class="escore-item">
-            <h3>2. ANIMAL MUITO MAGRO</h3>
-            <p>Animal magro. Ligeira camada de gordura sobre os ossos da coluna. Ossos da costela, rabo, quadril e nádega proeminentes. Cernelha, ombros e pescoço perceptíveis.</p>
-            <img src="img/muitomagro.png.png" alt="Animal muito magro" class="img-escore">
-        </div>
- 
-        <div class="escore-item">
-            <h3>3. MAGRO</h3>
-            <p>Animal com acúmulo de gordura na metade da coluna. Alguma cobertura de gordura sobre as costelas. Espinha e costelas levemente perceptíveis, porém, vértebras não podem ser identificadas visualmente. Pontos do quadril arredondados e pontas da nádega não são distinguíveis. Cernelha, ombro e pescoço acentuados.</p>
-            <img src="img/magro.png.png" alt="Animal magro" class="img-escore">
-        </div>
- 
-        <div class="escore-item">
-            <h3>4. ANIMAL MODERADAMENTE MAGRO</h3>
-            <p>Ligeira crista ao longo da coluna. Contorno fraco de costelas discerníveis. A proeminência do rabo depende da conformação, camada de gordura pode ser sentida em torno dele. Pontos do quadril não são discerníveis. Cernelha, ombros e pescoço não são mais finos.</p>
-            <img src="img/moderadamentemagro.png.png" alt="Animal moderadamente magro" class="img-escore">
-        </div>
- 
-        <div class="escore-item">
-            <h3>5. MODERADO</h3>
-            <p>Traseira plana. Costelas não são identificadas, mas são sentidas. Cernelha, espinha, ombro e pescoço com o corpo.</p>
-            <img src="img/moderado.png.png" alt="Escore moderado" class="img-escore">
-        </div>
- 
-        <div class="escore-item">
-            <h3>6. MODERADAMENTE GORDO</h3>
-            <p>A gordura se acumula suavemente. Algum lado da cernelha e do pescoço.</p>
-            <img src="img/moderadamentegordo.png.png" alt="Animal moderadamente gordo" class="img-escore">
-        </div>
- 
-        <div class="escore-item">
-            <h3>7. GORDO</h3>
-            <p>Costelas incômodas (difíceis de sentir) e sem costelas. Proeminência da cauda e lateral da cernelha, ombro e do pescoço.</p>
-            <img src="img/gordo.png.png" alt="Animal gordo" class="img-escore">
-        </div>
- 
-        <div class="escore-item">
-            <h3>8. MUITO GORDO</h3>
-            <p>Difícil sentir as costelas, gordura da cauda. Gordura nos ombros, cernelha e pescoço. Gordura interna das nádegas perceptíveis.</p>
-            <img src="img/muitogordo.png.png" alt="Animal muito gordo" class="img-escore">
-        </div>
- 
-        <div class="escore-item">
-            <h3>9. EXTREMAMENTE GORDO</h3>
-            <p>Gordura em toda a parte.</p>
-            <img src="img/extremamamentegordo.png.png" alt="Animal extremamente gordo" class="img-escore">
-        </div>
-    </div>
-</section>
- 
-    <h1>Oferta de Pastagem e Comportamento</h1>
-                            <p>Estratégias de Manejo Alimentar SOS Equisaúde</p>
-                        </header>
- 
-                        <nav class="nav-menu">
-                            <a href="#comportamento" class="btn-nav btn-comportamento">Comportamento Natural</a>
-                            <a href="#fisiologia" class="btn-nav btn-estomago">Fisiologia Digestiva</a>
-                            <a href="#pasto" class="btn-nav btn-pastagem">Altura do Pasto</a>
-                        </nav>
- 
-                        <div class="content">
- 
-                            <section id="comportamento" class="card-info">
-                                <h2 class="section-title">Comportamento Alimentar</h2>
-                                <p>O cavalo foi feito anatomicamente e biologicamente para <span class="highlight">viver
-                                        em pasto</span>. Ao contrário de outros animais, seu comportamento é de pastejo
-                                    contínuo.</p>
-                                <ul>
-                                    <li><strong>Herbívoros Não Ruminantes:</strong> Diferente dos bois, os cavalos não
-                                        possuem rúmen.</li>
-                                    <li><strong>Alimentação Fracionada:</strong> O sistema digestivo foi projetado para
-                                        ingerir pequenas porções de capim várias vezes ao dia.</li>
-                                    <li><strong>Perigo das Grandes Ofertas:</strong> Eles não devem receber grandes
-                                        refeições de uma só vez, pois isso sobrecarrega o sistema.</li>
-                                </ul>
-                            </section>
- 
-                            <section id="fisiologia" class="card-info">
-                                <h2 class="section-title">Anatomia e Fisiologia</h2>
-                                <p>A saúde do cavalo depende da compreensão do tamanho do seu sistema digestivo.</p>
- 
-                                <div class="anatomia-box">
-                                    <div class="icon-box">⚠️</div>
-                                    <div>
-                                        <p>O estômago do cavalo é proporcionalmente <span
-                                                class="highlight">pequeno</span> (cerca de <strong>8 a 15
-                                                litros</strong>).</p>
-                                        <p>Isso representa menos de <span class="highlight">10%</span> de todo o trato
-                                            digestivo total.</p>
-                                    </div>
-                                </div>
- 
-                                <ul style="margin-top: 20px;">
-                                    <li><strong>Atividade Constante:</strong> O cavalo precisa comer de forma contínua
-                                        para manter o intestino em movimento.</li>
-                                    <li><strong>Prevenção:</strong> O fluxo constante de fibra evita <span
-                                            class="highlight">cólicas, úlceras e desconfortos abdominais</span>.</li>
-                                </ul>
-                            </section>
- 
-                            <section id="pasto" class="card-info">
-                                <h2 class="section-title">Manejo da Pastagem</h2>
-                                <p>A oferta de capim deve respeitar a altura ideal para garantir a nutrição e a saúde
-                                    das plantas.</p>
-                                <ul>
-                                    <li><strong>Altura Ideal:</strong> Manter o pasto na altura correta evita que o
-                                        cavalo coma a base da planta (onde há mais parasitas) ou que a planta morra por
-                                        excesso de pastejo.</li>
-                                    <li><strong>Pastejo Seletivo:</strong> Em pastos muito altos, o cavalo seleciona
-                                        apenas o que gosta, desperdiçando alimento.</li>
-                                </ul>
-                            </section>
- 
-                        </div>
- 
-                        <footer>
-                            <p><strong>SOS EQUISAÚDE © 2026</strong> - Guia de Comportamento e Pastejo</p>
-                        </footer>
+    
+            <h1 class="main-title">Manejo Nutricional em Equinos</h1>
+
+            <!-- NOVO CARD INTEGRADO: GUIA DE AVALIAÇÃO BIOMÉTRICA COM OS PINS ANATÔMICOS -->
+            <div class="card">
+                <div class="card-header">Guia de Avaliação Biométrica</div>
+                <div class="card-body">
+                    <p class="text-center text-muted mb-4">Protocolos de Morfologia e Condição Corporal SOS Equisaúde</p>
+                    
+                    <h2 class="sub-section-title" style="margin-top: 10px;">Pontos Principais de Avaliação</h2>
+                    
+                    <!-- Container com a Imagem e os Pins Anatômicos sobrepostos -->
+                    <div class="cavalo-container mb-5">
+                        <img src="img/oqueavaliar.png.png" alt="Pontos de Avaliação do Cavalo" style="width: 100%; height: auto; display: block;">
+                        <div class="ponto-avaliacao p-pescoco">Pescoço</div>
+                        <div class="ponto-avaliacao p-cernelha">Cernelha</div>
+                        <div class="ponto-avaliacao p-dorso">Dorso</div>
+                        <div class="ponto-avaliacao p-cauda">Base da Cauda</div>
+                        <div class="ponto-avaliacao p-codilho">Codilho</div>
+                        <div class="ponto-avaliacao p-costado">Costado</div>
                     </div>
- 
-                    <div class="container">
-                        <header>
-                            <h1>MANEJO NUTRICIONAL E PASTAGEM</h1>
-                        </header>
- 
-                        <nav class="nav-menu">
-                            <a href="#comportamento" class="btn-vibrante btn-azul">Comportamento Alimentar</a>
-                            <a href="#tabela-forrageiras" class="btn-vibrante btn-dourado">Tabela de Forrageiras</a>
-                            <a href="#tabela-pasto" class="btn-vibrante btn-verde">Condição do Pasto</a>
-                        </nav>
- 
-                        <div class="content">
- 
-                            <section id="comportamento" class="info-card">
-                                <h2 class="section-title">Comportamento Natural</h2>
-                                <p>• O cavalo foi feito para <span class="highlight">viver em pasto</span>.</p>
-                                <p>• Herbívoros não ruminantes: sistema feito para ingerir <span
-                                            class="highlight">pequenas porções várias vezes ao dia</span>.</p>
-                                <p>• Estômago pequeno (8 a 15 litros): requer alimentação contínua para evitar
-                                    cólicas e úlceras.</p>
-                            </section>
- 
-                            <section id="tabela-forrageiras">
-                                <h2 class="section-title">Características das Forrageiras</h2>
-                                <div class="table-res">
-                                    <table>
-                                        <thead>
-                                            <tr>
-                                                <th>Forrageira</th>
-                                                <th>Gênero</th>
-                                                <th>Proteína (%)</th>
-                                                <th>Digestibilidade</th>
-                                                <th>Tipo de uso</th>
-                                                <th>Indicação principal</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td class="highlight">Mombaça</td>
-                                                <td><em>Panicum</em></td>
-                                                <td>10-14</td>
-                                                <td>Boa</td>
-                                                <td>Corte diário (capineira)</td>
-                                                <td>Cavalos de lazer, reprodução e potros</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="highlight">Coast-Cross</td>
-                                                <td><em>Cynodon</em></td>
-                                                <td>8-12</td>
-                                                <td>Alta</td>
-                                                <td>Pasto e feno</td>
-                                                <td>Alimentação diária e manutenção</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="highlight">Tifton 85</td>
-                                                <td><em>Cynodon</em></td>
-                                                <td>10-15</td>
-                                                <td>Muito alta</td>
-                                                <td>Feno e pastejo</td>
-                                                <td>Cavalos atletas e de alto desempenho</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </section>
- 
-                            <section id="tabela-pasto" style="margin-top: 40px;">
-                                <h2 class="section-title">Avaliação da Altura do Pasto</h2>
-                                <div class="table-res">
-                                    <table>
-                                        <thead>
-                                            <tr>
-                                                <th>Condição do pasto</th>
-                                                <th>Altura média</th>
-                                                <th>Características</th>
-                                                <th>Indicação</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr class="pasto-baixo">
-                                                <td>Baixo</td>
-                                                <td>Abaixo de 10 cm</td>
-                                                <td>Pouca massa verde e nutrientes, difícil de colher</td>
-                                                <td>Evitar — risco de subnutrição</td>
-                                            </tr>
-                                            <tr class="pasto-moderado">
-                                                <td>Moderado</td>
-                                                <td>15 a 30 cm</td>
-                                                <td>Folhas jovens, macias e ricas em proteína</td>
-                                                <td>🌿 Ideal para pastejo</td>
-                                            </tr>
-                                            <tr class="pasto-alto">
-                                                <td>Alto</td>
-                                                <td>Acima de 40 cm</td>
-                                                <td>Capim fibroso e duro, baixa digestibilidade</td>
-                                                <td>Usar com corte ou roçada</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </section>
- 
-                        </div>
- 
-                        <footer>
-                            <p>SOS EQUISAÚDE © 2026</p>
-                        </footer>
+
+                    <!-- Grade com tabelas de Altura e Peso -->
+                    <div class="grid-biometria">
+                        <article class="card-biometria">
+                            <h3>Altura de Cernelha</h3>
+                            <table>
+                                <tr>
+                                    <td>Baixo</td>
+                                    <td>1,35 a 1,50 m</td>
+                                </tr>
+                                <tr>
+                                    <td>Médio</td>
+                                    <td>1,50 a 1,60 m</td>
+                                </tr>
+                                <tr>
+                                    <td>Alto</td>
+                                    <td>acima de 1,60 m</td>
+                                </tr>
+                            </table>
+                        </article>
+
+                        <article class="card-biometria">
+                            <h3>Peso Corporal</h3>
+                            <table>
+                                <tr>
+                                    <td>Hipométrico</td>
+                                    <td>abaixo de 350 kg</td>
+                                </tr>
+                                <tr>
+                                    <td>Eumétrico</td>
+                                    <td>entre 350 e 500 kg</td>
+                                </tr>
+                                <tr>
+                                    <td>Hipermétrico</td>
+                                    <td>acima de 550 kg</td>
+                                </tr>
+                            </table>
+                        </article>
                     </div>
- 
-                    <div class="container">
-                        <header>
-                            <h1>MANEJO NUTRICIONAL COMPLETO</h1>
-                        </header>
- 
-                        <div class="content">
- 
-                            <h2>Tempo de pastejo e acesso ao pasto</h2>
-                            <ul>
-                                <li>O ideal é permitir o acesso ao pasto por longos períodos — de
-                                    preferência 24 horas por dia, sempre que houver estrutura segura e
-                                    espaço suficiente;</li>
-                            </ul>
- 
-                            <p class="highlight">Caso o cavalo precise ficar em baia:</p>
-                            <ul>
-                                <li>Deve ser solto pelo menos 4 a 6 horas diárias em área de pastejo ou
-                                    piquete;</li>
-                                <li>É importante oferecer feno à vontade dentro da baia para simular o
-                                    comportamento natural de alimentação contínua;</li>
-                                <li>O pastejo contínuo ajuda a manter o pH do estômago estável, evita
-                                    úlceras gástricas e reduz comportamentos estereotipados (como morder
-                                    cerca ou balançar a cabeça).</li>
-                            </ul>
- 
-                            <h2>Fontes de Nutrientes na Ração dos Cavalos</h2>
-                            <ul>
-                                <li>Quando o pasto não é suficiente — como em épocas de seca, períodos de
-                                    treinamento ou estabulação — a ração entra como complemento alimentar;
-                                </li>
-                                <li>Ela deve fornecer energia, proteína, gorduras, vitaminas e minerais em
-                                    equilíbrio.</li>
-                            </ul>
- 
-                            <h3>Milho</h3>
-                            <ul>
-                                <li>Função: principal fonte de energia da dieta (rica em amido e calorias);
-                                </li>
-                                <li>Vantagens: aumenta o desempenho físico e auxilia no ganho de peso;</li>
-                                <li>Cuidados: deve ser quebrado ou moído, pois o grão inteiro passa intacto
-                                    nas fezes;</li>
-                                <li>Excesso pode causar fermentação intestinal e cólicas — deve ser
-                                    balanceado.</li>
-                            </ul>
- 
-                            <h3>Sorgo</h3>
-                            <ul>
-                                <li>Função: alternativa ao milho — fornece energia e amido, mas com menor
-                                    risco de fermentação;</li>
-                                <li>Vantagens: mais seguro e resistente à seca.</li>
-                                <li>Cuidados: alguns tipos contêm taninos, que reduzem a digestibilidade —
-                                    por isso, deve ser usado em proporções controladas.</li>
-                                <li>Indicado para cavalos sensíveis a rações muito energéticas.</li>
-                            </ul>
- 
-                            <h3>Farelo de Arroz</h3>
-                            <ul>
-                                <li>Função: fonte de energia e gordura boa (óleo natural);</li>
-                                <li>Vantagens: melhora o brilho da pelagem e fornece vitamina E e
-                                    antioxidantes.</li>
-                                <li>Cuidados: deve ser estabilizado (para evitar rancificação).</li>
-                                <li>Muito usado em rações para cavalos de exposição ou em recuperação de
-                                    peso.</li>
-                            </ul>
- 
-                            <h3>Farelo de Soja</h3>
-                            <ul>
-                                <li>Função: principal fonte de proteína vegetal usada em rações;</li>
-                                <li>Vantagens: ajuda na formação muscular, crescimento de potros e
-                                    recuperação de atletas.</li>
-                                <li>Cuidados: usar em pequenas proporções (até 15% da ração), pois o excesso
-                                    pode causar sobrecarga hepática.</li>
-                                <li>Ideal para combinar com volumosos de baixa proteína (como feno seco).
-                                </li>
-                            </ul>
- 
-                            <h3>Óleo Vegetal</h3>
-                            <ul>
-                                <li>Função: fornece energia concentrada e segura, sem risco de fermentação;
-                                </li>
-                                <li>Vantagens: melhora o desempenho e reduz a necessidade de grãos ricos em
-                                    amido;</li>
-                                <li>Fontes comuns: óleo de milho, soja, canola ou linhaça.</li>
-                                <li>Indicado para cavalos atletas, pois fornece energia “limpa” e ajuda na
-                                    hidratação;</li>
-                                <li>Usar em pequenas quantidades (até 100 mL/dia por animal), misturado à
-                                    ração.</li>
-                            </ul>
- 
-                            <h3>Óleo Mineral</h3>
-                            <ul>
-                                <li>Função: usado ocasionalmente como auxiliar digestivo, especialmente em
-                                    casos de constipação leve;</li>
-                                <li>Cuidados: não fornece energia nem nutrientes — serve apenas como
-                                    lubrificante intestinal.</li>
-                                <li>Deve ser administrado com orientação veterinária, pois o uso incorreto
-                                    pode interferir na absorção de vitaminas lipossolúveis.</li>
-                            </ul>
- 
-                            <h3>Suplementos Vitamínicos e Minerais</h3>
-                            <ul>
-                                <li>Função: equilibrar a dieta e prevenir deficiências nutricionais;</li>
-                                <li>Vantagens: garantem melhor imunidade, fertilidade e crescimento
-                                    saudável.</li>
-                            </ul>
- 
-                            <h2>Principais nutrientes</h2>
-                            <ul>
-                                <li>Cálcio e fósforo: para ossos e dentes fortes;</li>
-                                <li>Zinco e cobre: para cascos e pelagem;</li>
-                                <li>Selênio e vitamina E: antioxidantes potentes;</li>
-                                <li>Vitaminas A, D e do complexo B: essenciais para metabolismo e visão.
-                                </li>
-                            </ul>
- 
-                            <div class="warning-box">
-                                <p><strong>O excesso também faz mal — use sempre conforme orientação
-                                        veterinária ou zootécnica.</strong></p>
-                            </div>
- 
+                </div>
+            </div>
+
+            <!-- SEÇÃO INTEGRADA: SISTEMA COMPLETO DE GRADUAÇÃO DO ESCORE CORPORAL (OS 9 NÍVEIS DE HENNEKE) -->
+            <h2 class="sub-section-title">Como Avaliar a Condição Corporal do Cavalo?</h2>
+
+            <div class="card">
+                <div class="card-body">
+                    <p class="highlight-question text-center">VOCÊ SABE O QUE É O ESCORE DE CONDIÇÃO CORPORAL? SABE O QUE ELE AVALIA? SABE POR QUE É IMPORTANTE CONHECÊ-LO?</p>
+                    <p class="text-center">O <strong>Escore de Condição Corporal</strong> é um método visual e tátil usado para avaliar a quantidade de gordura e o estado físico geral do cavalo. Ele mostra se o animal está magro, ideal ou gordo.</p>
+                    
+                    <!-- Grid com os 9 níveis do escore de Henneke -->
+                    <div class="escore-grid">
+                        
+                        <div class="escore-item">
+                            <h3>1. Animal Extremamente Magro</h3>
+                            <p>Com espinha, costelas, cauda e pontos do quadril e nádega proeminentes. Cernelha, ombros e pescoço perceptíveis. Não se sente nenhum tecido adiposo.</p>
+                            <img src="img/extremantemagro.png.png" alt="Animal extremamente magro" class="img-escore">
                         </div>
- 
-                        <footer>
-                            <p>SOS EQUISAÚDE © 2026</p>
-                        </footer>
+
+                        <div class="escore-item">
+                            <h3>2. Animal Muito Magro</h3>
+                            <p>Animal magro. Ligeira camada de gordura sobre os ossos da coluna. Ossos da costela, rabo, quadril e nádega proeminentes. Cernelha, ombros e pescoço perceptíveis.</p>
+                            <img src="img/muitomagro.png.png" alt="Animal muito magro" class="img-escore">
+                        </div>
+
+                        <div class="escore-item">
+                            <h3>3. Magro</h3>
+                            <p>Animal com acúmulo de gordura na metade da coluna. Alguma cobertura de gordura sobre as costelas. Espinha e costelas levemente perceptíveis, porém, vértebras não podem ser identificadas visualmente. Pontos do quadril arredondados e pontas da nádega não são distinguíveis. Cernelha, ombro e pescoço acentuados.</p>
+                            <img src="img/magro.png.png" alt="Animal magro" class="img-escore">
+                        </div>
+
+                        <div class="escore-item">
+                            <h3>4. Animal Moderadamente Magro</h3>
+                            <p>Ligeira crista ao longo da coluna. Contorno fraco de costelas discerníveis. A proeminência do rabo depende da conformação, camada de gordura pode ser sentida em torno dele. Pontos do quadril não são discerníveis. Cernelha, ombros e pescoço não são mais finos.</p>
+                            <img src="img/moderadamentemagro.png.png" alt="Animal moderadamente magro" class="img-escore">
+                        </div>
+
+                        <div class="escore-item">
+                            <h3>5. Moderado</h3>
+                            <p>Traseira plana. Costelas não são identificadas, mas são sentidas. Cernelha, espinha, ombro e pescoço integrados harmoniosamente com o corpo.</p>
+                            <img src="img/moderado.png.png" alt="Escore moderado" class="img-escore">
+                        </div>
+
+                        <div class="escore-item">
+                            <h3>6. Moderadamente Gordo</h3>
+                            <p>A gordura se acumula suavemente ao longo do corpo. Algum acúmulo de gordura do lado da cernelha e do pescoço.</p>
+                            <img src="img/moderadamentegordo.png.png" alt="Animal moderadamente gordo" class="img-escore">
+                        </div>
+
+                        <div class="escore-item">
+                            <h3>7. Gordo</h3>
+                            <p>Costelas incômodas (difíceis de sentir). Depósito nítido de gordura na proeminência da cauda e lateral da cernelha, ombro e do pescoço.</p>
+                            <img src="img/gordo.png.png" alt="Animal gordo" class="img-escore">
+                        </div>
+
+                        <div class="escore-item">
+                            <h3>8. Muito Gordo</h3>
+                            <p>Muito difícil sentir as costelas, devido ao espesso colchão de gordura. Gordura marcante nos ombros, cernelha e pescoço. Gordura na região interna das nádegas perceptíveis.</p>
+                            <img src="img/muitogordo.png.png" alt="Animal muito gordo" class="img-escore">
+                        </div>
+
+                        <div class="escore-item">
+                            <h3>9. Extremamente Gordo</h3>
+                            <p>Gordura generalizada em toda a extensão do corpo. Depósitos maciços deformando a silhueta natural do animal.</p>
+                            <img src="img/extremamamentegordo.png.png" alt="Animal extremamente gordo" class="img-escore">
+                        </div>
+
                     </div>
- 
-                    <div class="container">
-                        <header>
-                            <h1>USO DE VOLUMOSOS</h1>
-                        </header>
- 
-                        <div class="content">
- 
-                            <section>
-                                <h2>Volumosos</h2>
-                                <ul>
-                                    <li>Alimentos ricos em fibras, como o capim, a forragem, feno e a
-                                        silagem;</li>
-                                    <li>Eles são a parte mais importante da alimentação, pois o sistema
-                                        digestivo do cavalo foi feito para processar fibras
-                                        continuamente ao longo do dia.</li>
-                                </ul>
-                            </section>
- 
-                            <section>
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-        /* ESTILO GLOBAL SOS EQUISAÚDE */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
- 
-        body {
-            font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
-            background-color: #000;
-            color: #fff;
-            line-height: 1.6;
-            padding: 15px;
-        }
- 
-        .container {
-            max-width: 600px;
-            margin: 0 auto;
-        }
- 
-        /* CABEÇALHOS */
-        header {
-            background: #1a1a1a;
-            padding: 25px 15px;
-            text-align: center;
-            border-bottom: 4px solid #ffd700;
-            border-radius: 12px;
-            margin-bottom: 30px;
-        }
- 
-        header h1 {
-            color: #ffd700;
-            text-transform: uppercase;
-            font-size: 1.3rem;
-            letter-spacing: 1px;
-        }
- 
-        h2.section-title {
-            color: #ffd700;
-            text-align: center;
-            text-transform: uppercase;
-            margin: 30px 0 20px;
-            font-size: 1.4rem;
-            border-bottom: 1px solid #333;
-            padding-bottom: 10px;
-        }
- 
-        h3.group-title {
-            color: #3498db;
-            font-size: 1.2rem;
-            margin: 20px 0 15px;
-            padding-left: 10px;
-            border-left: 4px solid #3498db;
-        }
- 
-        /* CARDS DE CONTEÚDO */
-        .card {
-            background: #0a0a0a;
-            border: 1px solid #222;
-            border-radius: 8px;
-            padding: 20px;
-            margin-bottom: 20px;
-            width: 100%;
-        }
- 
-        .card-feno { border-left: 6px solid #f1c40f; }
-        .card-capim { border-left: 6px solid #2ecc71; }
-        .card-nutri { border: 1px solid #ffd700; background: #111; }
- 
-        .card h4 {
-            color: #fff;
-            font-size: 1.1rem;
-            margin-bottom: 10px;
-        }
- 
-        .autoridade {
-            color: #ffd700;
-            font-weight: bold;
-            text-transform: uppercase;
-            font-size: 0.75rem;
-            display: block;
-            margin-top: 10px;
-        }
- 
-        /* LISTAS */
-        ul {
-            list-style: none;
-            margin: 10px 0;
-        }
- 
-        ul li {
-            position: relative;
-            padding-left: 20px;
-            margin-bottom: 8px;
-            color: #ccc;
-            font-size: 0.9rem;
-        }
- 
-        ul li::before {
-            content: "•";
-            position: absolute;
-            left: 0;
-            color: #ffd700;
-            font-size: 1.2rem;
-        }
- 
-        /* CAIXAS DE DESTAQUE */
-        .pergunta-box {
-            background: rgba(46, 204, 113, 0.1);
-            border: 1px solid rgba(46, 204, 113, 0.3);
-            padding: 12px;
-            border-radius: 6px;
-            margin-top: 15px;
-        }
- 
-        .pergunta-titulo {
-            color: #2ecc71;
-            font-weight: bold;
-            text-transform: uppercase;
-            font-size: 0.8rem;
-            display: block;
-        }
- 
-        .dica {
-            background: #1a1a1a;
-            border-left: 4px solid #3498db;
-            padding: 15px;
-            font-size: 0.85rem;
-            font-style: italic;
-            margin-top: 10px;
-            color: #ddd;
-        }
- 
-        .nutri-header {
-            color: #ffd700;
-            font-weight: bold;
-            display: block;
-            margin-bottom: 5px;
-        }
-    </style>
-</head>
-<body>
- 
-    <div class="container">
- 
-        <h2 class="section-title">Tipos de Volumosos</h2>
- 
-        <h3 class="group-title">Fenos (alimentos secos e fibrosos)</h3>
-        <div class="card card-feno">
-            <p>O feno é o capim cortado e seco, conservado de forma natural, mantendo grande parte dos nutrientes. É ideal para épocas de seca, viagens e alimentação estável em baias.</p>
-        </div>
- 
-        <div class="card card-feno">
-            <h4>Feno de Tifton (Cynodon spp.)</h4>
-            <ul>
-                <li><span class="autoridade">Características:</span> fino, de cor verde-clara, alta digestibilidade e boa textura.</li>
-                <li><span class="autoridade">Benefícios:</span> fácil de mastigar, estimula o trânsito intestinal e tem baixo risco de cólica.</li>
-                <li><span class="autoridade">Por que é bom:</span> é o feno mais usado para equinos no Brasil, equilibrado em energia e proteína.</li>
-            </ul>
-        </div>
- 
-        <div class="card card-feno">
-            <h4>Feno de Coast-Cross</h4>
-            <ul>
-                <li><span class="autoridade">Características:</span> semelhante ao tifton, mas com folhas mais longas e menos fibrosas.</li>
-                <li><span class="autoridade">Benefícios:</span> ótimo para cavalos em trabalho moderado e potros em crescimento.</li>
-                <li><span class="autoridade">Por que é bom:</span> fornece energia constante e boa palatabilidade, estimulando o consumo.</li>
-            </ul>
-        </div>
- 
-        <div class="card card-feno">
-            <h4>Feno de Alfafa (Medicago sativa)</h4>
-            <ul>
-                <li><span class="autoridade">Características:</span> folhas grossas e verdes, aroma intenso e alto teor de proteína (16–20%).</li>
-                <li><span class="autoridade">Benefícios:</span> excelente fonte de proteína, cálcio e energia.</li>
-                <li><span class="autoridade">Por que é bom:</span> ideal para potros, éguas em lactação e cavalos atletas.</li>
-            </ul>
-            <p class="dica">Dica: Deve ser oferecido com moderação, pois o excesso de proteína pode causar desequilíbrios digestivos.</p>
-        </div>
- 
-        <header>
-            <h1>Quadro de Capineiras (Corte Diário)</h1>
-        </header>
- 
-        <div class="card card-capim">
-            <h4>Capim-Elefante (Pennisetum purpureum)</h4>
-            <span class="autoridade">Características e Benefícios</span>
-            <ul>
-                <li>Planta alta, folhas largas e muito produtiva.</li>
-                <li>Boa fonte de fibras e energia, além de ser econômica.</li>
-            </ul>
-            <div class="pergunta-box">
-                <span class="pergunta-titulo">Por que é bom?</span>
-                <p>Ideal para alimentação diária em propriedades com muitos cavalos, desde que cortado jovem (antes de endurecer).</p>
+                </div>
             </div>
-        </div>
- 
-        <div class="card card-capim" style="border-left-color: #2ecc71;">
-            <h4>Capim-Napier (Variedade do Capim-Elefante)</h4>
-            <span class="autoridade">Características</span>
-            <ul>
-                <li>Textura mais macia, alto rendimento e sabor agradável.</li>
-            </ul>
-            <span class="autoridade">Benefícios</span>
-            <ul>
-                <li>Excelente palatabilidade e digestibilidade.</li>
-            </ul>
-            <div class="pergunta-box" style="background: rgba(52, 152, 219, 0.1); border-color: rgba(52, 152, 219, 0.3);">
-                <span class="pergunta-titulo" style="color: #3498db;">Por que é bom?</span>
-                <p>Mantém o cavalo hidratado e satisfeito, sendo ótimo para períodos secos quando o pasto escasseia.</p>
+
+            <!-- SEÇÃO REESTRUTURADA: OFERTA DE PASTAGEM E COMPORTAMENTO ALIMENTAR -->
+            <div class="card" id="comportamento">
+                <div class="card-header">Oferta de Pastagem e Comportamento Alimentar</div>
+                <div class="card-body">
+                    <p>O cavalo foi feito anatomicamente e biologicamente para <span class="highlight">viver em pasto</span>. Ao contrário de outros animais, seu comportamento natural exige um regime de pastejo contínuo.</p>
+                    
+                    <ul>
+                        <li><strong>Herbívoros Não Ruminantes:</strong> Diferente dos bovinos, os cavalos não possuem rúmen.</li>
+                        <li><strong>Alimentação Fracionada:</strong> O sistema digestivo foi projetado especificamente para ingerir pequenas porções de capim várias vezes ao dia.</li>
+                        <li><strong>Perigo das Grandes Ofertas:</strong> Eles não devem receber grandes refeições concentradas de uma só vez, pois isso sobrecarrega o sistema e gera distúrbios fermentativos.</li>
+                    </ul>
+
+                    <p class="topic-highlight">Tempo de pastejo e acesso ao pasto</p>
+                    <p>O ideal é permitir o acesso ao pasto por longos períodos — de preferência 24 horas por dia, sempre que houver estrutura segura e espaço suficiente.</p>
+                    
+                    <div class="dica-box">
+                        <strong>Caso o cavalo precise ficar em baia:</strong>
+                        <ul class="mt-2 mb-0">
+                            <li>Deve ser solto pelo menos 4 a 6 horas diárias em área de pastejo ou piquete;</li>
+                            <li>É importante oferecer feno à vontade dentro da baia para simular o comportamento natural de alimentação contínua;</li>
+                            <li>O pastejo contínuo ajuda a manter o pH do estômago estável, evita úlceras gástricas e reduz comportamentos estereotipados (como morder cerca ou balançar a cabeça).</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
-        </div>
- 
-        <div class="card card-capim" style="border-left-color: #e67e22;">
-            <h4>Capim-Tanzânia (Panicum maximum)</h4>
-            <span class="autoridade">Características e Benefícios</span>
-            <ul>
-                <li>Folhas longas e verdes, alta produção e bom valor nutritivo.</li>
-                <li>Fornece boa quantidade de energia e proteína natural.</li>
-            </ul>
-            <div class="pergunta-box" style="background: rgba(230, 126, 34, 0.1); border-color: rgba(230, 126, 34, 0.3);">
-                <span class="pergunta-titulo" style="color: #e67e22;">Por que é bom?</span>
-                <p>Perfeito para cavalos que necessitam de manutenção de peso de forma natural e eficiente.</p>
+
+            <!-- SEÇÃO REESTRUTURADA: ANATOMIA E FISIOLOGIA GÁSTRICA -->
+            <div class="card" id="fisiologia">
+                <div class="card-header">Anatomia e Fisiologia Gástrica</div>
+                <div class="card-body">
+                    <p>A saúde digestiva do cavalo depende obrigatoriamente da correta compreensão das dimensões e limitações do seu sistema digestivo.</p>
+
+                    <div class="anatomia-box">
+                        <div class="icon-box">⚠️</div>
+                        <div>
+                            <p>O estômago do cavalo é proporcionalmente <span class="highlight">pequeno</span> (cerca de <strong>8 a 15 litros</strong>).</p>
+                            <p>Isso representa menos de <span class="highlight">10%</span> do volume de todo o trato digestivo total.</p>
+                        </div>
+                    </div>
+
+                    <ul class="mt-3">
+                        <li><strong>Atividade Constante:</strong> O cavalo precisa mastigar e comer de forma contínua para manter o intestino em movimento e o fluxo de digesta ativo.</li>
+                        <li><strong>Prevenção Natural:</strong> O fluxo constante de fibra estimula a salivação (que é alcalina), evitando a queda drástica do pH e prevenindo <span class="highlight">cólicas, úlceras gástricas e desconfortos abdominais</span>.</li>
+                    </ul>
+                </div>
             </div>
+
+            <!-- SEÇÃO REESTRUTURADA: MANEJO DA PASTAGEM -->
+            <div class="card" id="pasto">
+                <div class="card-header">Manejo da Pastagem</div>
+                <div class="card-body">
+                    <p>A oferta de capim deve respeitar critérios técnicos de altura ideal para garantir tanto o aporte de nutrientes quanto a longevidade das plantas.</p>
+                    
+                    <ul>
+                        <li><strong>Altura Ideal:</strong> Manter o pasto na altura correta de entrada e saída evita que o cavalo consuma a base da planta (região mais próxima ao solo onde há maior concentração de larvas de parasitas) ou que a planta morra por superpastejo.</li>
+                        <li><strong>Pastejo Seletivo:</strong> Em pastos mantidos muito altos, o cavalo torna-se extremamente seletivo, consumindo apenas as folhas mais jovens e tenras e rejeitando o talo, o que gera grande desperdício de alimento na propriedade.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- SEÇÃO: FONTES DE NUTRIENTES NA RAÇÃO -->
+            <div class="card">
+                <div class="card-header">Fontes de Nutrientes na Ração dos Cavalos</div>
+                <div class="card-body">
+                    <p>Quando o pasto não é suficiente — como em épocas de seca, períodos de treinamento ou estabulação — a ração entra como complemento alimentar. Ela deve fornecer energia, proteína, gorduras, vitaminas e minerais em equilíbrio.</p>
+
+                    <p class="topic-highlight">Milho</p>
+                    <ul>
+                        <li><strong>Função:</strong> Principal fonte de energia da dieta (rica em amido e calorias);</li>
+                        <li><strong>Vantagens:</strong> Aumenta o desempenho físico e auxilia no ganho de peso;</li>
+                        <li><strong>Cuidados:</strong> Deve ser quebrado ou moído, pois o grão inteiro passa intacto nas fezes. O excesso pode causar fermentação intestinal e cólicas — deve ser balanceado.</li>
+                    </ul>
+
+                    <p class="topic-highlight">Sorgo</p>
+                    <ul>
+                        <li><strong>Função:</strong> Alternativa ao milho — fornece energia e amido, mas com menor risco de fermentação;</li>
+                        <li><strong>Vantagens:</strong> Mais seguro e resistente à seca;</li>
+                        <li><strong>Cuidados:</strong> Alguns tipos contêm taninos, que reduzem a digestibilidade — por isso, deve ser usado em proporções controladas.</li>
+                        <li><strong>Indicação:</strong> Indicado para cavalos sensíveis a rações muito energéticas.</li>
+                    </ul>
+
+                    <p class="topic-highlight">Farelo de Arroz</p>
+                    <ul>
+                        <li><strong>Função:</strong> Fonte de energia e gordura boa (óleo natural);</li>
+                        <li><strong>Vantagens:</strong> Melhora o brilho da pelagem e fornece vitamina E e antioxidantes;</li>
+                        <li><strong>Cuidados:</strong> Deve ser estabilizado (para evitar rancificação). Muito usado em rações para cavalos de exposição ou em recuperação de peso.</li>
+                    </ul>
+
+                    <p class="topic-highlight">Farelo de Soja</p>
+                    <ul>
+                        <li><strong>Função:</strong> Principal fonte de proteína vegetal usada em rações;</li>
+                        <li><strong>Vantagens:</strong> Ajuda na formação muscular, crescimento de potros e recuperação de atletas;</li>
+                        <li><strong>Cuidados:</strong> Usar em pequenas proporções (hasta 15% da ração), pois o excesso pode causar sobrecarga hepática. Ideal para combinar com volumosos de baixa proteína (como feno seco).</li>
+                    </ul>
+
+                    <p class="topic-highlight">Óleo Vegetal</p>
+                    <ul>
+                        <li><strong>Função:</strong> Fornece energia concentrada e segura, sem risco de fermentação;</li>
+                        <li><strong>Vantagens:</strong> Melhora o desempenho e reduz a necessidade de grãos ricos em amido;</li>
+                        <li><strong>Fontes comuns:</strong> Óleo de milho, soja, canola ou linhaça. Indicado para cavalos atletas, pois fornece energia “limpa” e ajuda na hidratação.</li>
+                        <li><strong>Uso:</strong> Usar em pequenas quantidades (até 100 mL/dia por animal), misturado à ração.</li>
+                    </ul>
+
+                    <p class="topic-highlight">Óleo Mineral</p>
+                    <ul>
+                        <li><strong>Função:</strong> Usado ocasionalmente como auxiliar digestivo, especialmente em casos de constipação leve;</li>
+                        <li><strong>Cuidados:</strong> Não fornece energia nem nutrientes — serve apenas como lubrificante intestinal. Deve ser administrado com orientação veterinária, pois o uso incorreto pode interferir na absorção de vitaminas lipossolúveis.</li>
+                    </ul>
+
+                    <p class="topic-highlight">Suplementos Vitamínicos e Minerais</p>
+                    <ul>
+                        <li><strong>Função:</strong> Equilibrar a dieta e prevenir deficiências nutricionais;</li>
+                        <li><strong>Vantagens:</strong> Garantem melhor imunidade, fertilidade e crescimento saudável;</li>
+                        <li><strong>Principais nutrientes:</strong>
+                            <ul>
+                                <li>Cálcio e fósforo: Para ossos e dentes fortes;</li>
+                                <li>Zinco e cobre: Para cascos e pelagem;</li>
+                                <li>Selênio e vitamina E: Antioxidantes potentes;</li>
+                                <li>Vitaminas A, D e do complexo B: Essenciais para metabolismo e visão.</li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <div class="dica-box">
+                        ⚠️ O excesso também faz mal — use sempre conforme orientação veterinária ou zootécnica.
+                    </div>
+                </div>
+            </div>
+
+            <h1 class="main-title">Uso de Volumosos</h1>
+
+            <div class="card">
+                <div class="card-header">O que são Volumosos?</div>
+                <div class="card-body">
+                    <ul>
+                        <li>Alimentos ricos em fibras, como o capim, a forragem, feno e a silagem;</li>
+                        <li>Eles são a parte mais importante da alimentação, pois o sistema digestivo do cavalo foi feito para processar fibras continuamente ao longo do dia.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h2 class="sub-section-title">Tipos de Volumosos</h2>
+
+            <div class="card">
+                <div class="card-header">Fenos (Alimentos Secos e Fibrosos)</div>
+                <div class="card-body">
+                    <p>O feno é o capim cortado e seco, conservado de forma natural, mantendo grande parte dos nutrientes. É ideal para épocas de seca, viagens e alimentação estável em baias.</p>
+
+                    <p class="topic-highlight">Feno de Tifton (Cynodon spp.)</p>
+                    <ul>
+                        <li><strong>Características:</strong> Fino, de cor verde-clara, alta digestibilidade e boa textura;</li>
+                        <li><strong>Benefícios:</strong> Fácil de mastigar, estimula o trânsito intestinal e tem baixo risco de cólica;</li>
+                        <li><strong>Por que é bom:</strong> É o feno mais usado para equinos no Brasil, equilibrado em energia e proteína, e pode ser oferecido diariamente.</li>
+                    </ul>
+
+                    <p class="topic-highlight">Feno de Coast-Cross</p>
+                    <ul>
+                        <li><strong>Características:</strong> Semelhante ao tifton, mas com folhas mais longas e menos fibrosas;</li>
+                        <li><strong>Benefícios:</strong> Ótimo para cavalos em trabalho moderado e potros em crescimento;</li>
+                        <li><strong>Por que é bom:</strong> Fornece energia constante e boa palatabilidade, o que estimula o consumo mesmo em cavalos exigentes.</li>
+                    </ul>
+
+                    <p class="topic-highlight">Feno de Alfafa (Medicago sativa)</p>
+                    <ul>
+                        <li><strong>Características:</strong> Folhas grossas e verdes, aroma intenso e alto teor de proteína (16–20%);</li>
+                        <li><strong>Benefícios:</strong> Excelente fonte de proteína, cálcio e energia;</li>
+                        <li><strong>Por que é bom:</strong> Ideal para potros, éguas em lactação e cavalos atletas.</li>
+                    </ul>
+                    <div class="dica-box">
+                        <strong>Dica:</strong> Deve ser oferecido com moderação, pois o excesso de proteína pode causar desequilíbrios digestivos.
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">Capineiras (Capins verdes de corte diário)</div>
+                <div class="card-body">
+                    <p>As capineiras são usadas em sistemas onde o cavalo não tem acesso direto ao pasto. São capins cortados frescos e oferecidos logo após o corte, ricos em água, fibras e vitaminas naturais.</p>
+
+                    <p class="topic-highlight">Capim-Elefante (Pennisetum purpureum)</p>
+                    <ul>
+                        <li><strong>Características:</strong> Planta alta, folhas largas e muito produtiva;</li>
+                        <li><strong>Benefícios:</strong> Boa fonte de fibras e energia, além de ser econômica;</li>
+                        <li><strong>Por que é bom:</strong> Ideal para alimentação diária em propriedades com muitos cavalos, desde que cortado jovem (antes de endurecer).</li>
+                    </ul>
+
+                    <p class="topic-highlight">Capim-Napier (Variedade do Capim-Elefante)</p>
+                    <ul>
+                        <li><strong>Características:</strong> Textura mais macia, alto rendimento e sabor agradável;</li>
+                        <li><strong>Benefícios:</strong> Excelente palatabilidade e digestibilidade;</li>
+                        <li><strong>Por que é bom:</strong> Mantém o cavalo hidratado e satisfeito, sendo ótimo para períodos secos quando o pasto escasseia.</li>
+                    </ul>
+
+                    <p class="topic-highlight">Capim-Tanzânia (Panicum maximum)</p>
+                    <ul>
+                        <li><strong>Características:</strong> Folhas longas e verdes, alta produção e bom valor nutritivo;</li>
+                        <li><strong>Benefícios:</strong> Fornece boa quantidade de energia e proteína natural;</li>
+                        <li><strong>Por que é bom:</strong> Perfeito para cavalos de pasto, pois é resistente e se mantém produtivo por longos períodos.</li>
+                    </ul>
+                </div>
+            </div>
+
         </div>
- 
-        <h2 class="section-title">Nutrientes e Suplementação</h2>
- 
-        <div class="card card-nutri">
-            <span class="nutri-header">Proteína</span>
-            <p>Suporte à qualidade seminal e desenvolvimento gestacional.</p>
-        </div>
- 
-        <div class="card card-nutri">
-            <span class="nutri-header">Lipídios</span>
-            <p>Eficiência energética sem excesso de carboidratos.</p>
-        </div>
- 
-        <div class="card card-nutri">
-            <span class="nutri-header">Minerais (Selênio/Zinco/Cobre)</span>
-            <p>Antioxidantes e base para espermatogênese e desenvolvimento fetal.</p>
-        </div>
- 
-        <div class="card card-nutri">
-            <span class="nutri-header">Vitaminas (A/E)</span>
-            <p>Saúde uterina e proteção dos tecidos reprodutivos.</p>
-        </div>
- 
     </div>
+
 </body>
 </html>
- 
-    </div>
- 
-    </div>
- 
-</body>
- 
-</html>   

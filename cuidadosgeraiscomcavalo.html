@@ -7,11 +7,35 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
 
-   <style>
+    <style>
         body {
             background-color: #000000;
             color: #ffffff;
             font-family: 'Roboto', sans-serif;
+        }
+
+        /* BOTÃO VOLTAR FIXO (ESTILO APP) */
+        .btn-voltar {
+            position: fixed;
+            top: 15px;
+            left: 15px;
+            background-color: #0d0d0d;
+            color: #ffffff;
+            text-decoration: none;
+            padding: 8px 16px;
+            font-size: 14px;
+            font-weight: bold;
+            border: 1px solid #ffd700;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+            transition: all 0.3s ease;
+            z-index: 1000; /* Sempre visível acima de tudo */
+        }
+
+        .btn-voltar:hover {
+            background-color: #ffd700;
+            color: #000000;
+            transform: scale(1.05);
         }
 
         .hero-section {
@@ -25,6 +49,7 @@
         .hero-section h1 {
             color: #ffd700;
             font-weight: 700;
+            margin-top: 20px; /* Evita colisão com o botão voltar em telas menores */
         }
 
         .card {
@@ -32,6 +57,7 @@
             border: 1px solid #333;
             color: #ffffff;
             margin-bottom: 20px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
         }
 
         .card-header {
@@ -79,6 +105,7 @@
             border-left: 5px solid #ffd700;
             padding-left: 15px;
             margin-top: 40px;
+            margin-bottom: 20px;
         }
 
         strong {
@@ -88,9 +115,27 @@
         p, li {
             color: #cccccc;
         }
+
+        /* Ajuste de responsividade para o botão voltar */
+        @media (max-width: 576px) {
+            .btn-voltar {
+                position: absolute;
+                top: 15px;
+                left: 15px;
+            }
+            .hero-section {
+                padding: 40px 0;
+            }
+            .hero-section h1 {
+                margin-top: 40px;
+                font-size: 2rem;
+            }
+        }
     </style>
 </head>
 <body>
+
+    <a href="index.html" class="btn-voltar">⬅ Voltar ao Menu</a>
 
     <header class="hero-section">
         <div class="container">
@@ -127,19 +172,19 @@
                         <div class="img-container">
                             <img src="img/img-turgor.png" alt="Teste de Turgor Cutâneo">
                         </div>
-                        <p><strong>Teste do Turgor Cutâneo:</strong> Puxe a pele do pescoço. Se demorar > 2s para voltar, há desidratação.</p>
-                        <p><strong>Mucosas Orais:</strong> Devem estar rosadas e úmidas. Verifique também: narinas, olhos, vagina/pênis e ânus.</p>
-                        <p><strong>Sinais de Alerta:</strong> Fezes muito secas e urina escura.</p>
-                        <div class="dica-box">Dica: Água limpa e fresca deve estar sempre disponível.</div>
+                        <p><strong>Teste do Turgor Cutâneo:</strong> Puxe a pele do pescoço. Se demorar mais de 2 segundos para retornar ao estado normal, há sinais latentes de desidratação.</p>
+                        <p><strong>Mucosas Orais:</strong> Devem estar rosadas e úmidas. Verifique também outros pontos de mucosas visíveis: narinas, olhos, região genitália e mucosa anal.</p>
+                        <p><strong>Sinais de Alerta:</strong> Fezes extremamente secas, compactadas e urina de coloração escura.</p>
+                        <div class="dica-box">💡 Dica: Água limpa, fresca e em temperatura adequada deve estar sempre disponível.</div>
                     </div>
                 </div>
 
                 <div class="card">
                     <div class="card-header">🩸 Avaliação de Anemia</div>
                     <div class="card-body">
-                        <p><strong>Cor das Mucosas:</strong> Mucosas pálidas indicam redução de glóbulos vermelhos.</p>
-                        <p><strong>TPC (Tempo de Preenchimento Capilar):</strong> Pressione a gengiva. O normal é voltar à cor original em até 2 segundos.</p>
-                        <div class="dica-box">Dica: Anemia requer confirmação por hemograma veterinário.</div>
+                        <p><strong>Cor das Mucosas:</strong> Mucosas pálidas ou esbranquiçadas indicam redução severa de glóbulos vermelhos.</p>
+                        <p><strong>TPC (Tempo de Preenchimento Capilar):</strong> Pressione firmemente a gengiva do animal com o dedo. O normal é o tecido voltar à cor original rosada em até 2 segundos.</p>
+                        <div class="dica-box">💡 Dica: Suspeitas de anemia requerem a confirmação diagnóstica por meio de hemograma veterinário.</div>
                     </div>
                 </div>
             </div>
@@ -149,7 +194,32 @@
                     <div class="card-header">💪 Sistema Musculoesquelético</div>
                     <div class="card-body">
                         <ul class="list-group">
-                            <li class="list-group-item" style="background: #0d0d0d; border-color: #333; color: #ccc;"><strong>Simetria:</strong> Verifique atrofias laterais.</li>
-                            <li class="list-group-item" style="background: #0d0d0d; border-color: #333; color: #ccc;"><strong>Postura:</strong> Observe rigidez ou claudicação (manqueira).</li>
-                            <li class="list-group-item"
+                            <li class="list-group-item" style="background: #0d0d0d; border-color: #333; color: #ccc;">
+                                <strong>Simetria Corporal:</strong> Verifique se há atrofias musculares comparando as massas musculares laterais esquerdas e direitas.
+                            </li>
+                            <li class="list-group-item" style="background: #0d0d0d; border-color: #333; color: #ccc;">
+                                <strong>Postura de Estação:</strong> Observe rigidez nos aprumos, desvios de peso ou sinais de claudicação (manqueira) ao movimentar o animal.
+                            </li>
+                            <li class="list-group-item" style="background: #0d0d0d; border-color: #333; color: #ccc;">
+                                <strong>Casqueamento e Aprumos:</strong> Avalie o desgaste dos cascos e a integridade da ranilha para afastar processos dolorosos como abscessos ou laminite.
+                            </li>
+                        </ul>
+                        <div class="dica-box">💡 Dica: Realize o aquecimento e o desaquecimento antes e após os treinamentos físicos.</div>
+                    </div>
+                </div>
 
+                <div class="card">
+                    <div class="card-header">🏠 Instalações e Conforto Térmico</div>
+                    <div class="card-body">
+                        <p><strong>Estrutura de Alojamento:</strong> As baias precisam de ventilação cruzada adequada para evitar acúmulo de amônia gerado pela urina, prevenindo afecções respiratórias.</p>
+                        <p><strong>Piquetes e Sombreamento:</strong> Forneça áreas limpas de pastejo com cercas bem estruturadas (sem arame farpado) e zonas de sombra natural ou artificial para proteção térmica diária.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

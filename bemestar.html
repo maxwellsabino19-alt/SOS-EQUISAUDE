@@ -1,259 +1,387 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="style.css">
-<title>Protocolo de Cuidados Veterinários Equinos</title>
-<style>
-body {
-color: white;
-background-color: #333;
-padding: 30px;
-font-family: Arial, sans-serif;
-line-height: 1.6;
-max-width: 900px;
-margin: 0 auto;
-}
-h1 {
-color: white;
-text-align: center;
-font-size: 2.2em;
-margin-bottom: 30px;
-}
-h2 {
-color: #ffd700;
-font-size: 1.5em;
-margin: 25px 0 15px 0;
-border-bottom: 2px solid #ffd700;
-padding-bottom: 8px;
-}
-.transit-title, .vet-title {
-color: white !important;
-text-align: center !important;
-font-size: 1.6em !important;
-margin: 30px 0 20px 0 !important;
-border-bottom: 2px solid white !important;
-padding-bottom: 10px !important;
-}
-h3 {
-color: #00ff88;
-font-size: 1.3em;
-margin: 20px 0 10px 0;
-}
-ul {
-margin: 15px 0;
-padding-left: 25px;
-}
-li {
-margin-bottom: 8px;
-}
-.bullet-custom {
-list-style-type: none;
-padding-left: 0;
-}
-.bullet-custom li {
-padding-left: 25px;
-position: relative;
-margin-bottom: 10px;
-}
-.bullet-custom li::before {
-content: "•";
-color: #ffd700;
-font-weight: bold;
-font-size: 1.2em;
-position: absolute;
-left: 0;
-}
-.emoji {
-font-size: 1.1em;
-}
-.warning {
-background: rgba(255, 0, 0, 0.2);
-border-left: 5px solid #ff4444;
-padding: 15px;
-margin: 20px 0;
-color: white;
-}
-.number-list {
-padding-left: 25px;
-}
-strong {
-color: #ffd700;
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Protocolo de Cuidados Veterinários Equinos</title>
+    <style>
+        /* Estética Dark Geral */
+        body {
+            background-color: #000000;
+            color: #ffffff; /* Textos e listas em branco */
+            padding: 20px;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        .content-container {
+            width: 100%;
+            max-width: 600px; /* Largura ideal para smartphones */
+            padding-bottom: 40px;
+        }
+
+        /* Botão Voltar Fixo no Canto Superior Esquerdo */
+        .btn-voltar {
+            position: fixed;
+            top: 15px;
+            left: 15px;
+            background-color: #111111;
+            color: #ffffff;
+            text-decoration: none;
+            padding: 8px 16px;
+            font-size: 14px;
+            font-weight: bold;
+            border: 1px solid #ffd700;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .btn-voltar:hover {
+            background-color: #ffd700;
+            color: #000000;
+            transform: scale(1.05);
+        }
+
+        /* Título Principal */
+        h1 {
+            color: #ffd700;
+            text-align: center;
+            font-size: 24px;
+            text-transform: uppercase;
+            border-bottom: 2px solid #ffd700;
+            padding-bottom: 15px;
+            margin-top: 60px; /* Espaço para não sobrepor o botão fixo */
+            margin-bottom: 30px;
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+        }
+
+        /* Títulos de Seção de Destaque */
+        .transit-title, .vet-title {
+            color: #ffd700 !important;
+            text-align: center !important;
+            font-size: 20px !important;
+            margin: 35px 0 20px 0 !important;
+            text-transform: uppercase;
+        }
+
+        /* ==========================================================================
+           ESTILIZAÇÃO DOS CARDS PARA CONTEÚDOS CHAVES
+           ========================================================================== */
+        .card-conteudo {
+            background-color: #111111; /* Fundo escuro do card */
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 25px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);
+            border-top: 3px solid #ffd700; /* Linha amarela de destaque */
+        }
+
+        /* Títulos de dentro dos Cards */
+        .card-conteudo h2 {
+            color: #ffeb3b; /* Amarelo vivo */
+            font-size: 18px;
+            margin-top: 0;
+            margin-bottom: 15px;
+            padding-bottom: 5px;
+        }
+
+        h3 {
+            color: #ffd700; /* Padronizado para a paleta amarela */
+            font-size: 16px;
+            margin: 15px 0 8px 0;
+        }
+
+        ul {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 8px;
+            color: #ffffff;
+        }
+
+        /* Listas Customizadas com Marcador Amarelo */
+        .bullet-custom {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .bullet-custom li {
+            padding-left: 20px;
+            position: relative;
+            margin-bottom: 10px;
+        }
+
+        .bullet-custom li::before {
+            content: "•";
+            color: #ffd700;
+            font-weight: bold;
+            font-size: 1.2em;
+            position: absolute;
+            left: 0;
+        }
+
+        .number-list {
+            padding-left: 20px;
+            color: #ffffff;
+        }
+
+        .number-list > li {
+            margin-bottom: 20px;
+            font-weight: bold;
+            color: #ffeb3b; /* Número e chamada principal em amarelo leve */
+        }
+
+        .number-list > li * {
+            font-weight: normal;
+            color: #ffffff; /* Texto interno da lista volta para branco */
+        }
+
+        strong {
+            color: #ffd700;
+        }
+
+        /* Card de Alerta Especial (Atenção/Perigo) */
+        .card-alerta {
+            background-color: #1a1111;
+            border-top: 3px solid #ff4444; /* Linha vermelha de atenção */
+        }
+        
+        .card-alerta h2 {
+            color: #ff4444 !important;
+        }
+    </style>
 </head>
 <body>
-<h1>Cuidados Veterinários Equinos</h1>
-    
-    <h2>Cuidados Gerais:</h2>
-    <ul>
-        <li>Vacinação</li>
-        <li>Controle Parasitário</li>
-        <li>Manejo nutricional</li>
-        <li>Biosseguridade</li>
-        <li>Exames periódicos</li>
-    </ul>
 
-    <h2>Cuidados Específicos:</h2>
-    <ul>
-        <li>Potro</li>
-        <li>Adulto atleta</li>
-        <li>Égua gestante</li>
-    </ul>
-<h1>Protocolo de Cuidados Veterinários Equinos</h1>
+    <!-- BOTÃO RETORNAR AO MENU PRINCIPAL -->
+    <a href="index.html" class="btn-voltar">⬅ Voltar ao Menu</a>
 
-    <h2>Vacinas do potro (0 a 12 meses)</h2>
-    <ul class="bullet-custom">
-        <li>A imunidade do potro depende do colostro;</li>
-        <li>Caso a égua seja bem vacinada, os potros iniciam sua vacinação por volta dos 4-6 meses;</li>
-        <li>Vacinação do adulto (vacinas obrigatórias ou altamente recomendada);</li>
-    </ul>
+    <div class="content-container">
 
-    <h2>Sanidade Geral: Pontos Importantes</h2>
-    <ul class="bullet-custom">
-        <li><strong>Controle Parasitário</strong>
+        <h1>Protocolo de Cuidados Veterinários Equinos</h1>
+        
+        <!-- CARD: VISÃO GERAL -->
+        <div class="card-conteudo">
+            <h2>📋 Visão Geral do Protocolo</h2>
+            <h3>Cuidados Gerais:</h3>
             <ul>
-                <li>Rotação estratégica de princípios ativos de medicamentos;</li>
-                <li>Exame de fezes</li>
+                <li>Vacinação</li>
+                <li>Controle Parasitário</li>
+                <li>Manejo nutricional</li>
+                <li>Biosseguridade</li>
+                <li>Exames periódicos</li>
             </ul>
-        </li>
-    </ul>
 
-    <h2>Biosseguridade</h2>
-    <ul class="bullet-custom">
-        <li>Quarentena para novos animais (15-30 dias)</li>
-        <li>Higienização de baias, bebedouros e materiais</li>
-        <li>Controle de vetores (moscas, mosquitos, carrapatos)</li>
-    </ul>
+            <h3>Cuidados Específicos:</h3>
+            <ul>
+                <li>Potro</li>
+                <li>Adulto atleta</li>
+                <li>Égua gestante</li>
+            </ul>
+        </div>
 
-    <h2>Nutrição e Bem-Estar</h2>
-    <ul class="bullet-custom">
-        <li>Dieta equilibrada conforme idade e trabalho;</li>
-        <li>Água limpa e fresca;</li>
-        <li>Sombreamento, ventilação e cama adequada.</li>
-    </ul>
-
-    <h2>Monitoramentos</h2>
-    <ul class="bullet-custom">
-        <li>Exames dentários anuais;</li>
-        <li>Avaliação do casco a cada 30-45 dias;</li>
-        <li>Avaliação cardiopulmonar e exames bioquímicos para atletas;</li>
-        <li>Checagem de escore corporal.</li>
-    </ul>
-
-    <h2>Saúde Preventiva do cavalo atleta</h2>
-    <ul class="bullet-custom">
-        <li>Cavalos atletas apresentam maior risco imunológico e físico devido ao estresse de transporte, competição e treinamento;</li>
-        <li>Exames laboratoriais e clínicos de rotina;</li>
-        <li>Aquecimento articular e muscular adequado.</li>
-        <li>Verificação de cascos, ferrageamento e equipamentos;</li>
-        <li>Alimentação leve 3–4 horas antes do exercício;</li>
-        <li>Controle do estresse — transporte silencioso e confortável.</li>
-    </ul>
-
-    <h2>Cuidados Durante a Atividade</h2>
-    <ul class="bullet-custom">
-        <li>Evitar hipertermia — molhar pescoço, entrepernas e peito;</li>
-        <li>Acesso à água fresca em intervalos controlados;</li>
-        <li>Observação de sinais de dor ou claudicação;</li>
-        <li>Evitar superfícies escorregadias e impactos repetidos.</li>
-    </ul>
-
-    <h2>Cuidados Pós-Atividade</h2>
-    <ul class="bullet-custom">
-        <li>Desaquecimento gradual (caminhada por 10–20 minutos);</li>
-        <li>Oferecer água à vontade;</li>
-        <li>Banho para redução de temperatura;</li>
-        <li>Alongamento leve.</li>
-        <li>Checar musculatura, tendões e cascos;</li>
-        <li>Fornecer eletrólitos, se necessário;</li>
-        <li>Nutrição adequada após 1–2 horas de descanso;</li>
-        <li>Monitoramento de sinais de cólica pós-exercício.</li>
-    </ul>
-
-    <h2 class="transit-title">Sanidade do Cavalo Atleta em Trânsito</h2>
-    <p style="text-align: center; font-weight: bold; font-size: 1.1em; margin-bottom: 20px;">
-        O transporte é um dos maiores fatores de estresse fisiológico;
-    </p>
-
-    <h3>Antes do transporte</h3>
-    <ul class="bullet-custom">
-        <li>Vacinação de influenza atualizada;</li>
-        <li>Limpeza do veículo;</li>
-        <li>Ventilação adequada;</li>
-        <li>Reduzir poeira (umedecer o feno)</li>
-    </ul>
-
-    <h3>Durante o transporte</h3>
-    <ul class="bullet-custom">
-        <li>Paradas a cada 3–4 horas para hidratação;</li>
-        <li>Monitorar temperatura externa;</li>
-        <li>Evitar superlotação.</li>
-    </ul>
-
-    <h3>Após o transporte</h3>
-    <ul class="bullet-custom">
-        <li>Caminhada para retorno do fluxo linfático;</li>
-        <li>Observação de sinais de "febre do transporte" (pneumonia);</li>
-        <li>Repouso antes de competições prolongadas (6 a 24 horas).</li>
-    </ul>
-
-    <h2 class="warning">MOTIVOS PARA NÃO APLICAR MEDICAMENTO NO SEU CAVALO SEM APOIO VETERINÁRIO</h2>
-    
-    <h3>A dose errada pode causar intoxicação</h3>
-    <ul class="bullet-custom">
-        <li>O corpo do cavalo é muito sensível, e cada remédio precisa de uma quantidade exata de acordo com o peso e o problema de saúde;</li>
-        <li>Dar um pouco a mais pode fazer muito mal, e dar de menos pode não resolver nada.</li>
-        <li class="emoji">👉 Por isso, só o veterinário sabe calcular a dose segura e informar o medicamento correto</li>
-    </ul>
-
-    <h3>Alguns remédios escondem os sintomas</h3>
-    <ul class="bullet-custom">
-        <li>Dar um remédio "para dor" pode até fazer o cavalo parecer melhor, mas o problema continua;</li>
-        <li>Isso atrasa o diagnóstico e pode transformar uma doença simples em algo grave.</li>
-        <li class="emoji">👉 É melhor descobrir o que está causando a dor do que apenas tentar escondê-la.</li>
-    </ul>
-
-    <h3>Usar antibióticos sem precisar, cria resistência</h3>
-    <ul class="bullet-custom">
-        <li>Quando se usa antibiótico à toa, as bactérias aprendem a resistir a ele;</li>
-        <li>Depois, quando o cavalo realmente precisar, o remédio pode não fazer mais efeito.</li>
-        <li class="emoji">👉 Essa resistência é perigosa para o animal e até para as pessoas que convivem com ele.</li>
-    </ul>
-
-    <h2 class="vet-title">6 motivos para seu animal ter acompanhamento veterinário frequente</h2>
-    <ol class="number-list">
-        <li><strong>Prevenção é o melhor remédio</strong>
+        <!-- CARD: VACINAS DO POTRO -->
+        <div class="card-conteudo">
+            <h2>🐴 Vacinas do potro (0 a 12 meses)</h2>
             <ul class="bullet-custom">
-                <li>O veterinário avalia o cavalo com frequência, identifica pequenas alterações antes que se tornem doenças graves e orienta sobre alimentação, vermifugação e vacinas;</li>
-                <li>A prevenção reduz gastos e evita sofrimento para o animal;</li>
+                <li>A imunidade do potro depende do colostro;</li>
+                <li>Caso a égua seja bem vacinada, os potros iniciam sua vacinação por volta dos 4-6 meses;</li>
+                <li>Vacinação do adulto (vacinas obrigatórias ou altamente recomendadas).</li>
             </ul>
-        </li>
-        <li><strong>Monitora o condicionamento físico, nutrição e recuperação muscular, prevenindo lesões e queda de rendimento</strong>
+        </div>
+
+        <!-- CARD: SANIDADE PARASITÁRIA -->
+        <div class="card-conteudo">
+            <h2>🔬 Sanidade Geral: Pontos Importantes</h2>
             <ul class="bullet-custom">
-                <li>Isso garante que o cavalo tenha boa saúde e desempenho por mais tempo.</li>
+                <li><strong>Controle Parasitário</strong>
+                    <ul>
+                        <li>Rotação estratégica de princípios ativos de medicamentos;</li>
+                        <li>Exame de fezes (OPG).</li>
+                    </ul>
+                </li>
             </ul>
-        </li>
-        <li><strong>Diagnóstico seguro e tratamento correto</strong>
+        </div>
+
+        <!-- CARD: BIOSSEGURIDADE -->
+        <div class="card-conteudo">
+            <h2>🛡️ Biosseguridade</h2>
             <ul class="bullet-custom">
-                <li>O veterinário utiliza exames clínicos e laboratoriais para descobrir a causa real dos sintomas.</li>
-                <li>Isso evita erros de medicação e garante que o tratamento seja rápido e eficaz, aumentando as chances de cura.</li>
+                <li>Quarentena para novos animais (15-30 dias);</li>
+                <li>Higienização de baias, bebedouros e materiais;</li>
+                <li>Controle de vetores (moscas, mosquitos, carrapatos).</li>
             </ul>
-        </li>
-        <li><strong>Cuidados com dentes, cascos e digestão;</strong></li>
-        <li><strong>Veterinário realiza limpezas dentárias periódicas, avalia o casqueamento e o funcionamento do sistema digestivo.</strong>
+        </div>
+
+        <!-- CARD: NUTRIÇÃO -->
+        <div class="card-conteudo">
+            <h2>🌾 Nutrição e Bem-Estar</h2>
             <ul class="bullet-custom">
-                <li>Esses cuidados evitam cólicas, ferimentos na boca e problemas para mastigar, comuns em equinos.</li>
+                <li>Dieta equilibrada conforme idade e intensidade de trabalho;</li>
+                <li>Água limpa e fresca sempre à disposição;</li>
+                <li>Sombreamento, ventilação e cama adequada.</li>
             </ul>
-        </li>
-        <li><strong>Atendimento de emergência com segurança</strong>
+        </div>
+
+        <!-- CARD: MONITORAMENTOS -->
+        <div class="card-conteudo">
+            <h2>📈 Monitoramentos Periódicos</h2>
             <ul class="bullet-custom">
-                <li>A lei protege o exercício da Medicina Veterinária;</li>
-                <li>No Brasil, é proibido por lei o exercício da Medicina Veterinária por quem não é formado e registrado no Conselho Regional de Medicina Veterinária (CRMV);</li>
-                <li>Essa norma está prevista na Lei nº 5.517, de 23 de outubro de 1968, que regulamenta a profissão.</li>
+                <li>Exames dentários anuais;</li>
+                <li>Avaliação do casco e ferrageamento a cada 30-45 dias;</li>
+                <li>Avaliação cardiopulmonar e exames bioquímicos estruturados para atletas;</li>
+                <li>Checagem rotineira de escore corporal.</li>
             </ul>
-        </li>
-    </ol>
+        </div>
+
+        <!-- CARD: SAÚDE PREVENTIVA ATLETA -->
+        <div class="card-conteudo">
+            <h2>🏆 Saúde Preventiva do cavalo atleta</h2>
+            <ul class="bullet-custom">
+                <li>Cavalos atletas apresentam maior risco imunológico e físico devido ao estresse de transporte, competição e treinamento;</li>
+                <li>Exames laboratoriais e clínicos de rotina;</li>
+                <li>Aquecimento articular e muscular adequado antes das atividades;</li>
+                <li>Verificação rigorosa de cascos, ferrageamento e integridade dos equipamentos;</li>
+                <li>Alimentação leve realizada de 3–4 horas antes do exercício;</li>
+                <li>Controle de estresse através de um transporte silencioso e confortável.</li>
+            </ul>
+        </div>
+
+        <!-- CARD: DURANTE A ATIVIDADE -->
+        <div class="card-conteudo">
+            <h2>⚡ Cuidados Durante a Atividade</h2>
+            <ul class="bullet-custom">
+                <li>Evitar hipertermia — molhar estrategicamente pescoço, entrepernas e peito;</li>
+                <li>Acesso à água fresca em intervalos controlados;</li>
+                <li>Observação contínua de sinais de dor ou claudicação;</li>
+                <li>Evitar superfícies escorregadias e impactos repetidos.</li>
+            </ul>
+        </div>
+
+        <!-- CARD: PÓS-ATIVIDADE -->
+        <div class="card-conteudo">
+            <h2>🏁 Cuidados Pós-Atividade</h2>
+            <ul class="bullet-custom">
+                <li>Desaquecimento gradual (caminhada leve por 10–20 minutos);</li>
+                <li>Oferecer água limpa à vontade após a estabilização do animal;</li>
+                <li>Banho completo para redução segura da temperatura corporal;</li>
+                <li>Alongamento leve adaptado;</li>
+                <li>Checar detalhadamente musculatura, tendões e cascos;</li>
+                <li>Fornecer eletrólitos para reposição se necessário;</li>
+                <li>Nutrição adequada fornecida após 1–2 horas de descanso completo;</li>
+                <li>Monitoramento rigoroso de sinais latentes de cólica pós-exercício.</li>
+            </ul>
+        </div>
+
+        <h2 class="transit-title">Sanidade do Cavalo Atleta em Trânsito</h2>
+        <p style="text-align: center; font-weight: bold; font-size: 15px; margin-bottom: 20px; color: #ffffff;">
+            O transporte é um dos maiores fatores de estresse fisiológico para o equino.
+        </p>
+
+        <!-- CARD: TRÂNSITO -->
+        <div class="card-conteudo">
+            <h2>🚛 Gerenciamento do Transporte</h2>
+            <h3>Antes do transporte:</h3>
+            <ul class="bullet-custom">
+                <li>Vacinação de influenza devidamente atualizada;</li>
+                <li>Higienização e desinfecção completa do veículo;</li>
+                <li>Garantia de ventilação interna adequada;</li>
+                <li>Reduzir poeira em suspensão (como umedecer o feno volumoso).</li>
+            </ul>
+
+            <h3>Durante o transporte:</h3>
+            <ul class="bullet-custom">
+                <li>Paradas obrigatórias a cada 3–4 horas para hidratação;</li>
+                <li>Monitorar a temperatura externa e interna do veículo;</li>
+                <li>Evitar superlotação do espaço de viagem.</li>
+            </ul>
+
+            <h3>Após o transporte:</h3>
+            <ul class="bullet-custom">
+                <li>Caminhada leve para o retorno do fluxo linfático e relaxamento;</li>
+                <li>Observação atenta de sinais de "febre do transporte" (quadros de pneumonia);</li>
+                <li>Repouso estabelecido antes de competições prolongadas (6 a 24 horas).</li>
+            </ul>
+        </div>
+
+        <h2 class="transit-title" style="color: #ff4444 !important;">Atenção Farmacológica</h2>
+
+        <!-- CARD DE ALERTA: NÃO MEDICAR SEM VETERINÁRIO -->
+        <div class="card-conteudo card-alerta">
+            <h2>⚠️ MOTIVOS PARA NÃO APLICAR MEDICAMENTO NO SEU CAVALO SEM APOIO VETERINÁRIO</h2>
+            
+            <h3>🚨 A dose errada pode causar intoxicação</h3>
+            <ul class="bullet-custom">
+                <li>O organismo do cavalo é altamente sensível, e cada fármaco necessita de uma dosagem exata calculada com base no peso e quadro patológico;</li>
+                <li>Subdosagens impossibilitam a cura e sobredosagens causam intoxicações sistêmicas graves.</li>
+                <li>👉 <em>Por isso, apenas o médico veterinário possui capacidade técnica de calcular as doses seguras.</em></li>
+            </ul>
+
+            <h3>🚨 Alguns remédios escondem os sintomas primários</h3>
+            <ul class="bullet-custom">
+                <li>Administrar analgésicos ou anti-inflamatórios mascara a dor temporariamente, mas o foco patológico continua progredindo em segredo;</li>
+                <li>Isso atrasa o diagnóstico crucial e pode transformar uma afecção simples em um quadro irreversível ou fatal.</li>
+                <li>👉 <em>É primordial descobrir o fator etiológico antes de suprimir a dor.</em></li>
+            </ul>
+
+            <h3>🚨 O uso indiscriminado de antibióticos gera resistência bacteriana</h3>
+            <ul class="bullet-custom">
+                <li>O uso empírico ou desnecessário seleciona cepas de bactérias superresistentes;</li>
+                <li>Posteriormente, em cenários de infecções graves reais, as opções terapêuticas convencionais perderão a eficácia.</li>
+                <li>👉 <em>Esta resistência põe em risco a sobrevivência do plantel e a saúde pública (zoonoses).</em></li>
+            </ul>
+        </div>
+
+        <h2 class="vet-title">Acompanhamento Profissional</h2>
+
+        <!-- CARD: 6 MOTIVOS VETERINÁRIO -->
+        <div class="card-conteudo">
+            <h2>🩺 6 Motivos para acompanhamento veterinário frequente</h2>
+            <ol class="number-list">
+                <li><strong>Prevenção é o melhor remédio:</strong>
+                    <ul class="bullet-custom">
+                        <li>Avaliações rotineiras identificam alterações subclínicas antes do estabelecimento de patologias graves, alinhando programas de nutrição, vacinas e vermifugação. Reduz gastos emergenciais e sofrimento animal.</li>
+                    </ul>
+                </li>
+                <li><strong>Otimização e monitoramento de performance:</strong>
+                    <ul class="bullet-custom">
+                        <li>Avaliação contínua do condicionamento físico, balanceamento nutricional e recuperação metabólica muscular, prevenindo lesões e quedas abruptas de rendimento atlético.</li>
+                    </ul>
+                </li>
+                <li><strong>Diagnóstico seguro e tratamento baseado em evidências:</strong>
+                    <ul class="bullet-custom">
+                        <li>Utilização de exames clínicos direcionados e laboratoriais para mapeamento exato da patologia, mitigando os erros de medicação por leigos.</li>
+                    </ul>
+                </li>
+                <li><strong>Manutenção preventiva odontológica e podal:</strong>
+                    <ul class="bullet-custom">
+                        <li>Odontologia equina periódica remove pontas de esmalte dentário, e o acompanhamento do casqueamento previne distúrbios de locomoção e afecções digestivas associadas (síndrome cólica).</li>
+                    </ul>
+                </li>
+                <li><strong>Pronto-atendimento emergencial qualificado:</strong>
+                    <ul class="bullet-custom">
+                        <li>Garantia de intervenção ágil, técnica e segura em quadros críticos como cólicas obstrutivas, lacerações traumáticas e distocias.</li>
+                    </ul>
+                </li>
+                <li><strong>Exercício Legal da Profissão (Exigência Legal):</strong>
+                    <ul class="bullet-custom">
+                        <li>No Brasil, o exercício das atividades médico-veterinárias é privativo do profissional graduado e devidamente registrado no Conselho Regional de Medicina Veterinária (CRMV), conforme regido pela Lei nº 5.517, de 23 de outubro de 1968. A prática por leigos configura contravenção penal.</li>
+                    </ul>
+                </li>
+            </ol>
+        </div>
+
+    </div>
+
 </body>
 </html>

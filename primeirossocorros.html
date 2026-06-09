@@ -3,8 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Primeiros Socorros Equinos - SOS Equisaúde</title>
-   <style>
+    <title>Guia de Primeiros Socorros e Emergências Equinas - SOS Equisaúde</title>
+    <style>
+        /* ==========================================
+           1. ESTILOS GERAIS E ESTRUTURA
+           ========================================== */
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
         body { 
@@ -16,7 +19,7 @@
         }
 
         .container { 
-            max-width: 850px; 
+            max-width: 900px; 
             margin: 0 auto; 
             background: #0a0a0a; 
             border: 1px solid #333; 
@@ -25,12 +28,75 @@
             box-shadow: 0 10px 40px rgba(0,0,0,0.8); 
         }
 
-        header { text-align: center; margin-bottom: 40px; }
+        header { 
+            text-align: center; 
+            margin-bottom: 40px; 
+            border-bottom: 1px solid #222; 
+            padding-bottom: 20px; 
+        }
 
+        section {
+            margin-bottom: 40px;
+        }
+
+        /* ==========================================
+           2. BOTÃO VOLTAR AO MENU (PREMIUM)
+           ========================================== */
+        .btn-voltar-menu {
+            display: inline-block;
+            background: transparent;
+            color: #ffd700;
+            border: 2px solid #ffd700;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 1rem;
+            text-decoration: none;
+            text-transform: uppercase;
+            margin-bottom: 30px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-voltar-menu:hover {
+            background: #ffd700;
+            color: #000;
+            box-shadow: 0 0 15px rgba(255, 215, 0, 0.4);
+        }
+
+        /* ==========================================
+           3. MENU DE NAVEGAÇÃO INTERNA
+           ========================================== */
+        .nav-menu { 
+            display: flex; 
+            justify-content: center; 
+            gap: 10px; 
+            margin-bottom: 30px; 
+            flex-wrap: wrap; 
+        }
+        
+        .nav-link { 
+            background: #1a1a1a; 
+            color: #ffd700; 
+            padding: 10px 20px; 
+            border: 1px solid #ffd700; 
+            text-decoration: none; 
+            border-radius: 5px; 
+            font-weight: bold; 
+            font-size: 0.9rem; 
+        }
+        
+        .nav-link:hover { 
+            background: #ffd700; 
+            color: #000; 
+        }
+
+        /* ==========================================
+           4. TIPOGRAFIA ELEVADA
+           ========================================== */
         h1 { 
             color: #ffd700; 
             text-transform: uppercase; 
-            font-size: 2rem; 
+            font-size: 2.2rem; 
             border-bottom: 2px solid #ffd700;
             display: inline-block;
             padding-bottom: 10px;
@@ -43,18 +109,41 @@
             margin-top: 40px; 
             margin-bottom: 20px; 
             font-size: 1.5rem; 
-            border-left: 5px solid #3498db;
+            border-left: 6px solid #3498db;
             padding-left: 15px;
+            background: rgba(52, 152, 219, 0.05);
         }
 
         h3 { 
             color: #ffd700; 
-            margin-bottom: 15px; 
-            font-size: 1.2rem; 
+            margin: 20px 0 10px 0; 
+            font-size: 1.3rem; 
             text-transform: uppercase;
         }
 
         p { margin-bottom: 15px; text-align: justify; color: #ccc; }
+        strong { color: #fff; }
+
+        /* ==========================================
+           5. CARDS E BLOCOS ALERTA / DESTAQUE
+           ========================================== */
+        .card { 
+            background: #111; 
+            border: 1px solid #222; 
+            padding: 20px; 
+            border-radius: 8px; 
+            margin-bottom: 20px; 
+        }
+        
+        .alert-card { 
+            border-left: 5px solid #e74c3c; 
+            background: rgba(231, 76, 60, 0.05); 
+        }
+        
+        .success-card { 
+            border-left: 5px solid #2ecc71; 
+            background: rgba(46, 204, 113, 0.05); 
+        }
 
         .highlight-box {
             background: rgba(52, 152, 219, 0.1);
@@ -83,33 +172,21 @@
 
         .emergency-box strong { color: #e74c3c; font-size: 1.2rem; }
 
-        ul { margin-bottom: 25px; list-style: none; }
-        ul li { 
-            margin-bottom: 12px; 
-            padding-left: 35px; 
-            position: relative; 
-            color: #eee; 
+        .dica-box {
+            background: rgba(255, 215, 0, 0.1);
+            border: 1px solid #ffd700;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            color: #fff;
         }
 
-        /* Marcador de Check/Ponto Dourado */
-        ul.check-list li::before { 
-            content: "✓"; 
-            position: absolute; 
-            left: 0; 
-            color: #2ecc71; 
-            font-weight: bold; 
-            font-size: 1.2rem; 
-        }
-
-        /* Marcador de Ponto Dourado para Kit */
-        ul.kit-list li::before { 
-            content: "·"; 
-            position: absolute; 
-            left: 0; 
-            color: #ffd700; 
-            font-weight: bold; 
-            font-size: 3rem; 
-            line-height: 0.5;
+        .danger-box {
+            background: rgba(231, 76, 60, 0.1);
+            border: 1px solid #e74c3c;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 25px;
         }
 
         .tip-box {
@@ -121,11 +198,90 @@
             font-style: italic;
         }
 
-        strong { color: #fff; }
+        .tetano-alert {
+            background: #1a1a00;
+            border: 2px solid #ffd700;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+        }
 
+        .checklist-box { 
+            background: #1a1a00; 
+            border: 2px dashed #ffd700; 
+            padding: 20px; 
+            border-radius: 10px; 
+        }
+        
+        .checklist-box strong { 
+            color: #ffd700; 
+            display: block; 
+            margin-bottom: 10px; 
+            text-align: center; 
+            font-size: 1.2rem; 
+        }
+
+        /* ==========================================
+           6. LISTAS CUSTOMIZADAS E MULTICOLUNAS
+           ========================================== */
+        ul { margin-bottom: 25px; list-style: none; }
+        ul li { 
+            margin-bottom: 12px; 
+            padding-left: 25px; 
+            position: relative; 
+            color: #ccc; 
+        }
+        
+        /* Marcador Seta Padrão */
+        ul li::before { 
+            content: "▶"; 
+            position: absolute; 
+            left: 0; 
+            color: #ffd700; 
+            font-size: 0.8rem; 
+            top: 2px; 
+        }
+
+        /* Marcador de Check */
+        ul.check-list li::before { 
+            content: "✓"; 
+            color: #2ecc71; 
+            font-weight: bold; 
+            font-size: 1.2rem; 
+            top: -2px;
+        }
+
+        /* Marcador de Ponto Dourado para Kit */
+        ul.kit-list li::before { 
+            content: "•"; 
+            color: #ffd700; 
+            font-weight: bold; 
+            font-size: 1.5rem; 
+            line-height: 1.2;
+            top: 0;
+        }
+
+        /* Lista Vermelha (Proibidos / Alertas) */
+        .proibido-list li::before { 
+            content: "✕"; 
+            color: #e74c3c; 
+            font-weight: bold; 
+            font-size: 1.2rem;
+            top: 0;
+        }
+
+        /* Sistema de 2 colunas nativo do CSS */
+        .two-columns {
+            column-count: 2; 
+            -moz-column-count: 2; 
+            -webkit-column-count: 2;
+            gap: 20px;
+        }
+
+        /* Rodapé */
         footer { 
             text-align: center; 
-            margin-top: 50px;
+            margin-top: 60px;
             padding-top: 20px;
             color: #555; 
             font-size: 0.8rem; 
@@ -136,12 +292,21 @@
 <body>
 
 <div class="container">
+
+    <a href="index.html" class="btn-voltar-menu">⬅ Voltar ao Menu</a>
+
     <header>
         <h1>Primeiros Socorros Equinos</h1>
-        <p style="text-align: center; margin-top: 10px;">Guia essencial: O que fazer antes do veterinário chegar.</p>
+        <p style="margin-top: 10px; color: #aaa;">Guia essencial: O que fazer antes do veterinário chegar.</p>
     </header>
 
-    <section>
+    <nav class="nav-menu">
+        <a href="#primeiros-passos" class="nav-link">Primeiros Passos</a>
+        <a href="#manejo-feridas" class="nav-link">Manejo de Feridas</a>
+        <a href="#cascos" class="nav-link">Alterações no Casco</a>
+    </nav>
+
+    <section id="primeiros-passos">
         <div class="highlight-box">
             <h3>O que são primeiros socorros?</h3>
             <p>São os cuidados iniciais e provisórios prestados ao animal em uma situação de emergência. O objetivo principal é <strong>preservar a vida</strong>, evitar o agravamento do quadro e aliviar o sofrimento até a chegada do profissional.</p>
@@ -184,7 +349,8 @@
     <section>
         <h2>Kit de Primeiros Socorros</h2>
         <p>Tenha sempre à mão em um local de fácil acesso:</p>
-        <ul class="kit-list" style="column-count: 2; -moz-column-count: 2; -webkit-column-count: 2;">
+        
+        <ul class="kit-list two-columns">
             <li>Luvas descartáveis</li>
             <li>Soro fisiológico</li>
             <li>Gaze e ataduras</li>
@@ -192,164 +358,31 @@
             <li>Antisséptico (Iodo/Clorexidina)</li>
             <li>Termômetro</li>
             <li>Esparadrapo / Fita adesiva</li>
+        </ul>
 
-<div class="row mt-4">
-            <div class="col-12">
-                <div class="card" style="border-color: #ffd700;">
-                    <div class="card-header">🚑 Kit de Primeiros Socorros (SOS)</div>
-                    <div class="card-body text-center">
-                        <p class="text-start">Ter um kit de emergência preparado é essencial para realizar os primeiros atendimentos até a chegada do médico-veterinário. Confira os itens indispensáveis:</p>
-                        
-                        <div class="img-container" style="margin-top: 20px;">
-                            <img src="img/kitprimeirosos.png" alt="Kit de Primeiros Socorros Equino" style="border: 2px solid #ffd700; max-width: 80%; height: auto; border-radius: 15px;">
-                        </div>
-                        
-                        <div class="dica-box text-start" style="border-color: #ffd700; color: #ffd700;">
-                            <strong>Importante:</strong> Mantenha o kit em local seco, fresco e de fácil acesso para todos os responsáveis pelos animais.
-                        </div>
-                    </div>
-                </div>
+        <div class="card" style="border-color: #ffd700;">
+            <div style="color: #ffd700; font-weight: bold; margin-bottom: 10px;">🚑 Kit de Primeiros Socorros (SOS)</div>
+            <p>Ter um kit de emergência preparado é essencial para realizar os primeiros atendimentos até a chegada do médico-veterinário. Confira os itens indispensáveis:</p>
+            
+            <div style="text-align: center; margin: 20px 0;">
+                <img src="img/kitprimeirosos.png" alt="Kit de Primeiros Socorros Equino" style="border: 2px solid #ffd700; max-width: 80%; height: auto; border-radius: 15px;">
+            </div>
+            
+            <div class="tip-box" style="border-color: #ffd700; color: #ffd700; font-style: normal;">
+                <strong>Importante:</strong> Mantenha o kit em local seco, fresco e de fácil acesso para todos os responsáveis pelos animais.
             </div>
         </div>
-
-        </ul>
     </section>
 
-    <footer>
-        <p>SOS EQUISAÚDE © 2026 - ORIENTAÇÃO TÉCNICA E BEM-ESTAR EQUINO</p>
-    </footer>
-</div>
+    <section id="manejo-feridas">
+        <h2>Manejo de Feridas Equinas</h2>
+        <div class="dica-box">
+            <strong>⚠️ ATENÇÃO:</strong> Feridas próximas a articulações, tendões, olhos ou região genital devem ser avaliadas imediatamente por um médico veterinário.
+        </div>
 
-    <title>Manejo de Feridas - SOS Equisaúde</title>
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        
-        body { 
-            font-family: 'Segoe UI', Arial, sans-serif; 
-            background-color: #000; 
-            color: #fff; 
-            line-height: 1.6; 
-            padding: 20px; 
-        }
-
-        .container { 
-            max-width: 850px; 
-            margin: 0 auto; 
-            background: #0a0a0a; 
-            border: 1px solid #333; 
-            border-radius: 12px; 
-            padding: 40px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.8); 
-        }
-
-        header { text-align: center; margin-bottom: 40px; }
-
-        h1 { 
-            color: #ffd700; 
-            text-transform: uppercase; 
-            font-size: 2rem; 
-            border-bottom: 2px solid #ffd700;
-            display: inline-block;
-            padding-bottom: 10px;
-        }
-
-        h2 { 
-            color: #3498db; 
-            text-transform: uppercase; 
-            margin-top: 40px; 
-            margin-bottom: 20px; 
-            font-size: 1.5rem; 
-            border-left: 5px solid #3498db;
-            padding-left: 15px;
-        }
-
-        h3 { color: #ffd700; margin-bottom: 15px; font-size: 1.2rem; text-transform: uppercase; }
-
-        p { margin-bottom: 15px; text-align: justify; color: #ccc; }
-
-        /* Estilo para Dicas e Alertas Rápidos */
-        .dica-box {
-            background: rgba(255, 215, 0, 0.1);
-            border: 1px solid #ffd700;
-            padding: 20px;
-            border-radius: 8px;
-            margin: 20px 0;
-            color: #fff;
-        }
-
-        .danger-box {
-            background: rgba(231, 76, 60, 0.1);
-            border: 1px solid #e74c3c;
-            padding: 20px;
-            border-radius: 8px;
-            margin-bottom: 25px;
-        }
-
-        .action-card {
-            background: #111;
-            border-left: 5px solid #3498db;
-            padding: 20px;
-            margin: 20px 0;
-            border-radius: 0 8px 8px 0;
-        }
-
-        /* Listas Estilizadas */
-        ul { margin-bottom: 25px; list-style: none; }
-        ul li { 
-            margin-bottom: 12px; 
-            padding-left: 30px; 
-            position: relative; 
-            color: #eee; 
-        }
-
-        ul li::before { 
-            content: "•"; 
-            position: absolute; 
-            left: 0; 
-            color: #ffd700; 
-            font-weight: bold; 
-            font-size: 1.5rem; 
-            line-height: 1.2;
-        }
-
-        .proibido-list li::before { color: #e74c3c; content: "×"; font-size: 1.8rem; }
-
-        .tetano-alert {
-            background: #1a1a00;
-            border: 2px solid #ffd700;
-            padding: 20px;
-            border-radius: 8px;
-            text-align: center;
-        }
-
-        footer { 
-            text-align: center; 
-            margin-top: 50px;
-            padding-top: 20px;
-            color: #555; 
-            font-size: 0.8rem; 
-            border-top: 1px solid #222; 
-        }
-
-        strong { color: #fff; }
-    </style>
-</head>
-<body>
-
-<div class="container">
-    <header>
-        <h1>Manejo de Feridas Equinas</h1>
-        <p style="margin-top: 15px;">Cuidados imediatos para ferimentos abertos e cortantes.</p>
-    </header>
-
-    <div class="dica-box">
-        <strong>⚠️ ATENÇÃO:</strong> Feridas próximas a articulações, tendões, olhos ou região genital devem ser avaliadas imediatamente por um médico veterinário.
-    </div>
-
-    <section>
-        <h2>Primeiros Passos Imediatos</h2>
+        <h3>Primeiros Passos Imediatos</h3>
         <div class="action-card">
-            <ul>
+            <ul class="kit-list">
                 <li><strong>Segurança em primeiro lugar:</strong> Use luvas descartáveis e evite ficar atrás do animal.</li>
                 <li><strong>Contenção:</strong> Mantenha o cavalo em local calmo, seguro e bem iluminado.</li>
                 <li><strong>Avaliação:</strong> Observe se há sangramento intenso ou corpos estranhos (arame, farpas). <strong>Não remova objetos presos profundamente.</strong></li>
@@ -357,52 +390,42 @@
                 <li><strong>Secagem:</strong> Use compressas de gaze. Nunca use algodão solto, pois os fiapos causam infecção.</li>
             </ul>
         </div>
-    </section>
 
-    <section>
-        <h2>Controle de Sangramento</h2>
+        <h3>Controle de Sangramento</h3>
         <div class="danger-box">
-            <ul>
+            <ul class="kit-list">
                 <li><strong>Leve:</strong> Pressione com gaze limpa por 5 a 10 minutos.</li>
                 <li><strong>Moderado a Intenso:</strong> Mantenha pressão firme e constante. Se for no membro, tente mantê-lo elevado.</li>
                 <li><strong>Urgência:</strong> Se o sangramento não parar em 15 minutos, chame o veterinário imediatamente.</li>
             </ul>
         </div>
-    </section>
 
-    <section>
-        <h2>Desinfecção e Bandagem</h2>
-        <h3>Como aplicar o curativo:</h3>
-        <ul>
+        <h3>Desinfecção e Bandagem</h3>
+        <p>Como aplicar o curativo:</p>
+        <ul class="kit-list">
             <li>Aplique antisséptico suave (Clorexidina aquosa 0,05% ou Povidine diluído).</li>
             <li>Coloque gaze limpa e envolva com atadura de crepe ou faixa de algodão.</li>
             <li><strong>Pressão Uniforme:</strong> Faça uma compressão leve. Nunca aperte demais para não interromper a circulação.</li>
             <li>Troque diariamente ou sempre que estiver úmida/suja.</li>
         </ul>
-    </section>
 
-    <section>
-        <h2 style="color: #e74c3c; border-left-color: #e74c3c;">O que NÃO deve ser feito</h2>
+        <h3 style="color: #e74c3c;">O que NÃO deve ser feito</h3>
         <ul class="proibido-list">
             <li><strong>Não aplicar:</strong> Medicamentos injetáveis, pomadas ou sprays coloridos sem prescrição.</li>
             <li><strong>Não usar:</strong> Pó secante ou óleo queimado (são altamente tóxicos e prejudicam a cicatrização).</li>
             <li><strong>Não suturar:</strong> Nunca tente costurar feridas por conta própria.</li>
             <li><strong>Não use fitas adesivas:</strong> Nunca cole diretamente sobre o pelo ou pele do animal.</li>
         </ul>
-    </section>
 
-    <section>
         <div class="tetano-alert">
             <h3 style="margin-bottom: 10px;">🛡️ ALERTA AO TÉTANO</h3>
             <p>Os equinos são a espécie mais sensível ao tétano. Em qualquer ferimento profundo, eles precisam de proteção.</p>
             <p>Mantenha a vacinação anual em dia. Na dúvida, o veterinário aplicará o <strong>soro antitetânico</strong>.</p>
         </div>
-    </section>
 
-    <section>
-        <h2>Sinais de Alerta (Infecção)</h2>
+        <h3>Sinais de Alerta (Infecção)</h3>
         <p>Procure ajuda profissional se observar:</p>
-        <ul class="proibido-list" style="column-count: 2;">
+        <ul class="proibido-list two-columns">
             <li>Calor excessivo no local</li>
             <li>Inchaço que aumenta</li>
             <li>Pus ou cheiro forte</li>
@@ -412,66 +435,13 @@
         </ul>
     </section>
 
-    <footer>
-        <p>SOS EQUISAÚDE © 2026 - AUTORIDADE EM SAÚDE E PRIMEIROS SOCORROS EQUINOS</p>
-    </footer>
-</div>
-
-    <title>Emergências Equinas - SOS Equisaúde</title>
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Segoe UI', Arial, sans-serif; background-color: #000; color: #fff; line-height: 1.6; padding: 10px; }
-        
-        .container { max-width: 900px; margin: 0 auto; background: #0a0a0a; border: 1px solid #333; border-radius: 12px; padding: 30px; }
-
-        /* Menu de Navegação Rápida */
-        .nav-menu { display: flex; justify-content: center; gap: 10px; margin-bottom: 30px; flex-wrap: wrap; }
-        .nav-link { background: #1a1a1a; color: #ffd700; padding: 10px 20px; border: 1px solid #ffd700; text-decoration: none; border-radius: 5px; font-weight: bold; font-size: 0.9rem; }
-        .nav-link:hover { background: #ffd700; color: #000; }
-
-        header { text-align: center; margin-bottom: 40px; border-bottom: 1px solid #222; padding-bottom: 20px; }
-        h1 { color: #ffd700; text-transform: uppercase; font-size: 2.2rem; }
-        h2 { color: #3498db; text-transform: uppercase; margin-top: 50px; margin-bottom: 20px; border-left: 6px solid #3498db; padding-left: 15px; background: rgba(52, 152, 219, 0.05); }
-        h3 { color: #ffd700; margin: 20px 0 10px 0; font-size: 1.3rem; }
-
-        .card { background: #111; border: 1px solid #222; padding: 20px; border-radius: 8px; margin-bottom: 20px; }
-        .alert-card { border-left: 5px solid #e74c3c; background: rgba(231, 76, 60, 0.05); }
-        .success-card { border-left: 5px solid #2ecc71; background: rgba(46, 204, 113, 0.05); }
-
-        ul { list-style: none; margin-bottom: 20px; }
-        ul li { margin-bottom: 10px; padding-left: 25px; position: relative; color: #ccc; }
-        ul li::before { content: "▶"; position: absolute; left: 0; color: #ffd700; font-size: 0.8rem; top: 5px; }
-        
-        .proibido-list li::before { content: "✕"; color: #e74c3c; font-weight: bold; }
-
-        .checklist-box { background: #1a1a00; border: 2px dashed #ffd700; padding: 20px; border-radius: 10px; }
-        .checklist-box strong { color: #ffd700; display: block; margin-bottom: 10px; text-align: center; font-size: 1.2rem; }
-
-        footer { text-align: center; margin-top: 60px; color: #444; font-size: 0.8rem; border-top: 1px solid #222; padding-top: 20px; }
-        strong { color: #fff; }
-    </style>
-</head>
-<body>
-
-<div class="container">
-    <header>
-        <h1>Guia de Emergências Equinas</h1>
-        <p>Ações imediatas para preservar a vida e o bem-estar do animal.</p>
-    </header>
-
-    <nav class="nav-menu">
-        <a href="#cascos" class="nav-link">Alterações no Casco</a>
-        <a href="#colica" class="nav-link">Sintomas de Cólica</a>
-        <a href="#picada" class="nav-link">Picada de Cobra</a>
-    </nav>
-
     <section id="cascos">
-        <h2>1. Alterações no Casco</h2>
+        <h2>Alterações no Casco</h2>
         <p>O casco é o amortecedor natural do cavalo. Problemas nesta região são as principais causas de manqueira (claudicação).</p>
         
         <div class="card alert-card">
             <h3>Sinais de Alerta no Casco</h3>
-            <ul>
+            <ul class="proibido-list">
                 <li>Odor forte (infecção) ou ranilha podre/preta;</li>
                 <li>Casco quente ao toque e pulso digital forte no boleto;</li>
                 <li>Mancar ou relutar em apoiar o membro no solo;</li>
@@ -481,6 +451,16 @@
 
         <h3>Principais Patologias</h3>
         <div class="card">
-            <strong>Podridão de Ranilha:</strong> Causada por umidade e falta de limpeza. Sinais: Secreção preta e mau cheiro. <em>Ação: Manter local seco e usar antissépticos.</em><br><br>
-            <strong>Laminite (Urgência):</strong> Inflamação das lâminas internas. O cavalo "senta" nos talões para aliviar a dor. <em>Ação: Piso macio, gelo e chamar veterinário imediatamente.</em><br><br>
-            <strong>Abscesso:</strong> Infecção interna súbita. O cavalo para de apoiar o pé de uma hora para outra. <em>Ação
+            <p><strong>Podridão de Ranilha:</strong> Causada por umidade e falta de limpeza. Sinais: Secreção preta e mau cheiro. <br><em>Ação: Manter local seco e usar antissépticos.</em></p>
+            <p><strong>Laminite (Urgência):</strong> Inflamação das lâminas internas. O cavalo "senta" nos talões para aliviar a dor. <br><em>Ação: Piso macio, aplicação de gelo e chamar o veterinário imediatamente.</em></p>
+            <p><strong>Abscesso:</strong> Infecção interna súbita. O cavalo para de apoiar o pé de uma hora para outra. <br><em>Ação: Realizar o casqueamento técnico para localização e abertura do canal de drenagem, banhos mornos com sal amargo e proteção do casco afetado até a cura completa.</em></p>
+        </div>
+    </section>
+
+    <footer>
+        <p>SOS EQUISAÚDE © 2026 - AUTORIDADE EM SAÚDE E PRIMEIROS SOCORROS EQUINOS</p>
+    </footer>
+</div>
+
+</body>
+</html>
